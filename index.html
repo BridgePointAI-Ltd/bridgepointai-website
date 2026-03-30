@@ -149,10 +149,11 @@ nav .container {
   transition: 0.3s;
 }
 @media (max-width: 900px) {
+  nav .container { height: 72px; }
   .nav-toggle { display: block; }
   .nav-links {
     position: fixed;
-    top: 110px;
+    top: 72px;
     left: 0;
     right: 0;
     background: rgba(10,10,10,0.97);
@@ -381,6 +382,11 @@ nav .container {
   margin-bottom: 0.5rem;
 }
 .value-card p { color: #8a8f9e; font-size: 0.875rem; line-height: 1.65; }
+@media (max-width: 900px) {
+  #home { padding-top: 7rem; padding-bottom: 4rem; }
+  html { scroll-padding-top: 72px; }
+  section { scroll-margin-top: 72px; }
+}
 @media (max-width: 768px) {
   .pillars-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
