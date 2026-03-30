@@ -202,16 +202,17 @@ nav .container {
    CARDS
    ═══════════════════════════════════════════════════════════════ */
 .card {
-  background: #161820;
-  border: 1px solid rgba(201,168,76,0.15);
-  padding: 2rem;
-  transition: all 0.4s;
+  background: #1e2530;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 .card:hover {
-  border-color: rgba(201,168,76,0.4);
-  background: rgba(201,168,76,0.04);
+  border-color: rgba(201,168,76,0.25);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
-.surface .card { background: #21242d; }
+.surface .card { background: #232b35; border-color: rgba(255,255,255,0.06); }
 
 /* ═══════════════════════════════════════════════════════════════
    REVEAL ANIMATIONS
@@ -354,8 +355,14 @@ nav .container {
   gap: 1.5rem;
   margin-top: 4rem;
 }
+.pillar-card {
+  padding: 2.25rem 2rem;
+  border-top: 3px solid #c9a84c;
+  position: relative;
+}
 .value-card {
-  padding: 1.75rem;
+  padding: 2rem 1.75rem;
+  border-top: 3px solid rgba(201,168,76,0.5);
 }
 .value-numeral {
   font-family: 'Instrument Sans', sans-serif;
@@ -365,8 +372,9 @@ nav .container {
   margin-bottom: 0.5rem;
 }
 .value-card h4 {
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 .value-card p { color: #8a8f9e; font-size: 0.82rem; line-height: 1.65; }
