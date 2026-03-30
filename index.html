@@ -7,7 +7,7 @@
 <meta name="description" content="BridgePointAI bridges technology gaps and unlocks commercial value across Energy, Finance, PropTech and Healthcare.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════
    RESET & BASE
@@ -41,7 +41,7 @@ ul { list-style: none; }
 /* ═══════════════════════════════════════════════════════════════
    TYPOGRAPHY
    ═══════════════════════════════════════════════════════════════ */
-h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+h1, h2, h3, h4 { font-family: 'Instrument Sans', sans-serif; font-weight: 700; color: #ffffff; letter-spacing: -0.02em; }
 .dm-mono { font-family: 'DM Mono', monospace; }
 .section-label {
   font-family: 'DM Mono', monospace;
@@ -56,8 +56,11 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
 }
 h2 {
   font-size: clamp(2rem, 4.5vw, 3.5rem);
-  line-height: 1.15;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
 }
 .muted { color: #8a8f9e; }
 
@@ -278,16 +281,19 @@ nav .container {
 }
 #home h1 {
   font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  line-height: 1.1;
+  line-height: 1.08;
   margin-bottom: 1.75rem;
-  font-weight: 300;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
 }
 .hero-sub {
   font-size: 1rem;
-  color: #8a8f9e;
+  color: #a0a6b8;
   max-width: 640px;
   margin-bottom: 2.5rem;
   line-height: 1.75;
+  font-weight: 400;
 }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
 .stats-strip {
@@ -297,8 +303,8 @@ nav .container {
   border-top: 1px solid rgba(201,168,76,0.12);
   padding-top: 2.5rem;
 }
-.stat-item .stat-value {
-  font-family: 'Cormorant Garamond', serif;
+.stat-item .stat-value { font-weight: 800; color: #ffffff;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 2rem;
   font-weight: 600;
   color: #c9a84c;
@@ -352,7 +358,7 @@ nav .container {
   padding: 1.75rem;
 }
 .value-numeral {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.6rem;
   color: #c9a84c;
   font-weight: 600;
@@ -383,7 +389,7 @@ nav .container {
 }
 .team-card { padding: 2.5rem 2rem; }
 .team-card .team-initials {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
   color: #c9a84c;
@@ -438,7 +444,7 @@ nav .container {
   display: inline-block;
   margin-bottom: 0.75rem;
 }
-.portfolio-card h3 {
+.portfolio-card h3 { color: #ffffff; font-weight: 700; font-size: 1.15rem;
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
@@ -466,14 +472,14 @@ nav .container {
   position: relative;
 }
 .service-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 3rem;
   font-weight: 300;
   color: rgba(201,168,76,0.2);
   line-height: 1;
   margin-bottom: 1rem;
 }
-.service-card h3 {
+.service-card h3 { color: #ffffff; font-weight: 700;
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0.75rem;
@@ -497,7 +503,7 @@ nav .container {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
 }
 .sprint-subheading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.35rem;
   font-style: italic;
   font-weight: 300;
@@ -559,7 +565,7 @@ nav .container {
   margin-bottom: 1rem;
 }
 .case-study p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 300;
@@ -691,7 +697,7 @@ h2, h3, h4 {
 }
 /* Keep Cormorant ONLY for hero wordmark */
 .hero-wordmark {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Instrument Sans', sans-serif !important; font-weight: 700;
   font-weight: 300 !important;
   letter-spacing: 0.04em !important;
 }
@@ -701,7 +707,7 @@ body {
   line-height: 1.7;
 }
 /* Card titles cleaner */
-.team-card h3, .portfolio-card h3, .value-card h3 {
+.team-card h3, .portfolio-card h3, .value-card h3 { color: #ffffff; font-weight: 700;
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -787,7 +793,7 @@ body {
   border-left-color: #c9a84c;
 }
 #who-we-work-with h2 {
-  color: #f0f2f5;
+  color: #ffffff;
 }
 #who-we-work-with .muted {
   color: #8a8f9e;
@@ -917,7 +923,7 @@ body {
   background: rgba(201,168,76,0.08);
 }
 .deliverable-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: rgba(201,168,76,0.35);
@@ -1089,7 +1095,7 @@ body {
   padding-top: 1.75rem;
 }
 .cs-quote blockquote {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.3rem;
   font-style: italic;
   font-weight: 300;
@@ -1154,7 +1160,7 @@ body {
   margin-bottom: 1.5rem;
 }
 .engage-step-num span {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: #c9a84c;
@@ -1210,7 +1216,7 @@ body {
         <line x1="48" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
         <circle cx="8" cy="14" r="2.5" fill="#c9a84c"/>
         <circle cx="48" cy="14" r="2.5" fill="#c9a84c"/>
-        <text x="64" y="30" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
+        <text x="64" y="30" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
       </svg>
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
@@ -1271,7 +1277,7 @@ body {
 <section id="integration-gap">
   <div class="container">
     <div class="section-label reveal">The Problem</div>
-    <h2 class="reveal" style="max-width:780px;">The Integration Gap — why enterprise AI investments stall before they deliver.</h2>
+    <h2 class="reveal" style="max-width:780px;font-weight:700;">The Integration Gap — why enterprise AI investments stall before they deliver.</h2>
     <div class="pain-grid">
       <div class="card pain-card reveal">
         <svg class="pain-icon" viewBox="0 0 24 24">
@@ -1437,7 +1443,7 @@ body {
   </svg>
 </span></div>
     <div class="section-label reveal">Who We Are</div>
-    <h2 class="reveal" style="font-family:'Instrument Sans',sans-serif;font-weight:600;letter-spacing:-0.02em;">Operators, not observers.</h2>
+    <h2 class="reveal" style="font-weight:700;">Operators, not observers.</h2>
     <p class="reveal" style="color:#8a8f9e;font-size:1.1rem;max-width:680px;margin-bottom:3rem;">BridgePoint AI is a small, senior team. We don't publish org charts or LinkedIn bios — we let the work speak. What we can tell you is this: every person involved has built something real, exited something valuable, or deployed AI inside a regulated enterprise at scale.</p>
     <div class="team-grid">
       <div class="card team-card reveal">
@@ -1884,7 +1890,7 @@ body {
           <line x1="48" y1="14" x2="28" y2="38" stroke="#c9a84c" stroke-width="1" opacity="0.3"/>
           <circle cx="8" cy="14" r="2.5" fill="#c9a84c"/>
           <circle cx="48" cy="14" r="2.5" fill="#c9a84c"/>
-          <text x="64" y="30" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
+          <text x="64" y="30" font-family="Instrument Sans, sans-serif" font-weight="700" font-size="22" font-weight="300" fill="#f5f2ed">BridgePoint<tspan font-weight="600" fill="#c9a84c">AI</tspan></text>
           <text x="65" y="44" font-family="DM Mono, monospace" font-size="7" letter-spacing="2.5" fill="#4a4f5e">INTEGRATING TECHNOLOGY · ACCELERATING OPPORTUNITY</text>
         </svg>
         <p>Bridging technology gaps and unlocking commercial value across Energy, Finance, PropTech and Healthcare.</p>
