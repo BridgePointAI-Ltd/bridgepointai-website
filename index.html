@@ -283,12 +283,12 @@ nav .container {
   padding-left: 0;
 }
 #home h1 {
-  font-size: 2.5rem;
-  line-height: 1.1;
-  margin-bottom: 1.75rem;
+  font-size: 1.875rem;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
 }
 .hero-sub {
   font-size: 1rem;
@@ -815,14 +815,17 @@ body {
   margin-top: 3rem;
 }
 .tier-card {
-  background: #21242d;
-  border: 1px solid #2e3140;
-  border-top: 4px solid #2e3140;
+  background: #1e2530;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 4px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
   padding: 2.5rem;
-  transition: box-shadow 0.3s, border-top-color 0.3s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
 }
 .tier-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  border-color: rgba(201,168,76,0.25);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
 .tier-card.blue { border-top-color: #2a5fc1; }
 .tier-card h3 { color: #f0f2f5; }
@@ -851,13 +854,13 @@ body {
   border: 1px solid rgba(34,136,92,0.2);
 }
 .tier-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #111114;
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 .tier-card .tier-desc {
-  color: #5a5e6a;
+  color: #8a8f9e;
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -868,11 +871,11 @@ body {
   margin: 0;
 }
 .tier-list li {
-  color: #2d3142;
-  font-size: 0.9rem;
+  color: #8a8f9e;
+  font-size: 0.88rem;
   padding: 0.45rem 0;
   padding-left: 1.4rem;
-  border-bottom: 1px solid #f0ede8;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   position: relative;
 }
 .tier-list li:last-child { border-bottom: none; }
@@ -1663,8 +1666,7 @@ body {
           <label style="display:block;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em">I'm interested in</label>
           <select name="interest" style="width:100%;padding:10px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.15);background:rgba(20,20,30,0.95);color:white;font-size:14px;outline:none;" onfocus="this.style.borderColor='rgba(255,255,255,.5)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
             <option value="">Select an option...</option>
-            <option value="ai_sprint">AI Sprint session</option>
-            <option value="portfolio">Portfolio enquiry</option>
+                        <option value="portfolio">Portfolio enquiry</option>
             <option value="partnership">Strategic partnership</option>
             <option value="investment">Investment opportunity</option>
             <option value="other">Other</option>
@@ -1709,11 +1711,7 @@ body {
           <h3>Partnership</h3>
           <p>Explore strategic collaboration and co-investment opportunities</p>
         </div>
-        <div class="card contact-option-card reveal reveal-delay-2">
-          <svg class="contact-option-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <h3>AI Sprint Booking</h3>
-          <p>Schedule a half-day AI Sprint for your organisation</p>
-        </div>
+
       </div>
     </div>
   </div>
