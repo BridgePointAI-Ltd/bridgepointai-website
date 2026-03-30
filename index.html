@@ -265,7 +265,7 @@ nav .container {
   bottom: 5%;
   left: -10%;
 }
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-content { position: relative; z-index: 1; max-width: 800px; text-align: left; margin-left: 0; margin-right: auto; }
 .hero-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
@@ -274,6 +274,7 @@ nav .container {
   text-transform: uppercase;
   color: #c9a84c;
   margin-bottom: 1.5rem;
+  padding-left: 0;
 }
 #home h1 {
   font-size: clamp(2.5rem, 5.5vw, 4.2rem);
@@ -282,11 +283,11 @@ nav .container {
   font-weight: 300;
 }
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #8a8f9e;
   max-width: 640px;
   margin-bottom: 2.5rem;
-  line-height: 1.8;
+  line-height: 1.75;
 }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
 .stats-strip {
@@ -362,7 +363,7 @@ nav .container {
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
-.value-card p { color: #8a8f9e; font-size: 0.88rem; }
+.value-card p { color: #8a8f9e; font-size: 0.82rem; line-height: 1.65; }
 @media (max-width: 768px) {
   .pillars-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
@@ -442,7 +443,7 @@ nav .container {
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
-.portfolio-card p { color: #8a8f9e; font-size: 0.88rem; }
+.portfolio-card p { color: #8a8f9e; font-size: 0.82rem; line-height: 1.6; }
 @media (max-width: 900px) {
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -477,7 +478,7 @@ nav .container {
   font-weight: 400;
   margin-bottom: 0.75rem;
 }
-.service-card p { color: #8a8f9e; font-size: 0.9rem; }
+.service-card p { color: #8a8f9e; font-size: 0.83rem; line-height: 1.6; }
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -778,18 +779,18 @@ body {
    WHO WE WORK WITH (E2)
    ═══════════════════════════════════════════════════════════════ */
 #who-we-work-with {
-  background: #f7f5f0;
-  color: #111114;
+  background: #13151b;
+  color: #c8cdd8;
 }
 #who-we-work-with .section-label {
-  color: #7a6a3a;
-  border-left-color: #7a6a3a;
+  color: #c9a84c;
+  border-left-color: #c9a84c;
 }
 #who-we-work-with h2 {
-  color: #111114;
+  color: #f0f2f5;
 }
 #who-we-work-with .muted {
-  color: #5a5e6a;
+  color: #8a8f9e;
 }
 .tiers-grid {
   display: grid;
@@ -798,16 +799,20 @@ body {
   margin-top: 3rem;
 }
 .tier-card {
-  background: #fff;
-  border: 1px solid #e0dcd4;
-  border-top: 4px solid #e0dcd4;
+  background: #1c1f26;
+  border: 1px solid #2a2d35;
+  border-top: 4px solid #2a2d35;
   padding: 2.5rem;
   transition: box-shadow 0.3s, border-top-color 0.3s;
 }
 .tier-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .tier-card.blue { border-top-color: #2a5fc1; }
+.tier-card h3 { color: #f0f2f5; }
+.tier-card p, .tier-card li { color: #8a8f9e; }
+.tier-card .tier-name { color: #f0f2f5; }
+.tier-card .tier-desc { color: #8a8f9e; }
 .tier-card.green { border-top-color: #22885c; }
 .tier-tag {
   font-family: 'DM Mono', monospace;
