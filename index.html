@@ -55,12 +55,12 @@ h1, h2, h3, h4 { font-family: 'Instrument Sans', sans-serif; font-weight: 700; c
   margin-bottom: 1.5rem;
 }
 h2 {
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 .muted { color: #8a8f9e; }
 
@@ -280,12 +280,12 @@ nav .container {
   padding-left: 0;
 }
 #home h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  line-height: 1.08;
+  font-size: 2.5rem;
+  line-height: 1.1;
   margin-bottom: 1.75rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 .hero-sub {
   font-size: 1rem;
@@ -1227,7 +1227,7 @@ body {
       <a href="#about">About</a>
       
       
-      <a href="#case-studies">Case Study</a>
+      
       <a href="#how-it-works-engage">How It Works</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
@@ -1616,85 +1616,6 @@ body {
      AI SPRINT
      ═══════════════════════════════════════════════════════════════ -->
 <!-- ═══════════════════════════════════════════════════════════════
-     CASE STUDIES (Enhancement 4)
-     ═══════════════════════════════════════════════════════════════ -->
-<section id="case-studies">
-  <div class="container">
-    <div class="section-label reveal">Case Studies</div>
-    <h2 class="reveal">Outcomes we've delivered.</h2>
-
-
-    <!-- TrueLens Case Study -->
-    <div class="case-study-card-full reveal">
-      <span class="cs-tag">AI Platform Case Study</span>
-      <div class="cs-client">TrueLens® — AI-Powered Compliance Intelligence for Construction</div>
-      <div class="cs-grid">
-        <div class="cs-block">
-          <div class="cs-block-label">The Challenge</div>
-          <p>There is a crisis in regulatory compliance in construction. 42% of projects fail regulatory approval. Up to 75% are rejected first time. Average delays for Higher Risk Building approvals reach 36 weeks — up to 290 days for highways. The compliance process is manual, inconsistent, and drowning teams in documentation spread across systems, spreadsheets, PDFs, and email chains. Non-compliance costs run to 15–25% of original project value.</p>
-        </div>
-        <div class="cs-block">
-          <div class="cs-block-label">The Approach</div>
-          <p>BridgePoint AI brought together frontier AI deployment expertise and deep construction compliance subject matter expertise from OptimaBI. The result: truelens® — an AI-assisted assurance platform that pre-checks project documents against BSR regulations, highlights gaps, and prepares approval-ready submissions. Independently validated and adopted by Cast, a leading construction consultancy managing building safety risk across the UK.</p>
-        </div>
-      </div>
-      <div class="cs-what-built">
-        <div class="cs-block-label">What was built</div>
-        <ul>
-          <li>AI document compliance engine — checks against BSR regulations and standards instantly</li>
-          <li>Gap identification and evidence mapping — surfaces what's missing before submission</li>
-          <li>Multi-stakeholder platform — developers, contractors, designers, engineers, regulators</li>
-          <li>Live on active projects across the UK construction industry</li>
-          <li>Validated and adopted by Cast — leading UK building safety consultancy</li>
-        </ul>
-      </div>
-      <div class="cs-result">
-        <p><strong>73% faster reviews.</strong> <strong>65% cheaper</strong> than traditional manual processes. <strong>100% visibility</strong> across thousands of pages of documentation — instantly. truelens® is live, deployed, and strengthening assurance across the UK construction industry without replacing professional judgement. <a href="https://bsr.truelens.tech" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:underline;">bsr.truelens.tech</a></p>
-      </div>
-      <div class="cs-quote">
-        <blockquote>"truelens® is the AI-assisted assurance platform chosen by Cast — helping teams identify gaps earlier, improve consistency, and submit higher-quality regulatory information first time."</blockquote>
-        <cite>— Trusted by Industry Leaders, adopted by Cast UK</cite>
-      </div>
-    </div>
-
-    <!-- ByzGen Case Study -->
-    <div class="case-study-card-full reveal" style="margin-top:48px">
-      <span class="cs-tag">Portfolio Company — Active Investment & Operational Direction</span>
-      <div class="cs-client">ByzGen — FALKOR: The Trusted AI Provenance Platform</div>
-      <div class="cs-grid">
-        <div class="cs-block">
-          <div class="cs-block-label">The Situation</div>
-          <p>ByzGen had built something genuinely valuable — FALKOR, a private, enterprise-grade blockchain platform for secure, immutable data exchange. Trusted by Atos, the UK Ministry of Defence, and leading finance companies. The technology was proven. But blockchain had stalled as a category. The market had moved on, and ByzGen needed strategic capital, commercial direction, and a pivot that would unlock its true potential at exactly the right moment in the technology cycle.</p>
-        </div>
-        <div class="cs-block">
-          <div class="cs-block-label">What BridgePoint AI Did</div>
-          <p>BridgePoint AI invested in, strategised, and took operational direction of ByzGen — positioning FALKOR as the trusted AI provenance platform the market now urgently needs. As AI regulation accelerates globally, FALKOR's immutable audit infrastructure — for training data provenance, model versioning, and inference logging — is exactly what enterprise AI deployments require. BridgePoint AI is actively directing ByzGen's expansion into nuclear modular energy, supporting six use cases with one of the world's leading developers in the sector.</p>
-        </div>
-      </div>
-      <div class="cs-what-built">
-        <div class="cs-block-label">What was built</div>
-        <ul>
-          <li>FALKOR — enterprise blockchain platform for AI provenance and data integrity</li>
-          <li>Training data immutability — cryptographic proof of what went into any AI model</li>
-          <li>Model versioning ledger — tamper-proof audit trail of every model change</li>
-          <li>Inference logging — verifiable record of AI outputs for regulatory compliance</li>
-          <li>LogLocker — long-term Microsoft Sentinel log retention at low cost</li>
-          <li>Deployed across compliance, defence, finance, IoT, and now nuclear energy</li>
-        </ul>
-      </div>
-      <div class="cs-result">
-        <p>ByzGen's FALKOR is live, deployed, and trusted by enterprise and government clients including Atos and the UK MOD. The platform now supports the AI regulatory compliance requirements emerging from the EU AI Act and sector-specific mandates — positioning ByzGen at the intersection of two of the most consequential technology shifts of the decade: AI and immutable provenance. Nuclear modular energy expansion underway with a world-leading developer across six use cases. <a href="https://www.byzgen.com" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:underline;">www.byzgen.com</a></p>
-      </div>
-      <div class="cs-quote">
-        <blockquote>"Technology that was too early for the market becomes the exact infrastructure the AI world now needs. That's not luck — that's vision meeting the right moment."</blockquote>
-        <cite>— BridgePoint AI, Founding Team</cite>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════
      HOW IT WORKS / ENGAGE (Enhancement 5)
      ═══════════════════════════════════════════════════════════════ -->
 <section id="how-it-works-engage" class="surface">
@@ -1877,7 +1798,7 @@ body {
         <a href="#integration-gap">The Problem</a>
         <a href="#who-we-work-with">Who We Work With</a>
         <a href="#how-it-works-engage">How It Works</a>
-        <a href="#case-studies">Case Study</a>
+        
       </div>
       <div class="footer-col">
         <h4>Portfolio</h4>
