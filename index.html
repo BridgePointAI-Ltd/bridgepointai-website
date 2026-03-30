@@ -238,7 +238,9 @@ nav .container {
   position: relative;
   overflow: hidden;
   padding-top: 10rem;
+  align-items: flex-start;
 }
+#home .container { width: 100%; text-align: left; }
 #home::before {
   content: '';
   position: absolute;
@@ -269,7 +271,7 @@ nav .container {
   bottom: 5%;
   left: -10%;
 }
-.hero-content { position: relative; z-index: 1; width: 100%; text-align: left; }
+.hero-content { position: relative; z-index: 1; width: 100%; text-align: left; align-self: flex-start; }
 .hero-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
