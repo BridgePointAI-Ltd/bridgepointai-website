@@ -601,6 +601,184 @@ nav .container {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   MODEL & IP STACK
+   ═══════════════════════════════════════════════════════════════ */
+.model-intro,
+.ip-intro,
+.portfolio-intro {
+  max-width: 900px;
+}
+.model-intro p,
+.ip-intro p,
+.portfolio-intro {
+  color: #8a8f9e;
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+.model-intro p + p,
+.ip-intro p + p {
+  margin-top: 0.9rem;
+}
+.model-intro strong,
+.ip-intro strong {
+  color: #ffffff;
+}
+.model-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 3rem;
+}
+.model-step,
+.ip-card,
+.flywheel-item,
+.model-case {
+  padding: 1.6rem;
+}
+.step-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.8rem;
+}
+.step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.55rem;
+}
+.step-body {
+  color: #8a8f9e;
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+.model-case-heading,
+.ip-flywheel-heading {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+}
+.model-cases {
+  display: grid;
+  gap: 1rem;
+}
+.model-case {
+  display: grid;
+  grid-template-columns: minmax(150px, 180px) minmax(0, 1fr) minmax(180px, 240px);
+  gap: 1.25rem;
+  align-items: start;
+}
+.case-sector {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.4rem;
+}
+.case-name {
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+.case-body {
+  color: #8a8f9e;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.case-formula {
+  border-left: 1px solid rgba(201,168,76,0.18);
+  padding-left: 1rem;
+  color: #8a8f9e;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.case-formula strong {
+  color: #c9a84c;
+  font-weight: 700;
+}
+.ip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+.ip-sector {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 0.8rem;
+}
+.ip-name {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+.ip-tagline {
+  color: #e8d5a3;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+.ip-desc,
+.ip-origin,
+.flywheel-item p {
+  color: #8a8f9e;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.ip-origin {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.ip-origin strong,
+.flywheel-item h4 {
+  color: #ffffff;
+}
+.ip-flywheel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.flywheel-item h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+.portfolio-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.portfolio-badges .portfolio-badge {
+  margin-bottom: 0;
+}
+.portfolio-badge-owned {
+  background: rgba(201,168,76,0.12);
+  border-color: rgba(201,168,76,0.45);
+  color: #ffffff;
+}
+@media (max-width: 1100px) {
+  .model-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ip-flywheel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .model-case { grid-template-columns: 1fr; }
+  .case-formula { border-left: 0; border-top: 1px solid rgba(201,168,76,0.18); padding-left: 0; padding-top: 1rem; }
+}
+@media (max-width: 768px) {
+  .model-steps,
+  .ip-grid,
+  .ip-flywheel { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    CONTACT
    ═══════════════════════════════════════════════════════════════ */
 #contact .contact-inner { text-align: center; max-width: 700px; margin: 0 auto; }
@@ -1268,7 +1446,9 @@ body {
       <a href="#home">Home</a>
       <a href="#about">Who We Are</a>
       <a href="#integration-gap">The Problem</a>
+      <a href="#model">The Model</a>
       <a href="#services">What We Do</a>
+      <a href="#ip-stack">IP Stack</a>
       <a href="#portfolio">Our Ecosystem</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
@@ -1285,7 +1465,7 @@ body {
     <div class="hero-content">
       <div class="hero-eyebrow reveal">Strategic Technology Integration</div>
       <h1 class="reveal reveal-delay-1">We Bridge Technology Gaps and Accelerate Commercial Value.</h1>
-      <p class="hero-sub reveal reveal-delay-2">We don't produce reports and walk away. We embed with portfolio companies, roll up our sleeves, and drive measurable commercial outcomes through technology integration — across Energy, Finance, PropTech and Healthcare.</p>
+      <p class="hero-sub reveal reveal-delay-2">We don't produce reports and walk away. We embed with portfolio companies, roll up our sleeves, and drive measurable commercial outcomes through technology integration — across Energy, Finance, PropTech and Healthcare. We don't just make introductions — we combine the strongest elements of our ecosystem to create outcomes none could reach alone.</p>
       <div class="hero-btns reveal reveal-delay-3">
         <a href="#portfolio" class="btn">Explore Our Portfolio</a>
         <a href="#contact" class="btn btn-filled">Get in Touch</a>
@@ -1432,6 +1612,100 @@ body {
   </div>
 </section>
 
+<section id="model" class="surface">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">The BridgePoint Model</div>
+    <h2 class="reveal">Best of Breed. By Design.</h2>
+    <div class="model-intro reveal">
+      <p>The market is full of exceptional point solutions. AI platforms. Smart city infrastructure. Clinical intelligence. Fintech rails. Each can be best-in-class in isolation.</p>
+      <p>The challenge is knowing which pieces belong together — and having the relationships, sector depth and execution capability to combine them. <strong>BridgePoint AI doesn't just make introductions. It builds the bigger proposition.</strong></p>
+    </div>
+
+    <div class="model-steps">
+      <div class="card model-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Sector Immersion</div>
+        <div class="step-body">Deep operating experience in energy, finance, proptech and healthcare — not academic, lived.</div>
+      </div>
+      <div class="card model-step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <div class="step-title">Identify the Gap</div>
+        <div class="step-body">Find the systemic friction — not a single client's pain point, but the problem that scales across an industry.</div>
+      </div>
+      <div class="card model-step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <div class="step-title">Curate the Stack</div>
+        <div class="step-body">Select the right combination of technology, data and expertise from across the BridgePoint ecosystem.</div>
+      </div>
+      <div class="card model-step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <div class="step-title">Build the IP</div>
+        <div class="step-body">Create the product, platform or venture that solves the problem at scale — owned, not outsourced.</div>
+      </div>
+      <div class="card model-step reveal reveal-delay-4">
+        <div class="step-num">05</div>
+        <div class="step-title">Scale the Outcome</div>
+        <div class="step-body">Drive adoption, unlock capital and build positions designed for exit or continued growth.</div>
+      </div>
+    </div>
+
+    <div class="model-case-heading reveal">The Model in Action</div>
+    <div class="model-cases">
+      <div class="card model-case reveal">
+        <div>
+          <div class="case-sector">Energy / Solar</div>
+          <div class="case-name">Headroom</div>
+        </div>
+        <div class="case-body">Working with Stratford Energy, BridgePoint looked beyond a single installer's workflow and identified a systemic gap: the DNO submission process was opaque, inconsistent and slowing deployment across the solar industry. Headroom was built to solve it at industry scale — combining DNO capacity intelligence, G98/G99 routing and commercial optimisation in one platform.</div>
+        <div class="case-formula">
+          <div>Stratford Energy</div>
+          <div><strong>+</strong> solar sector knowledge</div>
+          <div><strong>→</strong> Headroom</div>
+        </div>
+      </div>
+      <div class="card model-case reveal reveal-delay-1">
+        <div>
+          <div class="case-sector">PropTech / Healthcare AI</div>
+          <div class="case-name">TrueLens</div>
+        </div>
+        <div class="case-body">By aligning ThakaaMed's clinical AI infrastructure with OptimaBi's knowledge of the built environment and construction compliance, BridgePoint identified a new product category that neither business would likely have reached independently. The result: AI-assisted compliance checking for Building Safety Act submissions.</div>
+        <div class="case-formula">
+          <div>ThakaaMed AI</div>
+          <div><strong>+</strong> OptimaBi construction insight</div>
+          <div><strong>→</strong> TrueLens</div>
+        </div>
+      </div>
+      <div class="card model-case reveal reveal-delay-2">
+        <div>
+          <div class="case-sector">Smart Cities / Space Intelligence</div>
+          <div class="case-name">Urban Intelligence</div>
+        </div>
+        <div class="case-body">BridgePoint holds a 15% stake in CityFi — patented smart pole technology delivering proximity lighting, air quality monitoring and emergency routing at street level. With SpaceAye's LTx platform offering real-time fusion of satellite imagery and IoT data, a powerful collaboration is possible. BridgePoint is well placed to architect that connection.</div>
+        <div class="case-formula">
+          <div>SpaceAye</div>
+          <div><strong>+</strong> CityFi</div>
+          <div><strong>→</strong> Urban intelligence stack</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════════════════════════════
      WHO WE WORK WITH (Enhancement 2)
      ═══════════════════════════════════════════════════════════════ -->
@@ -1495,6 +1769,77 @@ body {
 <!-- ═══════════════════════════════════════════════════════════════
      PORTFOLIO
      ═══════════════════════════════════════════════════════════════ -->
+
+<section id="ip-stack">
+  <div class="container">
+    <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
+  <svg width="52" height="28" viewBox="0 0 52 28" xmlns="http://www.w3.org/2000/svg">
+    <line x1="8" y1="24" x2="8" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="44" y1="24" x2="44" y2="8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="2" y1="20" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="8" y1="8" x2="2" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="16" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="8" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <line x1="44" y1="8" x2="50" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="36" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+    <line x1="44" y1="8" x2="26" y2="20" stroke="#c9a84c" stroke-width="0.8" opacity="0.3"/>
+    <circle cx="8" cy="8" r="2" fill="#c9a84c"/>
+    <circle cx="44" cy="8" r="2" fill="#c9a84c"/>
+  </svg>
+</span></div>
+    <div class="section-label reveal">IP Stack</div>
+    <h2 class="reveal">We Don't Just Advise. We Build and Own.</h2>
+    <div class="ip-intro reveal">
+      <p>The BridgePoint IP Stack is a growing portfolio of proprietary platforms — each born from a real sector problem and designed to scale beyond its origin market.</p>
+      <p>Headroom and TrueLens are positioned here as BridgePoint IP, while AI Sprint is the internal accelerator that helps BridgePoint move from insight to deployed software at speed.</p>
+    </div>
+
+    <div class="ip-grid">
+      <div class="card ip-card reveal">
+        <div class="ip-sector">Energy / Grid Intelligence</div>
+        <div class="ip-name">Headroom</div>
+        <div class="ip-tagline">Know your grid capacity before you apply.</div>
+        <div class="ip-desc">UK solar grid intelligence platform combining DNO capacity assessment, G98/G99 application routing, export limitation risk modelling, roof analysis and commercial deployment optimisation in seconds.</div>
+        <div class="ip-origin"><strong>Origin:</strong> sector insight from Stratford Energy exposed a systemic bottleneck; BridgePoint turned it into product IP.</div>
+      </div>
+      <div class="card ip-card reveal reveal-delay-1">
+        <div class="ip-sector">PropTech / Built Environment</div>
+        <div class="ip-name">TrueLens</div>
+        <div class="ip-tagline">AI intelligence for the built environment.</div>
+        <div class="ip-desc">AI-assisted compliance checking for Building Safety Act submissions, designed to spot gaps before the regulator does. Built from the intersection of BridgePoint's AI capability and built-environment sector insight.</div>
+        <div class="ip-origin"><strong>Origin:</strong> combining existing AI infrastructure with sector expertise created a new, defensible product category.</div>
+      </div>
+      <div class="card ip-card reveal reveal-delay-2">
+        <div class="ip-sector">AI Development Capability</div>
+        <div class="ip-name">AI Sprint</div>
+        <div class="ip-tagline">From brief to deployed software. Fast.</div>
+        <div class="ip-desc">BridgePoint's AI development accelerator compresses software delivery timelines, helping the team turn validated opportunities into functional applications and production-ready software far faster than conventional build cycles.</div>
+        <div class="ip-origin"><strong>Role in the stack:</strong> the capability that helps BridgePoint create and iterate new IP at speed.</div>
+      </div>
+    </div>
+
+    <div class="ip-flywheel-heading reveal">How the stack compounds</div>
+    <div class="ip-flywheel">
+      <div class="card flywheel-item reveal">
+        <h4>Sector insight</h4>
+        <p>Deep domain knowledge identifies the opportunity.</p>
+      </div>
+      <div class="card flywheel-item reveal reveal-delay-1">
+        <h4>AI Sprint</h4>
+        <p>Accelerates build and iteration once the opportunity is validated.</p>
+      </div>
+      <div class="card flywheel-item reveal reveal-delay-2">
+        <h4>New IP created</h4>
+        <p>Platforms like Headroom and TrueLens emerge from repeatable synthesis.</p>
+      </div>
+      <div class="card flywheel-item reveal reveal-delay-3">
+        <h4>Compounding position</h4>
+        <p>Each asset sharpens the model, attracts partners and strengthens future builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="portfolio" class="surface">
   <div class="container">
     <div class="section-bridge reveal"><span class="bridge-motif" aria-hidden="true">
@@ -1514,6 +1859,7 @@ body {
 </span></div>
     <div class="section-label reveal">Our Ecosystem</div>
     <h2 class="reveal">Four Sectors — One Ecosystem.</h2>
+    <p class="portfolio-intro reveal">Our ecosystem is the raw material. The companies below represent the sector expertise, relationships and operating experience that BridgePoint draws on to identify opportunities and synthesise new value. Together, the sum is greater than the parts.</p>
     <div class="portfolio-grid">
       <div style="grid-column:1/-1;padding:0.5rem 0 0.25rem;border-top:1px solid rgba(201,168,76,0.15);margin-top:0.5rem;">
         <span style="font-family:'Instrument Sans',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(201,168,76,0.6);">Energy</span>
@@ -1531,10 +1877,18 @@ body {
       <div class="card portfolio-card reveal reveal-delay-2">
         <span class="portfolio-badge">Smart Cities / IoT</span>
         <h3>CityFi</h3>
-        <p>Patented smart pole technology integrating proximity lighting, air quality monitoring and emergency routing — purpose-built infrastructure for the connected city of tomorrow.</p>
+        <p>BridgePoint holds a 15% stake in CityFi, whose patented smart pole technology integrates proximity lighting, air quality monitoring and emergency routing for the connected city of tomorrow.</p>
       </div>
       <div class="card portfolio-card reveal">
-        <span class="portfolio-badge">Energy / Grid Intelligence</span>
+        <span class="portfolio-badge">Space / Satellite Intelligence</span>
+        <h3>SpaceAye</h3>
+        <p>Real-time satellite imagery and IoT data fusion via LTx technology — creating the potential for a powerful collaboration with CityFi's ground-level infrastructure.</p>
+      </div>
+      <div class="card portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-badges">
+          <span class="portfolio-badge">Energy / Grid Intelligence</span>
+          <span class="portfolio-badge portfolio-badge-owned">BridgePoint IP</span>
+        </div>
         <h3>Headroom</h3>
         <p>UK solar grid intelligence platform — know your DNO capacity before you apply. G98/G99 application routing, export limitation risk, roof analysis and approval timeline in seconds.</p>
       </div>
@@ -1575,7 +1929,10 @@ body {
         <span style="font-family:'Instrument Sans',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(201,168,76,0.6);">PropTech</span>
       </div>
       <div class="card portfolio-card reveal">
-        <span class="portfolio-badge">AI / Built Environment</span>
+        <div class="portfolio-badges">
+          <span class="portfolio-badge">AI / Built Environment</span>
+          <span class="portfolio-badge portfolio-badge-owned">BridgePoint IP</span>
+        </div>
         <h3>TrueLens</h3>
         <p>AI-assisted compliance checking for Building Safety Act submissions — spots BSR gaps before the regulator does. Adopted by Cast, the UK's leading building safety consultancy.</p>
       </div>
