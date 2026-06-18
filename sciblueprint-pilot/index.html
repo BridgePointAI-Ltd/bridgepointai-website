@@ -353,6 +353,7 @@ function openWorkspace(key){
   $('pathwayBox').innerHTML = key==='md' ? MD_PATHWAYS[Object.keys(MD_PATHWAYS)[0]] : a.pathway;
 
   // extra field
+  destroyMdRecorder();
   const ex = $('extraField');
   ex.innerHTML = '';
   if(a.extra){
@@ -371,6 +372,9 @@ function openWorkspace(key){
       ex.appendChild(inp);
     }
   }
+  // Medical Device: product-description voice note, under the class selector
+  if(key==='md') buildMdVoiceBox(ex);
+
   $('genOut').classList.add('hidden');
   resetVoice();
   $('screenSelect').classList.add('hidden');
@@ -379,69 +383,109 @@ function openWorkspace(key){
 }
 
 function showSelect(){
-  stopRecording();
+  stopAllRecorders();
   $('screenWorkspace').classList.add('hidden');
   $('screenSelect').classList.remove('hidden');
 }
 $('backBtn').addEventListener('click', showSelect);
 $('menuBtn').addEventListener('click', showSelect);
 
-/* ---------- Voice capture (per module, 90s) ---------- */
+/* ---------- Voice capture (reusable, 90s per recorder) ---------- */
 const VOICE_LIMIT = 90;
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-let recog=null, recTimer=null, recRemaining=VOICE_LIMIT, recording=false, finalTranscript='';
+const recorders = [];
 
-function fmtTime(s){ return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
-function paintTimer(){ const t=$('vbTimer'); t.textContent=fmtTime(Math.max(0,recRemaining)); t.classList.toggle('low', recRemaining<=10); }
+function makeRecorder(cfg){
+  // cfg: {btn,timer,status,text,recordLabel,useBtn,clearBtn,onUse}
+  const get = id => document.getElementById(id);
+  let recog=null, timer=null, remaining=VOICE_LIMIT, recording=false, finalT='';
+  const rec = { stop, reset, isRecording:()=>recording };
 
-function resetVoice(){
-  stopRecording();
-  recRemaining=VOICE_LIMIT; paintTimer();
-  finalTranscript=''; $('voiceText').value='';
-  $('vbStatus').textContent = SR ? '' : 'Voice capture needs Chrome or Edge. You can type your notes below instead.';
-}
+  function fmt(s){ return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+  function paint(){ const t=get(cfg.timer); if(t){ t.textContent=fmt(Math.max(0,remaining)); t.classList.toggle('low', remaining<=10); } }
+  function status(m){ const s=get(cfg.status); if(s) s.textContent=m; }
 
-function startRecording(){
-  if(!SR){ $('vbStatus').textContent='Voice not supported in this browser. Please type your notes.'; return; }
-  finalTranscript = $('voiceText').value ? $('voiceText').value.trim()+' ' : '';
-  recog = new SR();
-  recog.lang='en-GB'; recog.continuous=true; recog.interimResults=true;
-  recog.onresult = e=>{
-    let interim='';
-    for(let i=e.resultIndex;i<e.results.length;i++){
-      const seg=e.results[i][0].transcript;
-      if(e.results[i].isFinal) finalTranscript+=seg+' '; else interim+=seg;
-    }
-    $('voiceText').value=(finalTranscript+interim).trim();
-  };
-  recog.onerror = ev=>{ $('vbStatus').textContent='Microphone error: '+ev.error; stopRecording(); };
-  recog.onend = ()=>{ if(recording){ try{recog.start();}catch(e){} } }; // keep alive until the 90s cap
-  try{ recog.start(); }catch(e){}
-  recording=true;
-  $('recBtn').classList.add('recording');
-  $('recBtn').innerHTML='<span class="dot"></span> Stop';
-  $('vbStatus').textContent='Listening…';
-  recTimer=setInterval(()=>{ recRemaining--; paintTimer(); if(recRemaining<=0) stopRecording(); },1000);
-}
-
-function stopRecording(){
-  if(recTimer){ clearInterval(recTimer); recTimer=null; }
-  if(recog){ try{ recog.onend=null; recog.stop(); }catch(e){} recog=null; }
-  if(recording){
-    $('vbStatus').textContent = recRemaining<=0 ? 'Time limit reached (90 seconds).' : 'Stopped.';
+  function reset(){
+    stop(true);
+    remaining=VOICE_LIMIT; paint();
+    finalT=''; const t=get(cfg.text); if(t) t.value='';
+    status(SR ? '' : 'Voice capture needs Chrome or Edge. You can type below instead.');
   }
-  recording=false;
-  const b=$('recBtn'); if(b){ b.classList.remove('recording'); b.innerHTML='<span class="dot"></span> Record'; }
+  function start(){
+    if(!SR){ status('Voice not supported in this browser. Please type instead.'); return; }
+    recorders.forEach(r=>{ if(r!==rec && r.isRecording()) r.stop(); }); // single mic
+    const ta=get(cfg.text);
+    finalT = ta && ta.value ? ta.value.trim()+' ' : '';
+    recog = new SR(); recog.lang='en-GB'; recog.continuous=true; recog.interimResults=true;
+    recog.onresult = e=>{ let interim=''; for(let i=e.resultIndex;i<e.results.length;i++){ const seg=e.results[i][0].transcript; if(e.results[i].isFinal) finalT+=seg+' '; else interim+=seg; } if(ta) ta.value=(finalT+interim).trim(); };
+    recog.onerror = ev=>{ status('Microphone error: '+ev.error); stop(); };
+    recog.onend = ()=>{ if(recording){ try{recog.start();}catch(e){} } };
+    try{ recog.start(); }catch(e){}
+    recording=true;
+    const b=get(cfg.btn); if(b){ b.classList.add('recording'); b.innerHTML='<span class="dot"></span> Stop'; }
+    status('Listening…');
+    timer=setInterval(()=>{ remaining--; paint(); if(remaining<=0) stop(); },1000);
+  }
+  function stop(silent){
+    if(timer){ clearInterval(timer); timer=null; }
+    if(recog){ try{ recog.onend=null; recog.stop(); }catch(e){} recog=null; }
+    if(recording && !silent) status(remaining<=0 ? 'Time limit reached (90 seconds).' : 'Stopped.');
+    recording=false;
+    const b=get(cfg.btn); if(b){ b.classList.remove('recording'); b.innerHTML='<span class="dot"></span> '+(cfg.recordLabel||'Record'); }
+  }
+
+  const btn=get(cfg.btn); if(btn) btn.addEventListener('click', ()=> recording ? stop() : start());
+  const useBtn=get(cfg.useBtn); if(useBtn) useBtn.addEventListener('click', ()=>{ const ta=get(cfg.text); const v=ta?ta.value.trim():''; if(!v){ status('Nothing to add yet.'); return; } cfg.onUse(v, status); });
+  const clr=get(cfg.clearBtn); if(clr) clr.addEventListener('click', ()=>{ finalT=''; const ta=get(cfg.text); if(ta) ta.value=''; status(''); });
+
+  recorders.push(rec);
+  return rec;
 }
 
-$('recBtn').addEventListener('click', ()=>{ recording ? stopRecording() : startRecording(); });
-$('useVoiceBtn').addEventListener('click', ()=>{
-  const v=$('voiceText').value.trim(); if(!v){ $('vbStatus').textContent='Nothing to add yet.'; return; }
-  const intent=$('inIntent');
-  intent.value = intent.value.trim() ? intent.value.trim()+' '+v : v;
-  $('vbStatus').textContent='Populated and enhanced the intended use / scope below.';
+function appendToIntent(v){ const intent=$('inIntent'); intent.value = intent.value.trim() ? intent.value.trim()+' '+v : v; }
+
+/* main top-of-workspace recorder (elements always present) */
+makeRecorder({
+  btn:'recBtn', timer:'vbTimer', status:'vbStatus', text:'voiceText',
+  recordLabel:'Record', useBtn:'useVoiceBtn', clearBtn:'clearVoiceBtn',
+  onUse:(v,status)=>{ appendToIntent(v); status('Populated and enhanced the intended use / scope below.'); }
 });
-$('clearVoiceBtn').addEventListener('click', ()=>{ finalTranscript=''; $('voiceText').value=''; $('vbStatus').textContent=''; });
+
+/* Medical Device product-description recorder (built when the MD module opens) */
+let mdRecorder=null;
+function destroyMdRecorder(){
+  if(mdRecorder){ mdRecorder.stop(true); const i=recorders.indexOf(mdRecorder); if(i>=0) recorders.splice(i,1); mdRecorder=null; }
+}
+function buildMdVoiceBox(ex){
+  const box=document.createElement('div');
+  box.className='voicebox';
+  box.style.marginTop='16px';
+  box.innerHTML=`
+    <div class="vb-head">
+      <span class="vb-title">🎙️ Describe your product</span>
+      <span class="vb-limit">Voice note · up to 90 seconds</span>
+    </div>
+    <p class="vb-sub">Not sure which class applies? Record a short voice note describing <b>what your product is, what it does and who uses it</b>, and we will use it to help define and classify it.</p>
+    <div class="vb-controls">
+      <button type="button" class="btn vb-rec" id="recBtnMd"><span class="dot"></span> Record voice note</button>
+      <span class="vb-timer" id="vbTimerMd">1:30</span>
+      <span class="vb-status" id="vbStatusMd"></span>
+    </div>
+    <textarea id="voiceTextMd" rows="3" placeholder="Your spoken product description will appear here..."></textarea>
+    <div class="vb-actions">
+      <button type="button" class="btn btn-ghost" id="useVoiceBtnMd">Use to help define classification</button>
+      <button type="button" class="btn btn-ghost" id="clearVoiceBtnMd">Clear</button>
+    </div>`;
+  ex.appendChild(box);
+  mdRecorder = makeRecorder({
+    btn:'recBtnMd', timer:'vbTimerMd', status:'vbStatusMd', text:'voiceTextMd',
+    recordLabel:'Record voice note', useBtn:'useVoiceBtnMd', clearBtn:'clearVoiceBtnMd',
+    onUse:(v,status)=>{ appendToIntent(v); status('Added your product description to the intended use / scope below.'); }
+  });
+}
+
+function resetVoice(){ recorders.forEach(r=>r.reset()); }
+function stopAllRecorders(){ recorders.forEach(r=>r.stop(true)); }
 
 /* ---------- Generate draft ---------- */
 function ph(v, fallback){ return v && v.trim() ? v.trim() : `<span class="placeholder-note">[${fallback}]</span>`; }
