@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>SciBlueprint — Pilot</title>
+<title>Brown Rudnick & HH Partner Portal</title>
 <style>
   :root{
     --ink:#0f1b2d; --ink-soft:#3a4a61; --muted:#6b7a90;
@@ -25,8 +25,13 @@
   .mark .glyph{width:34px;height:34px;border-radius:9px;background:linear-gradient(140deg,var(--brand),var(--brand-deep));position:relative;flex:0 0 auto;box-shadow:0 2px 6px rgba(20,62,117,.35)}
   .mark .glyph::before{content:"";position:absolute;inset:8px;border:2px solid rgba(255,255,255,.9);border-radius:3px}
   .mark .glyph::after{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.9)}
-  .mark .name{font-size:19px;color:var(--ink)}
+  .mark .stack{display:flex;flex-direction:column;line-height:1.08}
+  .mark .name{font-size:17px;color:var(--ink)}
+  .mark .name .amp{color:var(--muted);font-weight:600;margin:0 1px}
   .mark .name b{color:var(--brand-deep)}
+  .mark .sub{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .powered{color:var(--muted)}
+  .powered b{color:var(--brand);font-weight:700}
   .pilot-tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);padding:3px 8px;border-radius:999px;border:1px solid #cfe0f6}
 
   /* Disclaimer */
@@ -133,8 +138,8 @@
   </div>
   <div class="login-body">
     <div class="login-card">
-      <div class="mark"><span class="glyph"></span><span class="name">Sci<b>Blueprint</b></span></div>
-      <div class="login-sub">Scientific &amp; regulatory authoring — pilot access</div>
+      <div class="mark"><span class="glyph"></span><span class="stack"><span class="name">Brown Rudnick <span class="amp">&amp;</span> <b>HH</b></span><span class="sub">Partner Portal</span></span></div>
+      <div class="login-sub">Secure partner access to scientific and regulatory authoring</div>
       <form id="loginForm">
         <label for="email">Work email</label>
         <input type="email" id="email" placeholder="name@brownrudnick.com" autocomplete="username" required>
@@ -142,21 +147,21 @@
         <input type="password" id="password" placeholder="Pilot access code" autocomplete="current-password" required>
         <button type="submit" class="btn btn-primary">Sign in to pilot</button>
       </form>
-      <div class="login-hint">Pilot access — enter any email and code to continue.</div>
+      <div class="login-hint">Pilot access. Enter any email and code to continue.</div>
     </div>
   </div>
   <div class="login-foot">
-    SciBlueprint Pilot · prepared for Brown Rudnick evaluation · <span id="yr"></span>
+    <span class="powered">Powered by <b>SciBlueprint</b></span> · Pilot · confidential · <span id="yr"></span>
   </div>
 </div>
 
 <!-- ===================== APP ===================== -->
 <div id="app" class="hidden">
   <div class="disclaimer">
-    <b>Advisory tool — not a guarantee of accreditation.</b> Drafts are starting points for review by a qualified person. Final responsibility for compliance rests with the user and their advisers.
+    <b>Advisory tool, not a guarantee of accreditation.</b> Drafts are starting points for review by a qualified person. Final responsibility for compliance rests with the user and their advisers.
   </div>
   <div class="topbar">
-    <div class="mark"><span class="glyph"></span><span class="name">Sci<b>Blueprint</b></span><span class="pilot-tag">Pilot</span></div>
+    <div class="mark"><span class="glyph"></span><span class="stack"><span class="name">Brown Rudnick <span class="amp">&amp;</span> <b>HH</b></span><span class="sub">Partner Portal</span></span><span class="pilot-tag">Pilot</span></div>
     <div class="right">
       <button class="btn btn-ghost" id="menuBtn" style="padding:7px 14px">☰ Main menu</button>
       <span class="who"><span class="avatar" id="avatar">BR</span><span id="userLabel">user@brownrudnick.com</span></span>
@@ -238,7 +243,7 @@
     </div>
   </div>
 
-  <div class="footer">SciBlueprint Pilot · confidential · prepared for Brown Rudnick evaluation</div>
+  <div class="footer">Brown Rudnick &amp; HH Partner Portal · <span class="powered">powered by <b>SciBlueprint</b></span> · pilot · confidential</div>
 </div>
 
 <script>
@@ -257,7 +262,7 @@ const AREAS = {
     extra:null
   },
   iso: {
-    icon:'🏷️', title:'ISO 13485 — QMS document',
+    icon:'🏷️', title:'ISO 13485: QMS document',
     blurb:'Quality management system documentation aligned to ISO 13485 for medical device organisations.',
     chips:['ISO 13485','Quality system','Auditable'],
     subjectLabel:'Document / process name',
@@ -267,22 +272,22 @@ const AREAS = {
     extra:{label:'Primary ISO 13485 clause (if known)',id:'inClause',placeholder:'e.g. 7.5 Production & service provision'}
   },
   md: {
-    icon:'🩺', title:'Medical Device — classification & pathway',
+    icon:'🩺', title:'Medical Device: classification and pathway',
     blurb:'Determine device class and the conformity assessment route, with the technical documentation structure that follows.',
     chips:['Class I','Class IIa','Class IIb','Class III'],
     subjectLabel:'Device name',
     intentLabel:'Intended purpose (medical claim)',
     pathway:'',
     outline:['Device description & intended purpose','Classification rationale & class','Conformity assessment route','Essential / GSPR checklist','Risk management file (ISO 14971)','Clinical evaluation','Verification & validation','Labelling & instructions for use','Post-market surveillance plan','Declaration of conformity'],
-    extra:{label:'Indicative class',id:'inClass',type:'select',options:['Class I (low risk — self-certified)','Class IIa (medium risk — notified body)','Class IIb (medium-high risk — notified body)','Class III (high risk — notified body)']}
+    extra:{label:'Indicative class',id:'inClass',type:'select',options:['Class I (low risk, self-certified)','Class IIa (medium risk, notified body)','Class IIb (medium-high risk, notified body)','Class III (high risk, notified body)']}
   }
 };
 
 const MD_PATHWAYS = {
-  'Class I (low risk — self-certified)':'<b>Route:</b> Self-certification. Manufacturer compiles technical documentation and signs the declaration of conformity. Notified body involvement only for sterile / measuring / reusable surgical instruments.',
-  'Class IIa (medium risk — notified body)':'<b>Route:</b> Notified body assessment of technical documentation on a representative basis, plus QMS audit. Declaration of conformity follows a successful assessment.',
-  'Class IIb (medium-high risk — notified body)':'<b>Route:</b> Notified body assessment of technical documentation and QMS. Higher scrutiny of clinical evidence and risk management.',
-  'Class III (high risk — notified body)':'<b>Route:</b> Full notified body review including design dossier and clinical evaluation. Highest evidentiary burden; clinical investigation often required.'
+  'Class I (low risk, self-certified)':'<b>Route:</b> Self-certification. Manufacturer compiles technical documentation and signs the declaration of conformity. Notified body involvement only for sterile, measuring or reusable surgical instruments.',
+  'Class IIa (medium risk, notified body)':'<b>Route:</b> Notified body assessment of technical documentation on a representative basis, plus QMS audit. Declaration of conformity follows a successful assessment.',
+  'Class IIb (medium-high risk, notified body)':'<b>Route:</b> Notified body assessment of technical documentation and QMS. Higher scrutiny of clinical evidence and risk management.',
+  'Class III (high risk, notified body)':'<b>Route:</b> Full notified body review including design dossier and clinical evaluation. Highest evidentiary burden; clinical investigation often required.'
 };
 
 /* ---------- Login ---------- */
@@ -325,7 +330,7 @@ function openWorkspace(key){
   currentKey = key;
   const a = AREAS[key];
   $('wsTitle').textContent = a.title;
-  $('formHead').textContent = a.title + ' — inputs';
+  $('formHead').textContent = a.title + ' · inputs';
   $('lblSubject').textContent = a.subjectLabel;
   $('lblIntent').textContent = a.intentLabel;
 
@@ -381,11 +386,11 @@ function resetVoice(){
   stopRecording();
   recRemaining=VOICE_LIMIT; paintTimer();
   finalTranscript=''; $('voiceText').value='';
-  $('vbStatus').textContent = SR ? '' : 'Voice capture needs Chrome or Edge — you can type your notes below instead.';
+  $('vbStatus').textContent = SR ? '' : 'Voice capture needs Chrome or Edge. You can type your notes below instead.';
 }
 
 function startRecording(){
-  if(!SR){ $('vbStatus').textContent='Voice not supported in this browser — please type your notes.'; return; }
+  if(!SR){ $('vbStatus').textContent='Voice not supported in this browser. Please type your notes.'; return; }
   finalTranscript = $('voiceText').value ? $('voiceText').value.trim()+' ' : '';
   recog = new SR();
   recog.lang='en-GB'; recog.continuous=true; recog.interimResults=true;
@@ -446,7 +451,7 @@ function generate(){
     else if(/scope/i.test(s)) body = `Applies to ${ph(owner,'the organisation')} and the activities described herein.`;
     else if(/intended purpose|device description/i.test(s)) body = `${ph(subject,'Device')}: ${ph(intent,'intended purpose to be completed')}.`;
     else if(/classification rationale/i.test(s) && currentKey==='md'){ const c=$('inClass'); body = `Indicative classification: ${c?c.value:'to be determined'}. Rationale to be completed against the classification rules.`; }
-    else body = `<span class="placeholder-note">To be completed — ${s.toLowerCase()}.</span>`;
+    else body = `<span class="placeholder-note">To be completed: ${s.toLowerCase()}.</span>`;
     return `<section><h5>${i+1}. ${s}</h5><p>${body}</p></section>`;
   }).join('');
 
