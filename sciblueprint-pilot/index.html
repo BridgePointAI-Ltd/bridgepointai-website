@@ -158,6 +158,7 @@
   <div class="topbar">
     <div class="mark"><span class="glyph"></span><span class="name">Sci<b>Blueprint</b></span><span class="pilot-tag">Pilot</span></div>
     <div class="right">
+      <button class="btn btn-ghost" id="menuBtn" style="padding:7px 14px">☰ Main menu</button>
       <span class="who"><span class="avatar" id="avatar">BR</span><span id="userLabel">user@brownrudnick.com</span></span>
       <button class="linkish" id="signout">Sign out</button>
     </div>
@@ -366,6 +367,7 @@ function showSelect(){
   $('screenSelect').classList.remove('hidden');
 }
 $('backBtn').addEventListener('click', showSelect);
+$('menuBtn').addEventListener('click', showSelect);
 
 /* ---------- Voice capture (per module, 90s) ---------- */
 const VOICE_LIMIT = 90;
