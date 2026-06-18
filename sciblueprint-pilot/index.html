@@ -114,6 +114,7 @@
   .vb-title{font-weight:700;font-size:14px;color:var(--brand-deep)}
   .vb-limit{font-size:11.5px;font-weight:600;color:var(--brand);background:var(--brand-soft);padding:3px 9px;border-radius:999px}
   .vb-sub{margin:6px 0 12px;font-size:12.5px;color:var(--muted)}
+  .vb-sub b{color:var(--brand-deep);font-weight:700}
   .vb-controls{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
   .vb-rec{background:#fff;border:1px solid rgba(192,57,49,.35);color:#c0392b;display:inline-flex;align-items:center;gap:8px;padding:9px 16px}
   .vb-rec:hover{border-color:#c0392b}
@@ -195,10 +196,10 @@
         <div class="pb">
           <div class="voicebox">
             <div class="vb-head">
-              <span class="vb-title">🎙️ Support your request with voice</span>
+              <span class="vb-title">🎙️ Use your voice to populate and enhance</span>
               <span class="vb-limit">Up to 90 seconds per module</span>
             </div>
-            <p class="vb-sub">Optional. Describe what you need out loud and we transcribe it, then fold it into the draft. Review the text before using it.</p>
+            <p class="vb-sub">Optional. Speak your request to <b>populate</b> the draft, and add context to <b>enhance</b> it with detail you would not normally type. We transcribe in your browser; review the text before using it.</p>
             <div class="vb-controls">
               <button class="btn vb-rec" id="recBtn"><span class="dot"></span> Record</button>
               <span class="vb-timer" id="vbTimer">1:30</span>
@@ -206,7 +207,7 @@
             </div>
             <textarea id="voiceText" rows="3" placeholder="Your spoken notes will appear here as you talk..."></textarea>
             <div class="vb-actions">
-              <button class="btn btn-ghost" id="useVoiceBtn">Use in draft</button>
+              <button class="btn btn-ghost" id="useVoiceBtn">Populate and enhance draft</button>
               <button class="btn btn-ghost" id="clearVoiceBtn">Clear</button>
             </div>
           </div>
@@ -427,7 +428,7 @@ $('useVoiceBtn').addEventListener('click', ()=>{
   const v=$('voiceText').value.trim(); if(!v){ $('vbStatus').textContent='Nothing to add yet.'; return; }
   const intent=$('inIntent');
   intent.value = intent.value.trim() ? intent.value.trim()+' '+v : v;
-  $('vbStatus').textContent='Added to intended use / scope below.';
+  $('vbStatus').textContent='Populated and enhanced the intended use / scope below.';
 });
 $('clearVoiceBtn').addEventListener('click', ()=>{ finalTranscript=''; $('voiceText').value=''; $('vbStatus').textContent=''; });
 
