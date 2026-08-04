@@ -188,6 +188,69 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
 .foot{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
 .note-box{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:10px;
           padding:20px 24px;margin-top:34px;font-size:.88rem;color:var(--muted)}
+
+/* national problem */
+.big-stat{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:20px}
+@media(max-width:880px){.big-stat{grid-template-columns:1fr}}
+.figure{font-family:'Instrument Serif',serif;font-size:clamp(4.4rem,12vw,10rem);line-height:.86;letter-spacing:-.035em;color:var(--ember)}
+.figure small{display:block;font-family:'Inter',sans-serif;font-size:.82rem;letter-spacing:.02em;
+              color:var(--muted);margin-top:20px;line-height:1.55;max-width:34ch;font-weight:400}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border-top:1px solid var(--line)}
+.statrow div{padding:26px 22px 0 0;border-right:1px solid var(--line)}
+.statrow div:last-child{border-right:none}
+.statrow .n{font-family:'Instrument Serif',serif;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;color:var(--ink)}
+.statrow .l{font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.5}
+@media(max-width:700px){.statrow{grid-template-columns:1fr}.statrow div{border-right:none;border-bottom:1px solid var(--line);padding-bottom:20px}}
+
+/* outcome hero panel */
+.outcome{background:var(--pine);color:#fff;border-radius:22px;padding:clamp(36px,5.5vw,80px);margin-top:56px}
+.outcome h3{color:#fff;font-size:clamp(1.7rem,3.4vw,2.7rem);margin-bottom:16px}
+.outcome p{color:rgba(255,255,255,.86)}
+.oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:44px 0 8px}
+@media(max-width:800px){.oc-grid{grid-template-columns:1fr;gap:22px}}
+.oc-grid div{border-top:1px solid rgba(255,255,255,.28);padding-top:20px}
+.oc-grid .n{font-family:'Instrument Serif',serif;font-size:clamp(2.6rem,5vw,4rem);line-height:1;color:#fff}
+.oc-grid .l{font-size:.86rem;color:rgba(255,255,255,.82);margin-top:10px;line-height:1.5}
+.contrast{background:rgba(255,255,255,.11);border-radius:12px;padding:22px 26px;margin-top:34px;font-size:.95rem;
+          color:rgba(255,255,255,.94);border-left:3px solid #fff}
+
+/* bar chart */
+.chart{margin-top:52px}
+.bar{display:grid;grid-template-columns:200px 1fr 96px;gap:20px;align-items:center;padding:11px 0;
+     border-bottom:1px solid rgba(251,248,243,.13)}
+.bar:last-child{border-bottom:none}
+.bar .cat{font-size:.9rem;color:#DCE3E5}
+.bar .track{height:9px;background:rgba(251,248,243,.1);border-radius:100px;overflow:hidden}
+.bar .fill{height:100%;border-radius:100px;background:#7FBFAF;width:0;transition:width 1.3s cubic-bezier(.2,.75,.25,1)}
+.in .bar .fill{width:var(--w)}
+.bar.weak .fill{background:var(--ember)}
+.bar .val{font-family:'DM Mono',monospace;font-size:.82rem;color:#9FB0B4;text-align:right}
+@media(max-width:660px){.bar{grid-template-columns:1fr 56px;gap:10px}.bar .track{grid-column:1/-1;order:3}}
+
+/* founders */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:56px}
+@media(max-width:880px){.people{grid-template-columns:1fr}}
+.person{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(28px,3.4vw,44px);position:relative}
+.person .initial{font-family:'Instrument Serif',serif;font-size:4.6rem;line-height:.8;color:var(--paper-2);
+                 position:absolute;top:26px;right:32px}
+.person .role{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+              color:var(--pine);margin-bottom:12px}
+.person h3{font-size:1.5rem;margin-bottom:16px;position:relative;z-index:1}
+.person p{font-size:.93rem;color:var(--muted);margin-bottom:14px}
+.person .pull{border-left:2px solid var(--ember);padding-left:16px;font-style:italic;color:var(--ink);font-size:.98rem}
+
+/* faq */
+.faq{margin-top:52px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:24px 40px 24px 0;font-size:1.05rem;font-weight:500;list-style:none;position:relative;
+        transition:color .2s}
+summary:hover{color:var(--pine)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:22px;font-size:1.4rem;color:var(--muted);
+               font-weight:300;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details .ans{padding:0 0 26px;max-width:76ch}
+details .ans p{font-size:.96rem;color:var(--muted);margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -195,9 +258,10 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
 <nav id="nav"><div class="nav-in">
   <a class="logo" href="#top">Hearts<b>Sight</b></a>
   <div class="nav-links">
-    <a href="#what">The assessment</a>
+    <a href="#outcome">Outcomes</a>
+    <a href="#what">Assessment</a>
     <a href="#evidence">Evidence</a>
-    <a href="#reports">What you receive</a>
+    <a href="#people">Who built it</a>
     <a href="#who">Who it is for</a>
   </div>
   <a class="btn" href="#contact">Book a pilot day</a>
@@ -211,7 +275,7 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
   <div class="wrap">
     <div class="eyebrow">Workforce health assessment</div>
     <h1 class="rv">A full physiological assessment. <em>Forty minutes.</em> Anywhere.</h1>
-    <p class="lead rv">No laboratory. No clinician on site. No waiting for results. A trained technician brings the assessment to your people, and everyone leaves with their own numbers and a clear next step.</p>
+    <p class="lead rv">No laboratory. No clinician on site. No waiting for results. A trained technician brings the assessment to your people, and everyone leaves with their own numbers and a clear next step. In its one outcome study, twelve per cent of long-term problem patients were back at work within nine months.</p>
     <div class="hero-cta rv">
       <a class="btn" href="#contact">Book a pilot day</a>
       <a class="btn ghost" href="#evidence">See the evidence</a>
@@ -225,6 +289,44 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
   </div>
 </section>
 
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow rv">The problem being solved</div>
+    <div class="big-stat">
+      <div class="rv">
+        <div class="figure">&pound;212bn<small>The annual cost to the UK of economic inactivity caused by ill health. Seven per cent of GDP, and close to seventy per cent of all income tax collected.<br><em>Keep Britain Working, final report, March 2026</em></small></div>
+      </div>
+      <div class="rv">
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.9rem)">The country is not short of treatment. It is short of early detection.</h2>
+        <p style="margin-top:22px">2.8 million people are out of work through long-term sickness. Once someone leaves the workforce for health reasons, only 3.8% return within four years. The economics of that are brutal and they are almost entirely decided before anyone becomes a patient.</p>
+        <p style="margin-top:18px">Screening is the obvious answer and it has an obvious problem: the people most likely to need it are the least likely to take a morning off, travel to a clinic and give blood. Coverage stays low precisely where risk is highest.</p>
+      </div>
+    </div>
+    <div class="statrow rv">
+      <div><div class="n">2.8m</div><div class="l">People economically inactive through long-term sickness, Q1 2026</div></div>
+      <div><div class="n">&pound;103bn</div><div class="l">Annual cost of workplace sickness to the UK economy, about &pound;3,029 per employee</div></div>
+      <div><div class="n">3.8%</div><div class="l">Of economically inactive people who return to employment within four years</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="outcome">
+  <div class="wrap">
+    <div class="eyebrow rv">The result that matters most</div>
+    <h2 class="rv" style="max-width:19ch">Agreement with a diagnosis is interesting. Getting someone back to work is the point.</h2>
+    <div class="outcome rv">
+      <h3>Huddersfield, 2004.</h3>
+      <p style="max-width:62ch">Seventy patients at a GP practice in a Huddersfield Primary Care Trust. Not a healthy sample: these were frequent attenders and long-standing problem cases, people who had not found an answer to their symptoms and who had largely stopped following treatment advice. Each was assessed using the method, and then followed up by independent survey nine months later.</p>
+      <div class="oc-grid">
+        <div><div class="n">40%</div><div class="l">Reduction in repeat GP visits from this cohort</div></div>
+        <div><div class="n">12%</div><div class="l">Returned to work within nine months</div></div>
+        <div><div class="n">92%</div><div class="l">Reported taking more responsibility for their own health</div></div>
+      </div>
+      <div class="contrast"><strong>For scale:</strong> the national rate at which economically inactive people move back into employment is 3.8% over four years. This cohort reached 12% in nine months. The populations are not identical and this was a small uncontrolled pilot, so it is a finding to test rather than a claim to lean on. It is also the single most interesting number in twenty years of this work, and it has never been repeated at scale.</div>
+    </div>
+    <div class="note-box rv" style="background:var(--paper-2)">Everything else on this page is about whether the assessment sees what is there. This section is about whether seeing it changes anything. The second question is the one an employer, an insurer or a health system is actually buying, and it is the one the sector almost never answers.</div>
+  </div>
+</section>
 <section>
   <div class="wrap">
     <div class="split">
@@ -320,6 +422,26 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
 <section class="dark">
   <div class="wrap">
     <div class="split">
+      <div class="rv"><div class="eyebrow">Performance by system</div><h2>Where it is strong, and where it is not.</h2></div>
+      <div class="rv"><p class="lead">Agreement with medical diagnosis by condition category, across both controlled studies. Published in full, including the categories where the original instrument set found nothing.</p></div>
+    </div>
+    <div class="chart rv">
+      <div class="bar"><div class="cat">Cardiovascular</div><div class="track"><div class="fill" style="--w:96%"></div></div><div class="val">92 to 100%</div></div>
+      <div class="bar"><div class="cat">Body composition, obesity</div><div class="track"><div class="fill" style="--w:95%"></div></div><div class="val">89 to 100%</div></div>
+      <div class="bar"><div class="cat">Genitourinary</div><div class="track"><div class="fill" style="--w:89%"></div></div><div class="val">88 to 90%</div></div>
+      <div class="bar"><div class="cat">Thyroid</div><div class="track"><div class="fill" style="--w:92%"></div></div><div class="val">83 to 100%</div></div>
+      <div class="bar"><div class="cat">Mental and behavioural</div><div class="track"><div class="fill" style="--w:90%"></div></div><div class="val">80 to 100%</div></div>
+      <div class="bar weak"><div class="cat">Digestive</div><div class="track"><div class="fill" style="--w:58%"></div></div><div class="val">48 to 67%</div></div>
+      <div class="bar weak"><div class="cat">Diabetes and metabolic</div><div class="track"><div class="fill" style="--w:39%"></div></div><div class="val">31 to 47%</div></div>
+      <div class="bar weak"><div class="cat">Liver and gallbladder</div><div class="track"><div class="fill" style="--w:26%"></div></div><div class="val">25 to 27%</div></div>
+      <div class="bar weak"><div class="cat">Respiratory</div><div class="track"><div class="fill" style="--w:4%"></div></div><div class="val">0 to 7%</div></div>
+    </div>
+    <p class="rv" style="margin-top:30px;font-size:.92rem">The weak categories are weak for a reason we can explain. The assessment performs where it takes a direct physiological measurement, and fails where it would have to infer structural or mucosal disease that no instrument in the case touches. A failure pattern that follows the instruments is more reassuring than a set of unexplained gaps, and it is why spirometry and a glucose meter were added to the two weakest.</p>
+  </div>
+</section>
+<section class="dark">
+  <div class="wrap">
+    <div class="split">
       <div class="rv"><div class="eyebrow">Provenance</div><h2>Four things worth checking.</h2></div>
       <div class="rv"><p class="lead">These are the details that separate a research programme from a marketing claim, and they are rarely offered because most companies cannot offer them.</p></div>
     </div>
@@ -374,6 +496,33 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
         <p style="margin-top:22px">That section of the independent report was <em>added between drafts</em>. The reviewers arrived at it from the data rather than being handed it as a premise, which is the strongest form a finding can take.</p>
       </div>
     </div>
+  </div>
+</section>
+<section id="people">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv"><div class="eyebrow">Who built it</div><h2>An unusual pair of careers, pointed at the same problem.</h2></div>
+      <div class="rv"><p class="lead">This was not built by a health technology startup. It was built by a clinician who spent thirty years watching what stress does to bodies, and an engineer who spent forty years making machines process enormous numbers of interrelated signals in real time.</p></div>
+    </div>
+    <div class="people rv">
+      <article class="person">
+        <div class="initial">J</div>
+        <div class="role">Founder and Chief Executive</div>
+        <h3>Jane M Hinchliffe</h3>
+        <p>Trained as an international NLP trainer and hypnotherapist, Jane has spent her career in psychophysiology: the interplay between mental and emotional state and physical health. She brings a trauma-informed view of how disease begins, and she specialises in pattern recognition across large sets of physiological data.</p>
+        <p>Thirty years in healthcare. Co-founder of an organisation promoting primary and preventative medicine. Ten years developing the assessment itself, then leading the collaborative studies with GP surgeries in England, the Hadassah Hebrew University Medical Center in Jerusalem and NRCERM in St Petersburg. Honorary Fellow of the Institute for Complementary and Natural Medicine, 2010.</p>
+        <div class="pull">"Health is like fitness. You do not go to the gym and then think you are fit for life. Health needs to be maintained and enhanced, fortified against the pressures of life and ageing."</div>
+      </article>
+      <article class="person">
+        <div class="initial">M</div>
+        <div class="role">Chief Technical Officer</div>
+        <h3>Malcolm Wilson</h3>
+        <p>Forty years building computer graphics and imaging systems. At 3DLabs he worked on the first single-chip graphics processor for Windows PCs to reach production, competing directly with Nvidia through the 1990s. Then game engines, then web platforms, then a complete gaming and wallet platform built from nothing.</p>
+        <p>Since 2008 he has worked with Jane on the algorithmic analysis behind the assessment: rebuilding the research interface, then designing the clinic system that runs the model in production. The problem is the one he has solved his whole career, which is taking hundreds of simultaneous inputs and resolving them into a single coherent picture fast enough to be useful.</p>
+        <div class="pull">The analysis engine was not written by a health app team. It was written by someone who used to ship silicon.</div>
+      </article>
+    </div>
+    <div class="note-box rv">The combination is the point. Physiological pattern recognition is a domain problem and a computation problem at the same time, and most attempts at it have one half of that and not the other.</div>
   </div>
 </section>
 <section id="reports" class="dark">
@@ -452,6 +601,47 @@ footer{padding:60px 0 70px;border-top:1px solid var(--line);font-size:.82rem;col
   </div>
 </section>
 
+<section id="questions">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv"><div class="eyebrow">The hard questions</div><h2>The things a serious buyer asks in the first ten minutes.</h2></div>
+      <div class="rv"><p class="lead">Answered here rather than in a meeting, because a buyer who has to extract these one at a time will assume the answers are worse than they are.</p></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Is this a medical device, and is it regulated?</summary><div class="ans">
+        <p>The assessment is delivered as a health assessment service, not as a diagnostic device, and every component instrument is an established, commercially available medical device used within its own intended purpose. The regulatory characterisation of the combined analysis is under formal review with an independent regulatory consultancy, and we will publish the outcome rather than describe it ourselves.</p>
+        <p>What we will not do is claim a status we have not established. If that answer is less convenient than a badge, it is also the only one worth giving.</p>
+      </div></details>
+      <details><summary>Why does the assessment not require a clinician on site?</summary><div class="ans">
+        <p>Because the measurements are physiological and standardised, and because the interpretation is done by the platform against a defined framework rather than by clinical judgement in the room. The operator takes readings; the system produces the report; the practitioner edition tells whoever holds clinical responsibility what to check and when to refer.</p>
+        <p>This is not theoretical. The method has been delivered twice inside other people's health systems by their own staff: three certified staff at a Russian federal medical centre, and two senior nurses at a Jerusalem teaching hospital after two weeks of training.</p>
+      </div></details>
+      <details><summary>What happens when the assessment finds something serious?</summary><div class="ans">
+        <p>Findings are flagged in two tiers: for discussion with a practitioner, or for onward referral. The practitioner edition carries specific guidance for each flag, including whether the person is already under medical care and what to check before referring. The individual receives their own report, in plain language, with the next step stated.</p>
+        <p>The assessment is designed to route people, not to conclude for them.</p>
+      </div></details>
+      <details><summary>You publish your weak results. Why?</summary><div class="ans">
+        <p>Because they are findable. The studies are documented, the reports exist, and anyone conducting proper diligence will locate them. A company that has published its own null results has nothing left to be discovered.</p>
+        <p>It is also more useful. Knowing that respiratory detection was poor with the original instrument set, and that spirometry was added specifically in response, tells you considerably more about how this has been developed than a single headline percentage ever could.</p>
+      </div></details>
+      <details><summary>What about the higher percentages published previously?</summary><div class="ans">
+        <p>Earlier material quoted figures of 96.5% and 96.6%. Both are real numbers, and both describe something narrower than the phrasing suggested. The first is cumulative agreement reached across two years, including cases reclassified after later confirmation. The second is agreement against a composite clinical burden score rather than against angiography alone, where the figure is 77.4%.</p>
+        <p>We have reviewed every published claim against its source document and restated the ones that did not survive. The figures on this page are the ones that do.</p>
+      </div></details>
+      <details><summary>How is it priced?</summary><div class="ans">
+        <p>Per head, by the day, with a minimum volume. The equipment is leased rather than sold, so there is no capital purchase before you have seen it work, and the platform is charged per active unit. Training and certification are priced per operator.</p>
+        <p>For occupational health providers the commercial shape is white-label capacity: your staff, your client relationships, our method and reporting.</p>
+      </div></details>
+      <details><summary>What happens to the data?</summary><div class="ans">
+        <p>Nothing physical leaves the site. Readings are captured on site and processed on a hosted platform. Individuals consent explicitly, including a separate consent for anonymised research use, and the employer receives an aggregate picture that does not identify anyone.</p>
+      </div></details>
+      <details><summary>How large is the evidence base, honestly?</summary><div class="ans">
+        <p>Two controlled studies covering 467 patients between 2010 and 2012, one 35-patient cardiac study against angiography in 2009, and one 70-patient outcome pilot in 2004. Ethically approved, blinded, with independent clinical review and a formal data lock.</p>
+        <p>It is a solid foundation and it is not a modern regulatory dossier. Sensitivity and specificity were specified in the protocols and have not yet been published, which is the honest gap. The work to close it is under way and we would rather say so than imply it is already done.</p>
+      </div></details>
+    </div>
+  </div>
+</section>
 <section id="contact">
   <div class="wrap">
     <div class="cta rv">
