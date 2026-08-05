@@ -1511,6 +1511,67 @@ footer a:hover::after{right:0}
   nav,nav .nav-inner,.btn,.pillar-card,.compare-col{transition:none!important}
   .btn::before{display:none}
 }
+
+/* ================= CHAIN OF CUSTODY ================= */
+.coc-scope{position:relative;height:420vh}
+.coc-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;
+ background:#0B1F3F;color:#EAEEF8;overflow:hidden}
+.coc-sticky::before{content:"";position:absolute;inset:0;
+ background:radial-gradient(ellipse 70% 60% at 20% 40%,rgba(197,162,91,.09),transparent 70%)}
+.coc-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 34px;width:100%;
+ display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.coc-tag{font-size:10.5px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B}
+.coc-h{font-family:'Playfair Display',Georgia,serif;font-size:34px;line-height:1.14;margin:10px 0 10px;color:#fff}
+.coc-h em{color:#D8BF94;font-style:italic}
+.coc-sub{font-size:14.5px;color:#B8C4D8;max-width:520px;line-height:1.55}
+.coc-track{margin-top:26px}
+.coc-svg{width:100%;height:auto;display:block}
+.coc-rail{fill:none;stroke:rgba(197,162,91,.22);stroke-width:3;stroke-linecap:round}
+.coc-fill{fill:none;stroke:#C5A25B;stroke-width:3;stroke-linecap:round;
+ stroke-dasharray:1;stroke-dashoffset:1}
+.coc-st circle{fill:#0B1F3F;stroke:rgba(197,162,91,.45);stroke-width:2;transition:fill .35s,stroke .35s,r .35s}
+.coc-st text{fill:#7E8EA8;font-size:10.5px;text-anchor:middle;transition:fill .35s,font-weight .2s}
+.coc-st.done circle{fill:#C5A25B;stroke:#C5A25B}
+.coc-st.done text{fill:#D8BF94}
+.coc-st.cur circle{fill:#fff;stroke:#C5A25B;r:9}
+.coc-st.cur text{fill:#fff;font-weight:700}
+.coc-tok{fill:#fff;stroke:#C5A25B;stroke-width:2}
+/* log */
+.coc-log{background:rgba(255,255,255,.045);border:1px solid rgba(197,162,91,.28);border-radius:12px;
+ padding:16px 18px;height:398px;display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+.coc-loghd{display:flex;align-items:center;justify-content:space-between;
+ border-bottom:1px solid rgba(197,162,91,.22);padding-bottom:9px;margin-bottom:9px}
+.coc-loghd b{font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;color:#C5A25B;font-weight:700}
+.coc-verify{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.6px;
+ padding:3px 9px;border-radius:100px;background:rgba(255,255,255,.07);color:#9FB0CD;transition:all .4s}
+.coc-verify.ok{background:rgba(24,107,70,.28);color:#7FE0AE}
+.coc-rows{overflow:hidden;flex:1;scroll-behavior:smooth}
+.coc-row{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.45;
+ padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.09);opacity:0;transform:translateY(6px);
+ transition:opacity .4s,transform .4s}
+.coc-row.on{opacity:1;transform:none}
+.coc-row .n{color:#C5A25B}
+.coc-row .e{color:#EAEEF8}
+.coc-row .m{color:#8FA0BC}
+.coc-row .hsh{color:#7FBFAF;word-break:break-all;transition:color .3s}
+.coc-row.bad .hsh{color:#FF9B9B}
+.coc-row.bad .n{color:#FF9B9B}
+.coc-row.tampered .e{color:#FF9B9B;text-decoration:line-through}
+.coc-verify.bad{background:rgba(138,31,31,.35);color:#FF9B9B}
+.coc-tamper{margin-top:10px;display:flex;gap:10px;align-items:center}
+.coc-btn{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;letter-spacing:.5px;
+ padding:7px 13px;border-radius:100px;border:1px solid rgba(197,162,91,.45);background:transparent;
+ color:#D8BF94;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.coc-btn:hover{background:#C5A25B;color:#0B1F3F;border-color:#C5A25B}
+.coc-note{font-size:11px;color:#8FA0BC}
+.coc-foot{margin-top:10px;font-size:11px;color:#8FA0BC;line-height:1.5}
+@media(max-width:980px){
+ .coc-scope{height:auto}.coc-sticky{position:static;height:auto;padding:48px 0}
+ .coc-in{grid-template-columns:1fr;gap:26px}.coc-log{height:auto}
+ .coc-row{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ .coc-scope{height:auto}.coc-sticky{position:static;height:auto;padding:48px 0}
+ .coc-row{opacity:1;transform:none}.coc-fill{stroke-dashoffset:0}}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -1664,6 +1725,36 @@ footer a:hover::after{right:0}
  </div>
 </section>
 
+
+<div class="coc-scope" id="cocScope">
+ <div class="coc-sticky">
+  <div class="coc-in">
+   <div>
+    <div class="coc-tag">Chain of custody</div>
+    <h2 class="coc-h">Every result carries<br><em>the record of how it was made.</em></h2>
+    <p class="coc-sub">Scroll to move a sample through the laboratory. Each step writes an entry to the
+    audit log, and each entry is sealed with a hash of the one before it. Alter any entry and the chain
+    breaks. These hashes are computed in your browser, right now, from the entries as they are written.</p>
+    <div class="coc-track">
+     <svg class="coc-svg" viewBox="0 0 1200 110" role="img" aria-label="Eight custody stations from collection to disclosure">
+      <path class="coc-rail" d="M60 64 L1140 64"/>
+      <path class="coc-fill" id="cocFill" d="M60 64 L1140 64"/>
+      <g class="coc-st" data-k="0"><circle cx="60" cy="64" r="7"/><text x="60" y="94">Collection</text></g><g class="coc-st" data-k="1"><circle cx="214" cy="64" r="7"/><text x="214" y="94">Seal</text></g><g class="coc-st" data-k="2"><circle cx="369" cy="64" r="7"/><text x="369" y="94">Transit</text></g><g class="coc-st" data-k="3"><circle cx="523" cy="64" r="7"/><text x="523" y="94">Receipt</text></g><g class="coc-st" data-k="4"><circle cx="677" cy="64" r="7"/><text x="677" y="94">Prep</text></g><g class="coc-st" data-k="5"><circle cx="831" cy="64" r="7"/><text x="831" y="94">Run</text></g><g class="coc-st" data-k="6"><circle cx="986" cy="64" r="7"/><text x="986" y="94">Analysis</text></g><g class="coc-st" data-k="7"><circle cx="1140" cy="64" r="7"/><text x="1140" y="94">Report</text></g>
+      <circle class="coc-tok" id="cocTok" cx="60" cy="64" r="11"/>
+     </svg>
+    </div>
+   </div>
+   <div class="coc-log">
+    <div class="coc-loghd"><b>Audit log</b><span class="coc-verify" id="cocVer">awaiting entries</span></div>
+    <div class="coc-rows" id="cocRows"></div>
+    <div class="coc-tamper">
+      <button class="coc-btn" id="cocTamper" type="button">Simulate tampering with #04</button>
+      <span class="coc-note" id="cocNote">SHA-256, chained.</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
 <div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
 <section class="section-alt" id="compare">
  <div class="container">
@@ -2235,6 +2326,100 @@ addEventListener('scroll',onScroll,{passive:true}); onScroll();
  }
  addEventListener('scroll',function(){ if(t) return; t=requestAnimationFrame(function(){t=0;upd();}); },{passive:true});
  t=0; upd();
+})();
+</script>
+<script>
+/* real SHA-256, synchronous */
+(function(){
+var K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+function R(n,x){return (x>>>n)|(x<<(32-n));}
+window.sha256=function(msg){
+ var b=unescape(encodeURIComponent(msg)),l=b.length,wa=[],i;
+ for(i=0;i<l;i++) wa[i>>2]|=(b.charCodeAt(i)&0xff)<<(24-(i%4)*8);
+ wa[l>>2]|=0x80<<(24-(l%4)*8); wa[((l+8>>6)+1)*16-1]=l*8;
+ var H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19],w=[];
+ for(i=0;i<wa.length;i+=16){
+  var a=H[0],bb=H[1],c=H[2],d=H[3],e=H[4],f=H[5],g=H[6],h=H[7],j,t1,t2;
+  for(j=0;j<64;j++){
+   if(j<16) w[j]=wa[i+j]|0;
+   else{var s0=R(7,w[j-15])^R(18,w[j-15])^(w[j-15]>>>3),
+          s1=R(17,w[j-2])^R(19,w[j-2])^(w[j-2]>>>10);
+        w[j]=(w[j-16]+s0+w[j-7]+s1)|0;}
+   t1=(h+(R(6,e)^R(11,e)^R(25,e))+((e&f)^(~e&g))+K[j]+w[j])|0;
+   t2=((R(2,a)^R(13,a)^R(22,a))+((a&bb)^(a&c)^(bb&c)))|0;
+   h=g;g=f;f=e;e=(d+t1)|0;d=c;c=bb;bb=a;a=(t1+t2)|0;
+  }
+  H[0]=(H[0]+a)|0;H[1]=(H[1]+bb)|0;H[2]=(H[2]+c)|0;H[3]=(H[3]+d)|0;
+  H[4]=(H[4]+e)|0;H[5]=(H[5]+f)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0;
+ }
+ return H.map(function(x){return ('00000000'+(x>>>0).toString(16)).slice(-8);}).join('');
+};
+})();
+
+/* chain of custody, scroll driven */
+(function(){
+var scope=document.getElementById('cocScope'); if(!scope) return;
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var EV=[["Collection","Sample collected on site"],["Seal","Sealed, custody token issued"],["Transit","Transfer logged, seal intact"],["Receipt","Laboratory receipt, seal verified"],["Prep","Extraction and library preparation"],["Run","Sequencing run, instrument logged"],["Analysis","Analysis with QC thresholds applied"],["Report","Report and disclosure bundle issued"]];
+var rowsEl=document.getElementById('cocRows'),fill=document.getElementById('cocFill'),
+    tok=document.getElementById('cocTok'),ver=document.getElementById('cocVer'),
+    sts=[].slice.call(scope.querySelectorAll('.coc-st'));
+var X0=60,X1=1140,N=EV.length,prev='0'.repeat(64),rows=[];
+var tampered=false;
+function build(){
+  rowsEl.innerHTML=''; rows.length=0; prev='0'.repeat(64);
+  EV.forEach(function(e,k){
+    var desc=(tampered&&k===3)?'Laboratory receipt, seal NOT verified':e[1];
+    var payload=(k+1)+'|'+e[0]+'|'+desc;
+    var h=window.sha256(prev+payload); prev=h;
+    var d=document.createElement('div');
+    d.className='coc-row'+(tampered&&k>=3?' bad':'')+(tampered&&k===3?' tampered':'');
+    d.innerHTML='<span class="n">#'+String(k+1).padStart(2,'0')+'</span> '+
+     '<span class="e">'+e[0].toUpperCase()+'</span> <span class="m">'+desc+'</span><br>'+
+     '<span class="m">sha256 </span><span class="hsh">'+h.slice(0,44)+'…</span>';
+    rowsEl.appendChild(d); rows.push(d);
+  });
+}
+build();
+var btn=document.getElementById('cocTamper'), note=document.getElementById('cocNote');
+if(btn) btn.addEventListener('click',function(){
+  tampered=!tampered; build(); lastN=-1; upd();
+  btn.textContent=tampered?'Restore original entry':'Simulate tampering with #04';
+  note.textContent=tampered
+    ? 'One word changed in #04. Every digest from #04 onward is now different.'
+    : 'SHA-256, chained.';
+});
+var lastN=-1;
+function upd(){
+  if(innerWidth<980||RM){rows.forEach(function(r){r.classList.add('on')});
+    if(ver){ver.textContent='chain verified';ver.classList.add('ok');} return;}
+  var r=scope.getBoundingClientRect(),
+      p=Math.min(1,Math.max(0,(-r.top)/(scope.offsetHeight-innerHeight)));
+  var q=Math.min(1,p/0.85), len=X1-X0;
+  fill.style.strokeDasharray=len; fill.style.strokeDashoffset=len*(1-q);
+  tok.setAttribute('cx',(X0+len*q).toFixed(1));
+  var shown=Math.max(0,Math.min(N,Math.ceil(q*N)));
+  if(shown!==lastN){
+    lastN=shown;
+    rows.forEach(function(d,k){d.classList.toggle('on',k<shown);});
+    sts.forEach(function(s,k){s.classList.toggle('done',k<shown);
+      s.classList.toggle('cur',k===shown-1);});
+    var last=rows[shown-1]; if(last) rowsEl.scrollTop=Math.max(0,last.offsetTop+last.offsetHeight-rowsEl.clientHeight);
+    ver.classList.remove('ok','bad');
+    if(shown===0){ver.textContent='awaiting entries';}
+    else if(tampered&&shown>3){ver.textContent='chain broken at #04';ver.classList.add('bad');}
+    else if(shown<N){ver.textContent=shown+' of '+N+' sealed';}
+    else {ver.textContent='chain verified';ver.classList.add('ok');}
+  }
+}
+addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
 })();
 </script>
 </body>
