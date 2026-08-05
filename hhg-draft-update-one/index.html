@@ -155,7 +155,7 @@
  min-height: 82vh;
  background:
  linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%),
- url('hero-bg-cells.jpg') center/cover no-repeat;
+ url('assets/hero-bg-cells.webp') center/cover no-repeat;
  display: flex; align-items: center; justify-content: flex-start;
  position: relative; overflow: hidden;
  padding: 120px 0 80px;
@@ -564,7 +564,7 @@
  /* ─ HERO LEFT ALIGN ─ */
  
  /* ─ HERO BACKGROUND IMAGE ─ */
- .hero-bg {{
+ .hero-bg {
  position: absolute;
  inset: 0;
  background-image: url('assets/img2.webp');
@@ -1115,7 +1115,7 @@
  /* ─ HERO LEFT ALIGN ─ */
  
  /* ─ HERO BACKGROUND IMAGE ─ */
- .hero-bg {{
+ .hero-bg {
  position: absolute;
  inset: 0;
  background-image: url('assets/img2.webp');
@@ -1281,7 +1281,7 @@
  }
  .section-alt {
  background: linear-gradient(rgba(250,248,245,0.70), rgba(250,248,245,0.70)),
- url('neuro-bg.jpg') center/cover no-repeat !important;
+ url('assets/neuro-bg.webp') center/cover no-repeat !important;
  }
 
  .persona-num-home {
@@ -1406,7 +1406,7 @@
 
 /* ---- hero motion ---- */
 #hero .hero-decor{will-change:transform;animation:heroDrift 34s ease-in-out infinite alternate}
-@keyframes heroDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-1.6%,1.4%,0) scale(1.045)}}
+@keyframes heroDrift{from{transform:translateY(-50%) translate3d(0,0,0) scale(1)}to{transform:translateY(-50%) translate3d(-2%,1.5%,0) scale(1.06)}}
 #hero .h-img{overflow:hidden}
 #hero .h-img img{will-change:transform;animation:kb 30s ease-in-out infinite alternate}
 #hero .h-img:nth-child(2) img{animation-duration:36s;animation-delay:-6s}
@@ -1418,6 +1418,43 @@
  .gp-node,.gp-gate,.pp-m{opacity:1;transform:none}
  .gp-fill{stroke-dashoffset:0}.pp-gap{opacity:.13}.pp-gapl{opacity:1}
 }
+
+/* ================= MOTION LAYER ================= */
+html{scroll-behavior:smooth}
+/* scroll progress */
+.hhg-prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:10000;transform-origin:0 50%;
+ transform:scaleX(0);background:linear-gradient(90deg,#C5A25B,#D8BF94)}
+/* hero sequencing trace */
+#hero{position:relative;overflow:hidden}
+#hhgTrace{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5}
+#hero .hero-inner,#hero .hero-content{position:relative;z-index:2}
+/* pointer parallax */
+#hero .h-img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+/* word reveal */
+.wr>span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(1.2deg);
+ transition:opacity .62s cubic-bezier(.2,.8,.2,1),transform .62s cubic-bezier(.2,.8,.2,1)}
+.wr.in>span{opacity:1;transform:none}
+/* pinned pipeline */
+.pin-scope{position:relative;height:300vh;margin:2.2rem 0 .4rem}
+.pin-sticky{position:sticky;top:11vh;height:78vh;display:flex;flex-direction:column;justify-content:center;
+ padding:26px 18px;background:#FAF8F5;border:1px solid #E2DDD5;border-radius:16px}
+.pin-cap{margin-top:18px;min-height:74px;text-align:center}
+.pin-cap .k{font-size:10.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#C5A25B}
+.pin-cap .h{font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#0B1F3F;margin:6px 0 4px}
+.pin-cap .p{font-size:14px;color:#4A5568;max-width:640px;margin:0 auto;line-height:1.5}
+.pin-cap>div{opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s;position:absolute;left:0;right:0}
+.pin-cap{position:relative}
+.pin-cap>div.on{opacity:1;transform:none}
+.oh-stage.act circle{fill:#C5A25B;stroke:#0B1F3F}
+.oh-stage.act text{fill:#0B1F3F;font-weight:700}
+@media(max-width:900px){.pin-scope{height:auto}.pin-sticky{position:static;height:auto}
+ .pin-cap>div{position:static;opacity:1;transform:none;margin-bottom:14px}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .wr>span{opacity:1;transform:none}
+ #hhgTrace{display:none}
+ .pin-scope{height:auto}.pin-sticky{position:static;height:auto}
+ .pin-cap>div{position:static;opacity:1;transform:none;margin-bottom:14px}}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -1457,7 +1494,7 @@
 <!-- NAV -->
 <nav>
  <div class="nav-inner">
- <a href="index.html" class="nav-logo">
+ <a href="https://hhglobalholdings.com/index.html" class="nav-logo">
  <img src="assets/img1.png" alt="HH Global">
  </a>
  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -1471,18 +1508,18 @@
  <a href="#markets">One Health</a>
  </div>
  </li>
- <li><a href="labarchitect.html">LabArchitect™</a></li>
+ <li><a href="https://hhglobalholdings.com/labarchitect.html">LabArchitect™</a></li>
  <li class="dropdown">
  <a href="#cases">Case Studies ▾</a>
  <div class="dropdown-menu">
-  <a href="cases-diagnostics.html">Diagnostics &amp; Drug Development</a>
- <a href="cases-veterinary.html">Veterinary &amp; Environmental</a>
+  <a href="https://hhglobalholdings.com/cases-diagnostics.html">Diagnostics &amp; Drug Development</a>
+ <a href="https://hhglobalholdings.com/cases-veterinary.html">Veterinary &amp; Environmental</a>
  </div>
  </li>
- <li><a href="innovation-ip.html">Innovation & IP</a></li>
- <li><a href="scientific-practice.html">Scientific Practice</a></li>
- <li><a href="company.html">Company Profile</a></li>
- <li><a href="company.html#articles">Publications</a></li>
+ <li><a href="https://hhglobalholdings.com/innovation-ip.html">Innovation & IP</a></li>
+ <li><a href="https://hhglobalholdings.com/scientific-practice.html">Scientific Practice</a></li>
+ <li><a href="https://hhglobalholdings.com/company.html">Company Profile</a></li>
+ <li><a href="https://hhglobalholdings.com/company.html#articles">Publications</a></li>
  </ul>
  <a href="#contact" class="nav-cta">Contact Us</a>
  </div>
@@ -1491,6 +1528,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
  <div class="hero-decor"></div>
+<canvas id="hhgTrace" aria-hidden="true"></canvas>
  <div class="hero-inner">
  <div class="hero-content">
  <div class="section-tag">Human Health · Animal Health · Environmental Health</div>
@@ -1536,7 +1574,7 @@
  <h4>Early-Stage Companies</h4>
  <p>You have the science but not the credentialled team to validate or advance it. You need real scientists, not a consultancy. Whether it is systematic reviews, technical advisory, or R&amp;D without the overhead of an in-house lab, we become your scientific function.</p>
  <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">SMEs · Biotech startups · Environmental consultancies · Independent researchers</p>
- <a href="scientific-practice.html" class="who-card-link">Scientific Practice →</a>
+ <a href="https://hhglobalholdings.com/scientific-practice.html" class="who-card-link">Scientific Practice →</a>
  </div>
 
  <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
@@ -1545,7 +1583,7 @@
  <h4>Organisations Building or Upgrading Labs</h4>
  <p>We design laboratories around what the client needs to achieve, regulatory compliance is structural, not an afterthought. Labs built to ISO 17025/15189 from the ground up, not retrofitted after the fact. From equipment specification and Standard Operating Procedure (SOP) development to UK Accreditation Service (UKAS) audit preparation, we have built accredited labs from empty rooms, designed for compliance from day one.</p>
  <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">NHS Trusts · Universities · Overseas health ministries · Private laboratories</p>
- <a href="labarchitect.html" class="who-card-link">Explore LabArchitect™ →</a>
+ <a href="https://hhglobalholdings.com/labarchitect.html" class="who-card-link">Explore LabArchitect™ →</a>
  </div>
 
  <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
@@ -1554,7 +1592,7 @@
  <h4>Pharma, Biotech &amp; Agri-Health Companies</h4>
  <p>You have a diagnostic concept, an assay, a lateral flow test, a genomic panel, or an environmental sensor, and you need validation, clinical or field evidence, and a regulatory pathway to certification for the UK and European markets (UKCA and CE marks) or beyond. From women's health and menopause biomarkers to camelid genomics and population-scale research programmes, we take diagnostics from concept to compliant submission across human, animal, and environmental applications.</p>
  <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Pharmaceutical companies · Biotech startups · Drug discovery companies · Women's health companies · Population health programmes · Agricultural diagnostics · Veterinary health companies</p>
- <a href="scientific-practice.html#pillars" class="who-card-link">Diagnostic &amp; Evidence Sciences →</a>
+ <a href="https://hhglobalholdings.com/scientific-practice.html#pillars" class="who-card-link">Diagnostic &amp; Evidence Sciences →</a>
  </div>
 
  <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
@@ -1563,7 +1601,7 @@
  <h4>International Organisations &amp; Investors</h4>
  <p>You are entering a new market, the UK, UAE, Europe, or beyond, and you need local scientific credibility, regulatory alignment, and laboratory capability to make it work. Whether you are a government agency, family office, or investment vehicle establishing diagnostic infrastructure, or an international programme requiring species-specific genomics capability, equine, camelid, or otherwise, we provide the scientific and operational infrastructure your expansion requires.</p>
  <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Government health agencies · International distributors · Family offices · Overseas health ministries · UAE &amp; Gulf region genomics programmes</p>
- <a href="company.html#contact" class="who-card-link">Get in Touch →</a>
+ <a href="https://hhglobalholdings.com/company.html#contact" class="who-card-link">Get in Touch →</a>
  </div>
 
  </div>
@@ -1676,8 +1714,9 @@
  <div class="section-tag">One Health Framework</div>
  <h2 class="section-heading">Three Domains.<br><em>One Pipeline.</em></h2>
  <p class="section-lead">Human, animal, and environmental health are interconnected. So is our capability. We cover the complete development pathway across all three domains, with the same rigour, the same regulatory discipline, and the same 100% client retention.</p>
-<div class="oh-wrap" id="ohWrap">
-<svg class="oh-svg" viewBox="0 0 1000 330" role="img" aria-label="Human, animal and environmental health converging into one pipeline from biomarker discovery to compliant submission">
+<div class="pin-scope" id="pinScope">
+ <div class="pin-sticky">
+  <svg class="oh-svg" id="ohSvg" viewBox="0 0 1000 330" role="img" aria-label="Human, animal and environmental health converging into one pipeline from biomarker discovery to compliant submission">
  <defs><linearGradient id="ohSpine" gradientUnits="userSpaceOnUse" x1="292" y1="165" x2="952" y2="165">
   <stop offset="0%" stop-color="#C5A25B"/><stop offset="100%" stop-color="#D8BF94"/></linearGradient></defs>
  <g class="oh-pill" style="--d:0s"><rect x="6" y="34" width="200" height="44" rx="22"/><text x="106" y="61">Human Health</text></g>
@@ -1693,7 +1732,10 @@
  <g class="oh-stage" style="--d:1.45s"><circle cx="758" cy="165" r="8"/><text x="758" y="206">Analytical &amp;</text><text x="758" y="223">clinical validation</text></g>
  <g class="oh-stage oh-last" style="--d:1.60s"><circle cx="940" cy="165" r="11"/><text x="922" y="206">Compliant</text><text x="922" y="223">submission</text></g>
  <text class="oh-spinelabel" style="--d:1.75s" x="622" y="138">one continuous evidence chain, no handoff gaps</text>
-</svg></div>
+</svg>
+  <div class="pin-cap" id="pinCap"><div data-i="0"><div class="k">Three domains</div><div class="h">One capability, not three teams</div><div class="p">Human, animal and environmental health are interconnected. So is the capability that serves them.</div></div><div data-i="1"><div class="k">Stage one</div><div class="h">Biomarker discovery</div><div class="p">Target identification and early signal, in our own laboratories rather than subcontracted out.</div></div><div data-i="2"><div class="k">Stage two</div><div class="h">Assay development</div><div class="p">Method design and optimisation, built from the start to be validated rather than retrofitted.</div></div><div data-i="3"><div class="k">Stage three</div><div class="h">Analytical and clinical validation</div><div class="p">Performance established against the material it will actually be used on, with uncertainty stated.</div></div><div data-i="4"><div class="k">Stage four</div><div class="h">Compliant submission</div><div class="p">A regulator-ready evidence package, produced by the same team that generated the data.</div></div></div>
+ </div>
+</div>
 
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem;">
 
@@ -1786,7 +1828,7 @@
 </section>
 <!-- CONTACT CTA -->
 <div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
-<section style="padding:80px 32px;background:linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%), url('hero-bg-cells.jpg') center/cover no-repeat;" id="contact">
+<section style="padding:80px 32px;background:linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%), url('assets/hero-bg-cells.webp') center/cover no-repeat;" id="contact">
  <div class="container">
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
  <!-- Left: copy -->
@@ -1966,8 +2008,8 @@
  <p>HH Global Holdings<br>Science, Evidence & Innovation</p>
  </div>
  <div class="footer-links">
- <a href="company.html">Company</a>&nbsp;&nbsp;·&nbsp;&nbsp;
- <a href="company.html#articles">Publications</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="https://hhglobalholdings.com/company.html">Company</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="https://hhglobalholdings.com/company.html#articles">Publications</a>&nbsp;&nbsp;·&nbsp;&nbsp;
  <a href="#contact">Contact</a>&nbsp;&nbsp;·&nbsp;&nbsp;
  <a href="https://www.linkedin.com/company/110136969" target="_blank">LinkedIn</a>
  </div>
@@ -2006,6 +2048,7 @@
    });
  })();
 </script>
+<div class="hhg-prog" id="hhgProg"></div>
 <div class="hhg-flag">HHG Draft Update One &middot; full concept build for review &middot; not the live site</div>
 <script>
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){
@@ -2016,6 +2059,108 @@
  ['ohWrap','gpWrap','ppWrap'].forEach(function(id){var n=document.getElementById(id);if(n)io.observe(n);});
  document.querySelectorAll('#markets .pillar-card,#differentiator .pillar-card,#compare .pillar-card')
   .forEach(function(el,i){el.classList.add('hhg-rv');el.style.transitionDelay=((i%3)*0.09)+'s';io.observe(el);});})();
+</script>
+<script>
+/* ===== HHG motion layer ===== */
+(function(){
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* 1. scroll progress */
+var prog=document.getElementById('hhgProg');
+function onScroll(){
+  var h=document.documentElement.scrollHeight-innerHeight;
+  if(prog) prog.style.transform='scaleX('+(h>0?scrollY/h:0)+')';
+  pin();
+}
+
+/* 2. pinned pipeline */
+var scope=document.getElementById('pinScope'),cap=document.getElementById('pinCap'),
+    svg=document.getElementById('ohSvg');
+var caps=cap?[].slice.call(cap.children):[],stages=svg?[].slice.call(svg.querySelectorAll('.oh-stage')):[];
+var lastIdx=-1;
+function pin(){
+  if(!scope||!svg||innerWidth<900||RM){return;}
+  var r=scope.getBoundingClientRect(),
+      p=Math.min(1,Math.max(0,(-r.top)/(scope.offsetHeight-innerHeight)));
+  svg.classList.add('oh-go');
+  var sp=svg.querySelector('.oh-spine');
+  if(sp) sp.style.strokeDashoffset=String(700*(1-Math.min(1,p*1.5)));
+  var idx=Math.min(caps.length-1,Math.floor(p*caps.length*0.999));
+  if(idx!==lastIdx){
+    lastIdx=idx;
+    caps.forEach(function(c,k){c.classList.toggle('on',k===idx);});
+    stages.forEach(function(s,k){s.classList.toggle('act',k===idx-1);});
+  }
+}
+if(caps.length) caps[0].classList.add('on');
+
+/* 3. word reveal on headings */
+if(!RM){
+  var hs=document.querySelectorAll('.section-heading, .hero-content h1');
+  var wio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');wio.unobserve(e.target);}});},{threshold:.3});
+  hs.forEach(function(h){
+    if(h.dataset.wr) return; h.dataset.wr=1;
+    var frag=document.createDocumentFragment(),i=0;
+    [].slice.call(h.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        n.textContent.split(/(\s+)/).forEach(function(w){
+          if(!w.trim()){frag.appendChild(document.createTextNode(w));return;}
+          var s=document.createElement('span');s.textContent=w;
+          s.style.transitionDelay=(i++*0.055)+'s';frag.appendChild(s);});
+      } else if(n.nodeName==='BR'){ frag.appendChild(n.cloneNode()); }
+      else { var s=document.createElement('span'); s.appendChild(n.cloneNode(true));
+             s.style.transitionDelay=(i++*0.055)+'s'; frag.appendChild(s); }
+    });
+    h.innerHTML=''; h.appendChild(frag); h.classList.add('wr'); wio.observe(h);
+  });
+}
+
+/* 4. hero sequencing trace */
+var cv=document.getElementById('hhgTrace');
+if(cv&&!RM){
+  var cx=cv.getContext('2d'),W=0,H=0,off=0,dpr=Math.min(2,devicePixelRatio||1);
+  function size(){var h=cv.parentElement;W=h.offsetWidth;H=h.offsetHeight;
+    cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);}
+  function squiggle(seed,amp,y0,step){
+    var pts=[],v=y0;
+    for(var x=-40;x<W+60;x+=step){
+      var n=Math.sin((x+seed)*0.013)+Math.sin((x+seed)*0.041)*0.6+Math.sin((x+seed)*0.117)*0.3;
+      v=y0+n*amp; pts.push([x,v]);
+    } return pts;
+  }
+  var lines=[{a:26,y:.30,s:5,o:.20,w:1.1},{a:34,y:.52,s:6,o:.14,w:1.3},{a:20,y:.74,s:4,o:.10,w:1}];
+  function draw(){
+    if(!W){size();}
+    cx.clearRect(0,0,W,H); off+=0.32;
+    lines.forEach(function(L,k){
+      var pts=squiggle(off*(1+k*0.35)+k*900,L.a,H*L.y,L.s);
+      cx.beginPath();cx.moveTo(pts[0][0],pts[0][1]);
+      for(var i=1;i<pts.length;i++)cx.lineTo(pts[i][0],pts[i][1]);
+      cx.strokeStyle='rgba(197,162,91,'+L.o+')';cx.lineWidth=L.w;cx.stroke();
+    });
+    requestAnimationFrame(draw);
+  }
+  addEventListener('resize',size); size(); requestAnimationFrame(draw);
+}
+
+/* 5. pointer parallax on hero images */
+var hero=document.getElementById('hero');
+if(hero&&!RM&&matchMedia('(pointer:fine)').matches){
+  var imgs=hero.querySelectorAll('.h-img');
+  hero.addEventListener('pointermove',function(e){
+    var r=hero.getBoundingClientRect(),
+        dx=(e.clientX-r.left)/r.width-.5, dy=(e.clientY-r.top)/r.height-.5;
+    imgs.forEach(function(el,k){var d=(k%2?-1:1)*(6+k*2);
+      el.style.transform='translate3d('+(dx*d)+'px,'+(dy*d)+'px,0)';});
+  });
+  hero.addEventListener('pointerleave',function(){
+    imgs.forEach(function(el){el.style.transform='';});
+  });
+}
+
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
 </script>
 </body>
 </html>
