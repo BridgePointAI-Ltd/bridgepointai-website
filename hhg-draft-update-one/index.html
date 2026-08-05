@@ -1572,6 +1572,47 @@ footer a:hover::after{right:0}
 @media(prefers-reduced-motion:reduce){
  .coc-scope{height:auto}.coc-sticky{position:static;height:auto;padding:48px 0}
  .coc-row{opacity:1;transform:none}.coc-fill{stroke-dashoffset:0}}
+
+/* ============ CAPABILITY SECTIONS ============ */
+.cap{padding:74px 0;background:#fff}
+.cap.alt{background:#FAF8F5}
+.cap-in{max-width:1240px;margin:0 auto;padding:0 34px}
+.cap-tag{font-size:10.5px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B}
+.cap-h{font-family:'Playfair Display',Georgia,serif;font-size:32px;line-height:1.15;color:#0B1F3F;margin:10px 0 12px}
+.cap-h em{color:#9A7B33;font-style:italic}
+.cap-lead{font-size:15px;color:#4A5568;max-width:660px;line-height:1.6}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:30px}
+@media(max-width:900px){.cap-grid{grid-template-columns:1fr;gap:26px}}
+/* PRISMA funnel */
+.pf-svg{width:100%;height:auto;display:block}
+.pf-band rect{fill:#fff;stroke:#E2DDD5;stroke-width:1.5}
+.pf-band.on rect{fill:#0B1F3F;stroke:#C5A25B}
+.pf-band text.t{fill:#0B1F3F;font-size:13px;font-weight:600}
+.pf-band.on text.t{fill:#fff}
+.pf-band text.n{fill:#9A7B33;font-size:19px;font-weight:700;text-anchor:end}
+.pf-band.on text.n{fill:#D8BF94}
+.pf-band text.s{fill:#6B7280;font-size:11px}
+.pf-band.on text.s{fill:#B8C4D8}
+.pf-band{opacity:0;transform:translateY(10px);transition:opacity .5s cubic-bezier(.2,.8,.2,1),transform .5s cubic-bezier(.2,.8,.2,1)}
+.pf-band.in{opacity:1;transform:none}
+.pf-band rect,.pf-band text{transition:fill .4s,stroke .4s}
+.pf-drop{stroke:#C5A25B;stroke-width:1.4;fill:none;opacity:.5}
+.cap-note{margin-top:16px;font-size:12.5px;color:#6B7280;font-style:italic}
+/* competence ledger */
+.cl{border:1px solid #E2DDD5;border-radius:12px;overflow:hidden}
+.cl-row{display:grid;grid-template-columns:1fr auto;gap:14px;padding:13px 17px;border-bottom:1px solid #F0EDE7;
+ font-size:13px;align-items:center;background:#fff;opacity:0;transform:translateY(8px);
+ transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .45s cubic-bezier(.2,.8,.2,1),background .3s}
+.cl-row.in{opacity:1;transform:none}
+.cl-row:last-child{border-bottom:none}
+.cl-row b{color:#0B1F3F;display:block}
+.cl-row span.m{color:#6B7280;font-size:11.5px}
+.cl-pill{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;letter-spacing:.5px;
+ padding:4px 10px;border-radius:100px;white-space:nowrap}
+.cl-pill.no{background:#fbf1ef;color:#8a2b1f}
+.cl-pill.yes{background:#eef6f4;color:#186b46}
+.cl-hd{background:#0B1F3F;color:#D8BF94;font-size:10px;font-weight:700;letter-spacing:2.2px;
+ text-transform:uppercase;padding:11px 17px}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -1755,6 +1796,67 @@ footer a:hover::after{right:0}
   </div>
  </div>
 </div>
+
+<section class="cap" id="evidence-synthesis">
+ <div class="cap-in">
+  <div class="cap-tag">Evidence synthesis</div>
+  <h2 class="cap-h section-heading">A systematic review is not a summary<br><em>of what has been published.</em></h2>
+  <p class="cap-lead">It is a judgement about what can be relied on. Screening is the part machines now do well.
+  Deciding whether a study can carry the weight being placed on it is not, and that judgement is the only part
+  that was ever worth paying for.</p>
+  <div class="cap-grid">
+   <div>
+    <svg class="pf-svg" id="pfSvg" viewBox="0 0 560 392" role="img"
+      aria-label="Flow from 2,847 records identified through to 11 studies carried into the synthesis">
+     <g class="pf-band" data-i="0" style="transition-delay:0.00s"><rect x="0" y="0" width="560" height="52" rx="8"/><text class="t" x="18" y="24">Records identified</text><text class="s" x="18" y="41">database and register searches</text><text class="n" x="542" y="34">2,847</text></g><path class="pf-drop" d="M280.0 52 L280.0 68"/><g class="pf-band" data-i="1" style="transition-delay:0.12s"><rect x="26" y="68" width="508" height="52" rx="8"/><text class="t" x="44" y="92">Duplicates removed</text><text class="s" x="44" y="109">before screening</text><text class="n" x="516" y="102">412</text></g><path class="pf-drop" d="M280.0 120 L280.0 136"/><g class="pf-band" data-i="2" style="transition-delay:0.24s"><rect x="52" y="136" width="456" height="52" rx="8"/><text class="t" x="70" y="160">Titles and abstracts screened</text><text class="s" x="70" y="177">against the pre-specified protocol</text><text class="n" x="490" y="170">2,435</text></g><path class="pf-drop" d="M280.0 188 L280.0 204"/><g class="pf-band" data-i="3" style="transition-delay:0.36s"><rect x="78" y="204" width="404" height="52" rx="8"/><text class="t" x="96" y="228">Full texts assessed</text><text class="s" x="96" y="245">for eligibility</text><text class="n" x="464" y="238">186</text></g><path class="pf-drop" d="M280.0 256 L280.0 272"/><g class="pf-band" data-i="4" style="transition-delay:0.48s"><rect x="104" y="272" width="352" height="52" rx="8"/><text class="t" x="122" y="296">Studies included</text><text class="s" x="122" y="313">and appraised for risk of bias</text><text class="n" x="438" y="306">23</text></g><path class="pf-drop" d="M280.0 324 L280.0 340"/><g class="pf-band" data-i="5" style="transition-delay:0.60s"><rect x="130" y="340" width="300" height="52" rx="8"/><text class="t" x="148" y="364">Carried into the synthesis</text><text class="s" x="148" y="381">after appraisal, not after retrieval</text><text class="n" x="412" y="374">11</text></g>
+    </svg>
+    <p class="cap-note">Illustrative flow. Reported to PRISMA, appraised with the instrument that fits the study type,
+    QUADAS-2 for diagnostic accuracy rather than a tool designed for trials.</p>
+   </div>
+   <div>
+    <h3 style="font-size:17px;color:#0B1F3F;margin-bottom:10px">Where reviews fail, and it is rarely arithmetic</h3>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">A reference standard that quietly
+    included the test being evaluated. A two gate design that recruits obvious cases and healthy controls separately.
+    Outcomes reported that are not the outcomes the protocol specified. A sensitivity figure quoted with no statement
+    of the population it was measured in. And often, a literature section that is a list of papers with a paragraph
+    under each, presented as though listing were the same as appraising.</p>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">None of that is caught by finding more
+    papers. Under the EU medical device and IVD regulations the literature behind a clinical or performance evaluation
+    must be systematic in the strict sense: a protocol written before results are looked at, a documented search, a
+    flow diagram accounting for exclusions, and critical appraisal of every included study against a validated tool.</p>
+    <p style="font-size:14px;color:#0B1F3F;line-height:1.6;font-weight:600">Almost every systematic review ends in
+    some version of further research is needed. We have a laboratory. When a review identifies the study that is
+    missing, we can design it, run it and produce the data.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="cap alt" id="competence">
+ <div class="cap-in">
+  <div class="cap-tag">Competence assurance</div>
+  <h2 class="cap-h section-heading">Attendance is not<br><em>competence.</em></h2>
+  <p class="cap-lead">ISO 17025 does not ask whether somebody attended a course. It asks whether a named individual is
+  competent and authorised for a specific activity, and whether that competence continues to be monitored. Assessors
+  have seen a great many attendance certificates.</p>
+  <div class="cap-grid">
+   <div class="cl" id="clWrap">
+    <div class="cl-hd">What an assessor actually asks for</div>
+    <div class="cl-row" style="transition-delay:0.00s"><div><b>Induction training signed off once</b><span class="m">method revised twice since</span></div><div class="cl-pill no">not current</div></div><div class="cl-row" style="transition-delay:0.09s"><div><b>Competence assessed by the method author</b><span class="m">no independent check anywhere in the loop</span></div><div class="cl-pill no">not independent</div></div><div class="cl-row" style="transition-delay:0.18s"><div><b>Authorisation implied by job title</b><span class="m">not recorded against a named activity or scope</span></div><div class="cl-pill no">not scoped</div></div><div class="cl-row" style="transition-delay:0.27s"><div><b>Training matrix lists courses attended</b><span class="m">not activities the person is cleared to perform</span></div><div class="cl-pill no">wrong unit</div></div><div class="cl-row" style="transition-delay:0.36s"><div><b>Attendance certificate on file</b><span class="m">no link to the results that person signed out</span></div><div class="cl-pill no">not traceable</div></div><div class="cl-row" style="transition-delay:0.45s"><div><b>Named individual, named activity, defined scope</b><span class="m">assessed, re-assessed, linked to signed-out results</span></div><div class="cl-pill yes">defensible</div></div>
+   </div>
+   <div>
+    <h3 style="font-size:17px;color:#0B1F3F;margin-bottom:10px">The gap, and why it surfaces late</h3>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">Training is bought as attendance and
+    recorded as attendance. The standard requires demonstrated competence, assessed against the activity and monitored
+    over time. The two are not the same, and the difference tends to surface during an assessment rather than before one.</p>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">The finding is rarely that people were
+    untrained. It is almost always that nobody could demonstrate otherwise.</p>
+    <p style="font-size:14px;color:#0B1F3F;line-height:1.6;font-weight:600">We build the competence record alongside
+    the training, so that what is left behind is evidence rather than a certificate.</p>
+   </div>
+  </div>
+ </div>
+</section>
 <div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
 <section class="section-alt" id="compare">
  <div class="container">
@@ -2420,6 +2522,22 @@ function upd(){
   }
 }
 addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
+})();
+</script>
+<script>
+(function(){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(!e.isIntersecting) return;
+   if(e.target.id==='pfSvg'){
+     var b=[].slice.call(e.target.querySelectorAll('.pf-band'));
+     b.forEach(function(g){g.classList.add('in');});
+     setTimeout(function(){ b.forEach(function(g,i){ if(i>=4) g.classList.add('on'); }); }, 1100);
+   } else if(e.target.id==='clWrap'){
+     [].slice.call(e.target.querySelectorAll('.cl-row')).forEach(function(r){r.classList.add('in');});
+   }
+   io.unobserve(e.target);
+ });},{threshold:.25});
+ ['pfSvg','clWrap'].forEach(function(id){var n=document.getElementById(id); if(n) io.observe(n);});
 })();
 </script>
 </body>
