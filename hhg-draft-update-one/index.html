@@ -1679,7 +1679,7 @@ footer a:hover::after{right:0}
 .lab-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
  padding:0 34px;max-width:1240px;margin:0 auto;left:0;right:0}
 .lab-copy .k{font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B;margin-bottom:10px}
-.lab-copy h3{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:#fff;margin-bottom:10px;font-weight:600;max-width:15ch}
+.lab-copy h3{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:#fff;margin-bottom:10px;font-weight:600;max-width:20ch}
 .lab-copy p{font-size:14px;color:#C3CEE0;max-width:430px;line-height:1.6}
 @media(prefers-reduced-motion:reduce){.lab-stack figure,.lab-stack figure img{animation:none}
  .lab-stack figure:nth-child(1){opacity:1}}
@@ -2031,6 +2031,429 @@ footer a:hover::after{right:0}
 </section>
 <!-- MARKETS WE SERVE -->
 
+
+<style>
+/* Clean room band -------------------------------------------------- */
+.cr-photo{position:absolute;inset:0}
+.cr-veil{background:linear-gradient(100deg,rgba(11,31,63,.94) 0%,rgba(11,31,63,.86) 34%,rgba(11,31,63,.48) 62%,rgba(11,31,63,.30) 100%)!important}
+.cr-photo img{width:100%;height:100%;object-fit:cover;display:block;
+  animation:crDrift 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes crDrift{0%{transform:scale(1.04)}100%{transform:scale(1.13)}}
+.cr-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  padding:7px 15px;border:1px solid rgba(197,162,91,.55);border-radius:999px;
+  font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#E4CE9E;
+  background:rgba(11,31,63,.45)}
+.cr-pill i{width:6px;height:6px;border-radius:50%;background:#C5A25B;font-style:normal;
+  animation:crPulse 2.4s ease-in-out infinite}
+@keyframes crPulse{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+
+/* Airlock sequence -------------------------------------------------- */
+.seq{background:#0B1F3F;padding:56px 0 62px}
+.seq-head{max-width:1180px;margin:0 auto 26px;padding:0 34px}
+.seq-head .k{font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B}
+.seq-head h3{font-family:'Playfair Display',Georgia,serif;font-size:27px;color:#fff;
+  margin:9px 0 8px;font-weight:600}
+.seq-head p{font-size:13.5px;color:#A9B7CE;max-width:62ch;line-height:1.65;margin:0}
+.seq-wrap{max-width:1180px;margin:0 auto;padding:0 34px}
+.seq-svg{width:100%;height:auto;display:block}
+.seq-foot{max-width:1180px;margin:14px auto 0;padding:0 34px;
+  font-size:11.5px;color:#7C8CA6;letter-spacing:.2px}
+.seq-foot b{color:#C5A25B;font-weight:600}
+
+.seq-svg .wall{fill:none;stroke:#2B4573;stroke-width:2}
+.seq-svg .room{fill:#0F2951}
+.seq-svg .room.clean{fill:#12315F}
+.seq-svg .floor{fill:#16335E}
+.seq-svg .lbl{font:700 10px/1 Inter,system-ui,sans-serif;letter-spacing:2.4px;
+  text-transform:uppercase;fill:#8FA3C4}
+.seq-svg .iso{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#C5A25B}
+.seq-svg .cnt{font:400 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#7C8CA6}
+.seq-svg .pa{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#9FD6C0;opacity:0}
+.seq-svg .hepa{fill:#1D3E70;stroke:#33598F;stroke-width:1}
+
+.seq-svg .flow{stroke:#5C8FD0;stroke-width:1.2;stroke-dasharray:5 11;opacity:0;
+  animation:flowFade 10s linear infinite,flowMove 1.6s linear infinite}
+@keyframes flowMove{to{stroke-dashoffset:-32}}
+@keyframes flowFade{0%,62%{opacity:0}70%,100%{opacity:.55}}
+
+.seq-svg .leaf{fill:#24406E;stroke:#3C5F94;stroke-width:1.5}
+.seq-svg .d1a{animation:d1a 10s ease-in-out infinite}
+.seq-svg .d1b{animation:d1b 10s ease-in-out infinite}
+.seq-svg .d2a{animation:d2a 10s ease-in-out infinite}
+.seq-svg .d2b{animation:d2b 10s ease-in-out infinite}
+@keyframes d1a{0%,17%{transform:translateX(0)}24%,48%{transform:translateX(-15px)}55%,100%{transform:translateX(0)}}
+@keyframes d1b{0%,17%{transform:translateX(0)}24%,48%{transform:translateX(15px)}55%,100%{transform:translateX(0)}}
+@keyframes d2a{0%,50%{transform:translateX(0)}57%,68%{transform:translateX(-15px)}75%,100%{transform:translateX(0)}}
+@keyframes d2b{0%,50%{transform:translateX(0)}57%,68%{transform:translateX(15px)}75%,100%{transform:translateX(0)}}
+
+.seq-svg .fig{animation:figWalk 10s ease-in-out infinite}
+@keyframes figWalk{
+  0%{transform:translateX(0);opacity:0}
+  5%{transform:translateX(0);opacity:1}
+  18%{transform:translateX(232px)}
+  24%{transform:translateX(232px)}
+  33%{transform:translateX(392px)}
+  57%{transform:translateX(392px)}
+  67%{transform:translateX(700px)}
+  95%{transform:translateX(700px);opacity:1}
+  100%{transform:translateX(700px);opacity:0}}
+.seq-svg .body-st{fill:#4E6C99}
+.seq-svg .gown{fill:#E8EDF6;opacity:0;animation:gownOn 10s linear infinite}
+@keyframes gownOn{0%,36%{opacity:0}46%,100%{opacity:1}}
+
+.seq-svg .p1{animation:paIn 10s linear infinite}
+.seq-svg .p2{animation:paIn2 10s linear infinite}
+.seq-svg .p3{animation:paIn3 10s linear infinite}
+@keyframes paIn{0%,36%{opacity:0}42%,100%{opacity:1}}
+@keyframes paIn2{0%,40%{opacity:0}46%,100%{opacity:1}}
+@keyframes paIn3{0%,44%{opacity:0}50%,100%{opacity:1}}
+
+.seq-svg .stamp{opacity:0;animation:stampIn 10s cubic-bezier(.2,.9,.3,1) infinite}
+@keyframes stampIn{0%,74%{opacity:0;transform:scale(1.35)}82%,100%{opacity:1;transform:scale(1)}}
+.seq-svg .stamp circle{fill:none;stroke:#C5A25B;stroke-width:1.5}
+.seq-svg .stamp text{font:700 13px/1 Inter,system-ui,sans-serif;fill:#C5A25B;letter-spacing:1px}
+
+@media(prefers-reduced-motion:reduce){
+  .cr-photo img,.seq-svg .fig,.seq-svg .leaf,.seq-svg .gown,.seq-svg .flow,
+  .seq-svg .pa,.seq-svg .stamp,.cr-pill i{animation:none!important}
+  .seq-svg .fig{transform:translateX(700px)}
+  .seq-svg .gown,.seq-svg .pa,.seq-svg .stamp,.seq-svg .flow{opacity:1}}
+@media(max-width:760px){.seq{padding:38px 0 44px}.seq-head h3{font-size:21px}
+  .seq-head,.seq-wrap,.seq-foot{padding:0 20px}}
+</style>
+
+<section class="lab" id="lab24">
+ <div class="lab-media">
+  <div class="cr-photo">
+   <img src="assets/cleanroom.webp" alt="Clean room interior with gowning lobby and interlocked door"
+        decoding="async" loading="lazy">
+  </div>
+  <div class="lab-veil cr-veil"></div>
+  <div class="lab-copy">
+   <div class="k">Our own laboratories &middot; Nottingham</div>
+   <h3>The work is done here, not subcontracted.</h3>
+   <p>An ISO 7 controlled clean room with cell-culture capability, for controlled manufacturing
+   and sensitive studies, alongside immunology, genetics and data.</p>
+   <div class="cr-pill"><i></i>Opening September 2026</div>
+  </div>
+ </div>
+<div class="lab-cap"><b>Clean room, opening September 2026.</b> Fully enclosed, with a gowning lobby and interlocked entry to the laboratory.</div>
+</section>
+<section class="seq" id="airlock">
+ <div class="seq-head">
+  <div class="k">Controlled entry &middot; Ten seconds</div>
+  <h3>You do not walk into a clean room. You are admitted to it.</h3>
+  <p>Fully enclosed, with a gowning lobby between the corridor and the laboratory, and interlocked
+  doors so that the two never stand open together. Air is held at higher pressure inside than out,
+  so any leakage runs the safe way. This is that sequence, drawn to the classifications the room
+  is built to.</p>
+ </div>
+ <div class="seq-wrap">
+  <svg class="seq-svg" viewBox="24 64 1132 366" role="img"
+       aria-label="Schematic of clean room entry: corridor, gowning lobby, interlocked doors, ISO 7 laboratory">
+   <rect x="0" y="0" width="1180" height="440" fill="#0B1F3F"/>
+   
+   <rect class="room " x="40" y="82" width="320" height="300"/>
+   <text class="lbl" x="56" y="112">Corridor</text>
+   <text class="iso" x="56" y="136">ISO 9</text>
+   <text class="cnt" x="56" y="154">35,200,000</text>
+   <text class="pa p1" x="56" y="358">+0 Pa</text>
+   
+   <rect class="room " x="392" y="82" width="320" height="300"/>
+   <text class="lbl" x="408" y="112">Gowning lobby</text>
+   <text class="iso" x="408" y="136">ISO 8</text>
+   <text class="cnt" x="408" y="154">3,520,000</text>
+   <text class="pa p2" x="408" y="358">+15 Pa</text>
+   
+   <rect class="room clean" x="744" y="82" width="396" height="300"/>
+   <text class="lbl" x="760" y="112">Laboratory</text>
+   <text class="iso" x="760" y="136">ISO 7</text>
+   <text class="cnt" x="760" y="154">352,000</text>
+   <text class="pa p3" x="760" y="358">+30 Pa</text>
+   <rect class="hepa" x="757" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="811" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="865" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="919" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="973" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1027" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1081" y="91" width="46" height="14" rx="1"/>
+   <line class="flow" x1="766" y1="112" x2="766" y2="362" style="animation-delay:0s,-0.00s"/><line class="flow" x1="792" y1="112" x2="792" y2="362" style="animation-delay:0s,-0.22s"/><line class="flow" x1="818" y1="112" x2="818" y2="362" style="animation-delay:0s,-0.44s"/><line class="flow" x1="844" y1="112" x2="844" y2="362" style="animation-delay:0s,-0.66s"/><line class="flow" x1="870" y1="112" x2="870" y2="362" style="animation-delay:0s,-0.88s"/><line class="flow" x1="896" y1="112" x2="896" y2="362" style="animation-delay:0s,-1.10s"/><line class="flow" x1="922" y1="112" x2="922" y2="362" style="animation-delay:0s,-1.32s"/><line class="flow" x1="948" y1="112" x2="948" y2="362" style="animation-delay:0s,-1.54s"/><line class="flow" x1="974" y1="112" x2="974" y2="362" style="animation-delay:0s,-1.76s"/><line class="flow" x1="1000" y1="112" x2="1000" y2="362" style="animation-delay:0s,-1.98s"/><line class="flow" x1="1026" y1="112" x2="1026" y2="362" style="animation-delay:0s,-2.20s"/><line class="flow" x1="1052" y1="112" x2="1052" y2="362" style="animation-delay:0s,-2.42s"/><line class="flow" x1="1078" y1="112" x2="1078" y2="362" style="animation-delay:0s,-2.64s"/><line class="flow" x1="1104" y1="112" x2="1104" y2="362" style="animation-delay:0s,-2.86s"/><line class="flow" x1="1130" y1="112" x2="1130" y2="362" style="animation-delay:0s,-3.08s"/>
+   <rect class="floor" x="40" y="376" width="1100" height="6"/><line x1="744" y1="110" x2="1140" y2="110" stroke="#33598F" stroke-width="1" opacity=".6"/>
+   <rect class="wall" x="40" y="82" width="1100" height="300"/>
+   <line class="wall" x1="360" y1="82" x2="360" y2="382"/>
+   <line class="wall" x1="392" y1="82" x2="392" y2="382"/>
+   <line class="wall" x1="712" y1="82" x2="712" y2="382"/>
+   <line class="wall" x1="744" y1="82" x2="744" y2="382"/>
+   <rect class="leaf d1a" x="361" y="180" width="15" height="196"/>
+   <rect class="leaf d1b" x="376" y="180" width="15" height="196"/>
+   <rect class="leaf d2a" x="713" y="180" width="15" height="196"/>
+   <rect class="leaf d2b" x="728" y="180" width="15" height="196"/>
+   <g class="fig">
+    <g transform="translate(160,0)">
+     <circle class="body-st" cx="0" cy="286" r="11"/>
+     <rect class="body-st" x="-11" y="300" width="22" height="76" rx="9"/>
+     <circle class="gown" cx="0" cy="286" r="11"/>
+     <rect class="gown" x="-12" y="299" width="24" height="77" rx="9"/>
+    </g>
+   </g>
+   <g class="stamp" style="transform-origin:1040px 300px">
+    <circle cx="1040" cy="300" r="42"/>
+    <text x="1040" y="296" text-anchor="middle">ISO 7</text>
+    <text x="1040" y="314" text-anchor="middle" style="font-size:8.5px;letter-spacing:2px;fill:#9C8455">CONTROLLED</text>
+   </g>
+   <text class="cnt" x="40" y="412">Particles &#8805;0.5 &#181;m per cubic metre. Class limits, ISO 14644-1.</text>
+  </svg>
+ </div>
+ <div class="seq-foot"><b>Schematic, not a photograph.</b> It shows the classifications and the
+ pressure cascade the room is built to, nothing more.</div>
+</section>
+<!-- SCIENTIFIC LEADERSHIP BAR -->
+<section class="science-bar">
+ <div class="science-bar-inner">
+ <span class="hero-cred-item">AstraZeneca Trial Delivery</span>
+ <span class="hero-cred-item">Regulatory by Design</span>
+ <span class="hero-cred-item">Government Advisory</span>
+ <span class="hero-cred-item">NHS Clinical Access</span>
+ 
+ </div>
+</section>
+<!-- CREDIBILITY BAR -->
+
+<!-- WHO WE SERVE -->
+<section class="section" id="clients">
+ <div class="container">
+ <div class="section-tag">Who We Serve</div>
+ <h2 class="section-heading">Do You Recognise<br><em>Yourself Here?</em></h2>
+ <p class="section-lead">Our clients come to us at the moment their science needs to become real, validated, compliant, and capable of withstanding regulatory or legal scrutiny. If one of these situations sounds familiar, we should talk.</p>
+ <div class="pillars-grid" style="grid-template-columns:repeat(4,1fr);">
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">01</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Embedded Scientific Capability</div>
+ <h4>Early-Stage Companies</h4>
+ <p>You have the science but not the credentialled team to validate or advance it. You need real scientists, not a consultancy. Whether it is systematic reviews, technical advisory, or R&amp;D without the overhead of an in-house lab, we become your scientific function.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">SMEs · Biotech startups · Environmental consultancies · Independent researchers</p>
+ <a href="https://hhglobalholdings.com/scientific-practice.html" class="who-card-link">Scientific Practice →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">02</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Lab Build &amp; Accreditation</div>
+ <h4>Organisations Building or Upgrading Labs</h4>
+ <p>We design laboratories around what the client needs to achieve, regulatory compliance is structural, not an afterthought. Labs built to ISO 17025/15189 from the ground up, not retrofitted after the fact. From equipment specification and Standard Operating Procedure (SOP) development to UK Accreditation Service (UKAS) audit preparation, we have built accredited labs from empty rooms, designed for compliance from day one.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">NHS Trusts · Universities · Overseas health ministries · Private laboratories</p>
+ <a href="https://hhglobalholdings.com/labarchitect.html" class="who-card-link">Explore LabArchitect™ →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">03</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Diagnostic Development</div>
+ <h4>Pharma, Biotech &amp; Agri-Health Companies</h4>
+ <p>You have a diagnostic concept, an assay, a lateral flow test, a genomic panel, or an environmental sensor, and you need validation, clinical or field evidence, and a regulatory pathway to certification for the UK and European markets (UKCA and CE marks) or beyond. From women's health and menopause biomarkers to camelid genomics and population-scale research programmes, we take diagnostics from concept to compliant submission across human, animal, and environmental applications.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Pharmaceutical companies · Biotech startups · Drug discovery companies · Women's health companies · Population health programmes · Agricultural diagnostics · Veterinary health companies</p>
+ <a href="https://hhglobalholdings.com/scientific-practice.html#pillars" class="who-card-link">Diagnostic &amp; Evidence Sciences →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">04</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">UK Market Entry Support</div>
+ <h4>International Organisations &amp; Investors</h4>
+ <p>You are entering a new market, the UK, UAE, Europe, or beyond, and you need local scientific credibility, regulatory alignment, and laboratory capability to make it work. Whether you are a government agency, family office, or investment vehicle establishing diagnostic infrastructure, or an international programme requiring species-specific genomics capability, equine, camelid, or otherwise, we provide the scientific and operational infrastructure your expansion requires.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Government health agencies · International distributors · Family offices · Overseas health ministries · UAE &amp; Gulf region genomics programmes</p>
+ <a href="https://hhglobalholdings.com/company.html#contact" class="who-card-link">Get in Touch →</a>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+
+<div class="coc-scope" id="cocScope">
+ <div class="coc-sticky">
+  <div class="coc-in">
+   <div>
+    <div class="coc-tag">Chain of custody</div>
+    <h2 class="coc-h">Every result carries<br><em>the record of how it was made.</em></h2>
+    <p class="coc-sub">Scroll to move a sample through the laboratory. Each step writes an entry to the
+    audit log, and each entry is sealed with a hash of the one before it. Alter any entry and the chain
+    breaks. These hashes are computed in your browser, right now, from the entries as they are written.</p>
+    <div class="coc-track">
+     <svg class="coc-svg" viewBox="0 0 1200 110" role="img" aria-label="Eight custody stations from collection to disclosure">
+      <path class="coc-rail" d="M60 64 L1140 64"/>
+      <path class="coc-fill" id="cocFill" d="M60 64 L1140 64"/>
+      <g class="coc-st" data-k="0"><circle cx="60" cy="64" r="7"/><text x="60" y="94">Collection</text></g><g class="coc-st" data-k="1"><circle cx="214" cy="64" r="7"/><text x="214" y="94">Seal</text></g><g class="coc-st" data-k="2"><circle cx="369" cy="64" r="7"/><text x="369" y="94">Transit</text></g><g class="coc-st" data-k="3"><circle cx="523" cy="64" r="7"/><text x="523" y="94">Receipt</text></g><g class="coc-st" data-k="4"><circle cx="677" cy="64" r="7"/><text x="677" y="94">Prep</text></g><g class="coc-st" data-k="5"><circle cx="831" cy="64" r="7"/><text x="831" y="94">Run</text></g><g class="coc-st" data-k="6"><circle cx="986" cy="64" r="7"/><text x="986" y="94">Analysis</text></g><g class="coc-st" data-k="7"><circle cx="1140" cy="64" r="7"/><text x="1140" y="94">Report</text></g>
+      <circle class="coc-tok" id="cocTok" cx="60" cy="64" r="11"/>
+     </svg>
+    </div>
+   </div>
+   <div class="coc-log">
+    <div class="coc-loghd"><b>Audit log</b><span class="coc-verify" id="cocVer">awaiting entries</span></div>
+    <div class="coc-rows" id="cocRows"></div>
+    <div class="coc-tamper">
+      <button class="coc-btn" id="cocTamper" type="button">Simulate tampering with #04</button>
+      <span class="coc-note" id="cocNote">SHA-256, chained.</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<section class="cap" id="evidence-synthesis">
+ <div class="cap-in">
+  <div class="cap-tag">Evidence synthesis</div>
+  <h2 class="cap-h section-heading">A systematic review is not a summary<br><em>of what has been published.</em></h2>
+  <p class="cap-lead">It is a judgement about what can be relied on. Screening is the part machines now do well.
+  Deciding whether a study can carry the weight being placed on it is not, and that judgement is the only part
+  that was ever worth paying for.</p>
+  <div class="cap-grid">
+   <div>
+    <svg class="pf-svg" id="pfSvg" viewBox="0 0 560 392" role="img"
+      aria-label="Flow from 2,847 records identified through to 11 studies carried into the synthesis">
+     <g class="pf-band" data-i="0" style="transition-delay:0.00s"><rect x="0" y="0" width="560" height="52" rx="8"/><text class="t" x="18" y="24">Records identified</text><text class="s" x="18" y="41">database and register searches</text><text class="n" x="542" y="34">2,847</text></g><path class="pf-drop" d="M280.0 52 L280.0 68"/><g class="pf-band" data-i="1" style="transition-delay:0.12s"><rect x="26" y="68" width="508" height="52" rx="8"/><text class="t" x="44" y="92">Duplicates removed</text><text class="s" x="44" y="109">before screening</text><text class="n" x="516" y="102">412</text></g><path class="pf-drop" d="M280.0 120 L280.0 136"/><g class="pf-band" data-i="2" style="transition-delay:0.24s"><rect x="52" y="136" width="456" height="52" rx="8"/><text class="t" x="70" y="160">Titles and abstracts screened</text><text class="s" x="70" y="177">against the pre-specified protocol</text><text class="n" x="490" y="170">2,435</text></g><path class="pf-drop" d="M280.0 188 L280.0 204"/><g class="pf-band" data-i="3" style="transition-delay:0.36s"><rect x="78" y="204" width="404" height="52" rx="8"/><text class="t" x="96" y="228">Full texts assessed</text><text class="s" x="96" y="245">for eligibility</text><text class="n" x="464" y="238">186</text></g><path class="pf-drop" d="M280.0 256 L280.0 272"/><g class="pf-band" data-i="4" style="transition-delay:0.48s"><rect x="104" y="272" width="352" height="52" rx="8"/><text class="t" x="122" y="296">Studies included</text><text class="s" x="122" y="313">and appraised for risk of bias</text><text class="n" x="438" y="306">23</text></g><path class="pf-drop" d="M280.0 324 L280.0 340"/><g class="pf-band" data-i="5" style="transition-delay:0.60s"><rect x="130" y="340" width="300" height="52" rx="8"/><text class="t" x="148" y="364">Carried into the synthesis</text><text class="s" x="148" y="381">after appraisal, not after retrieval</text><text class="n" x="412" y="374">11</text></g>
+    </svg>
+    <p class="cap-note">Illustrative flow. Reported to PRISMA, appraised with the instrument that fits the study type,
+    QUADAS-2 for diagnostic accuracy rather than a tool designed for trials.</p>
+   </div>
+   <div>
+    <h3 style="font-size:17px;color:#0B1F3F;margin-bottom:10px">Where reviews fail, and it is rarely arithmetic</h3>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">A reference standard that quietly
+    included the test being evaluated. A two gate design that recruits obvious cases and healthy controls separately.
+    Outcomes reported that are not the outcomes the protocol specified. A sensitivity figure quoted with no statement
+    of the population it was measured in. And often, a literature section that is a list of papers with a paragraph
+    under each, presented as though listing were the same as appraising.</p>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">None of that is caught by finding more
+    papers. Under the EU medical device and IVD regulations the literature behind a clinical or performance evaluation
+    must be systematic in the strict sense: a protocol written before results are looked at, a documented search, a
+    flow diagram accounting for exclusions, and critical appraisal of every included study against a validated tool.</p>
+    <p style="font-size:14px;color:#0B1F3F;line-height:1.6;font-weight:600">Almost every systematic review ends in
+    some version of further research is needed. We have a laboratory. When a review identifies the study that is
+    missing, we can design it, run it and produce the data.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="cap alt" id="competence">
+ <div class="cap-in">
+  <div class="cap-tag">Competence assurance</div>
+  <h2 class="cap-h section-heading">Attendance is not<br><em>competence.</em></h2>
+  <p class="cap-lead">ISO 17025 does not ask whether somebody attended a course. It asks whether a named individual is
+  competent and authorised for a specific activity, and whether that competence continues to be monitored. Assessors
+  have seen a great many attendance certificates.</p>
+  <div class="cap-grid">
+   <div class="cl" id="clWrap">
+    <div class="cl-hd">What an assessor actually asks for</div>
+    <div class="cl-row" style="transition-delay:0.00s"><div><b>Induction training signed off once</b><span class="m">method revised twice since</span></div><div class="cl-pill no">not current</div></div><div class="cl-row" style="transition-delay:0.09s"><div><b>Competence assessed by the method author</b><span class="m">no independent check anywhere in the loop</span></div><div class="cl-pill no">not independent</div></div><div class="cl-row" style="transition-delay:0.18s"><div><b>Authorisation implied by job title</b><span class="m">not recorded against a named activity or scope</span></div><div class="cl-pill no">not scoped</div></div><div class="cl-row" style="transition-delay:0.27s"><div><b>Training matrix lists courses attended</b><span class="m">not activities the person is cleared to perform</span></div><div class="cl-pill no">wrong unit</div></div><div class="cl-row" style="transition-delay:0.36s"><div><b>Attendance certificate on file</b><span class="m">no link to the results that person signed out</span></div><div class="cl-pill no">not traceable</div></div><div class="cl-row" style="transition-delay:0.45s"><div><b>Named individual, named activity, defined scope</b><span class="m">assessed, re-assessed, linked to signed-out results</span></div><div class="cl-pill yes">defensible</div></div>
+   </div>
+   <div>
+    <h3 style="font-size:17px;color:#0B1F3F;margin-bottom:10px">The gap, and why it surfaces late</h3>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">Training is bought as attendance and
+    recorded as attendance. The standard requires demonstrated competence, assessed against the activity and monitored
+    over time. The two are not the same, and the difference tends to surface during an assessment rather than before one.</p>
+    <p style="font-size:14px;color:#4A5568;line-height:1.6;margin-bottom:10px">The finding is rarely that people were
+    untrained. It is almost always that nobody could demonstrate otherwise.</p>
+    <p style="font-size:14px;color:#0B1F3F;line-height:1.6;font-weight:600">We build the competence record alongside
+    the training, so that what is left behind is evidence rather than a certificate.</p>
+   </div>
+  </div>
+ </div>
+</section>
+<div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
+<section class="section-alt" id="compare">
+ <div class="container">
+   <div class="section-tag">How We Compare</div>
+   <h2 class="section-heading">Niche Specialist <em>with Infrastructure.</em></h2>
+   <p class="section-lead">Buyers of regulated science typically face a binary: an industrial CRO with scale but limited customisation, or a solo academic with depth but no operating infrastructure. Our practice is built to occupy the gap between them.</p>
+<div class="pp-wrap" id="ppWrap">
+<svg class="pp-svg" viewBox="0 0 900 430" role="img" aria-label="Positioning: solo scientist has depth without delivery infrastructure, industrial CRO has infrastructure without depth, HH Global Holdings occupies the gap between them">
+ <!-- gap band -->
+ <path class="pp-gap" d="M168 158 C 300 180, 440 230, 760 312 L 748 356 C 430 272, 292 222, 152 202 Z"/>
+ <!-- axes -->
+ <line class="pp-axis" x1="104" y1="60" x2="104" y2="372"/>
+ <line class="pp-axis" x1="104" y1="372" x2="836" y2="372"/>
+ <text class="pp-axl" x="104" y="46">Scientific depth &amp; customisation</text>
+ <text class="pp-axl" x="836" y="404" text-anchor="end">Operating infrastructure &amp; accreditation</text>
+ <text class="pp-tick" x="112" y="368">low</text>
+ <text class="pp-tick" x="112" y="72">high</text>
+ <text class="pp-tick" x="832" y="392" text-anchor="end">high</text>
+ <!-- markers -->
+ <g class="pp-m" style="--d:.6s">
+  <circle cx="196" cy="132" r="15" fill="#fff" stroke="#6B7280"/>
+  <text class="t" x="196" y="106" fill="#4A5568">Solo Scientist</text>
+  <text class="s" x="196" y="168">depth without delivery</text>
+ </g>
+ <g class="pp-m" style="--d:.85s">
+  <circle cx="742" cy="298" r="15" fill="#fff" stroke="#6B7280"/>
+  <text class="t" x="742" y="272" fill="#4A5568">Industrial CRO</text>
+  <text class="s" x="742" y="334">scale without customisation</text>
+ </g>
+ <g class="pp-m" style="--d:1.7s">
+  <circle cx="452" cy="214" r="19" fill="#0B1F3F" stroke="#C5A25B"/>
+  <text class="t" x="452" y="184" fill="#0B1F3F">HH Global Holdings</text>
+  <text class="s" x="452" y="252">specialist depth, with the infrastructure</text>
+ </g>
+ <text class="pp-gapl" x="322" y="300">the gap</text>
+</svg></div>
+
+
+   <div class="compare-grid">
+     <div class="compare-col">
+       <h4>Industrial CRO</h4>
+       <p class="compare-line">Scale &amp; capacity</p>
+       <ul>
+         <li>High throughput</li>
+         <li>Standardised workflows</li>
+         <li>Limited customisation</li>
+         <li>Programme-level engagement</li>
+         <li>Generalist account team</li>
+       </ul>
+     </div>
+     <div class="compare-col compare-feature">
+       <h4>HH Global Holdings</h4>
+       <p class="compare-line">Specialist depth with infrastructure</p>
+       <ul>
+         <li>Custom assay &amp; method design</li>
+         <li>ISO 17025 / 15189 operating model</li>
+         <li>Peer-reviewed scientific lead</li>
+         <li>End-to-end accountability</li>
+         <li>Practice continuity across engagements</li>
+       </ul>
+     </div>
+     <div class="compare-col">
+       <h4>Solo Scientist</h4>
+       <p class="compare-line">Depth without delivery</p>
+       <ul>
+         <li>Deep specialist knowledge</li>
+         <li>Personal credibility</li>
+         <li>No accredited infrastructure</li>
+         <li>Project-by-project, no continuity</li>
+         <li>Limited bandwidth</li>
+       </ul>
+     </div>
+   </div>
+ </div>
+</section>
+<!-- OUR EDGE -->
+<section class="section-alt" id="differentiator">
+ <div class="container">
+ <div class="section-tag">Why HH Global Holdings — Operational Entities</div>
+ <h2 class="section-heading">Fundamental Science.<br>Commercial <em>Insight.</em></h2>
+ <p class="section-lead">Fragmented CRO (Contract Research Organisation) partnerships are where science goes to slow down. Handoff gaps, misaligned regulatory assumptions, and broad-spectrum guesswork all compound into costly delays. Here is how we eliminate them.</p>
+ <div class="pillars-grid">
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">01</span></div>
+ <h4>The Full Pipeline</h4>
+ <p>Most CROs can take you part of the way. The gap between where one ends and the next begins is where programmes stall. We cover the entire development pathway, from biomarker identification and preclinical work through to ISO 17025/15189 compliance. One partner, no handoff gaps, no restarts.</p>
+ </div>
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">02</span></div>
+ <h4>Targeted, Not Spray-and-Hope</h4>
+ <p>In vitro to in vivo translation is difficult, costly, and often fails when it relies on broad-spectrum assumptions. We identify the lock, find the key model, and replicate the mechanism, targeted development from day one. That is why our clients reach submission faster, with fewer failed iterations.</p>
+ </div>
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">03</span></div>
+ <h4>Regulatory-First by Design</h4>
+ <p>Navigating regulatory requirements is one of the most stressful stages of development, and the most expensive to get wrong. We build every programme to meet compliance from day one, not as an afterthought. The result: evidence packages that work first time, submissions without surprises, and no expensive rework.</p>
+ </div>
+ </div>
+ </div>
+</section>
+<!-- MARKETS WE SERVE -->
+
 <section class="lab" id="lab24">
  
  <div class="lab-media">
@@ -2044,7 +2467,7 @@ footer a:hover::after{right:0}
    <figure><img src="assets/img5.webp" alt="" decoding="async" loading="lazy"></figure>
    <figure><img src="assets/img6.webp" alt="" decoding="async" loading="lazy"></figure>
   </div>
-  <div class="lab-veil"></div>
+  <div class="lab-veil cr-veil"></div>
   <div class="lab-copy">
    <div class="k">Our own laboratories &middot; Nottingham</div>
    <h3>The work is done here, not subcontracted.</h3>
