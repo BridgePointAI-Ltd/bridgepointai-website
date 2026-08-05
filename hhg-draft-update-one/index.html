@@ -1455,6 +1455,62 @@ html{scroll-behavior:smooth}
  #hhgTrace{display:none}
  .pin-scope{height:auto}.pin-sticky{position:static;height:auto}
  .pin-cap>div{position:static;opacity:1;transform:none;margin-bottom:14px}}
+
+/* ================= SHARPENING PASS ================= */
+nav{transition:height .35s cubic-bezier(.2,.8,.2,1),background-color .35s,backdrop-filter .35s,box-shadow .35s;
+    will-change:height,background-color}
+nav.cond{background:rgba(11,31,63,.82);backdrop-filter:saturate(150%) blur(14px);
+    -webkit-backdrop-filter:saturate(150%) blur(14px);box-shadow:0 1px 0 rgba(197,162,91,.28),0 10px 30px rgba(0,0,0,.18)}
+nav.cond .nav-inner{height:56px}
+nav .nav-inner{transition:height .35s cubic-bezier(.2,.8,.2,1)}
+nav.cond .nav-logo img{transform:scale(.9)}
+nav .nav-logo img{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+
+/* nav link underline + active section */
+.nav-links>li>a{position:relative}
+.nav-links>li>a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1.5px;
+  background:var(--gold,#C5A25B);transition:right .38s cubic-bezier(.2,.8,.2,1);opacity:.9}
+.nav-links>li>a:hover::after{right:0}
+.nav-links>li>a.cur::after{right:0}
+
+/* buttons: gold sweep + arrow travel */
+.btn{position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,color .28s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);
+  background:var(--gold,#C5A25B);transition:transform .42s cubic-bezier(.2,.8,.2,1)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(11,31,63,.22)}
+.btn-outline:hover{color:#0B1F3F}
+.btn-outline:hover::before{transform:translateY(0)}
+.btn-gold::before{background:#D8BF94}
+.btn-gold:hover::before{transform:translateY(0)}
+button[type=submit],.btn-submit{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s}
+button[type=submit]:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(11,31,63,.28)}
+
+/* cards: lift + gold top edge */
+.pillar-card,.compare-col,.engage-step{position:relative;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}
+.pillar-card::after,.compare-col::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,#C5A25B,#D8BF94);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);border-radius:10px 10px 0 0}
+.pillar-card:hover,.compare-col:hover{transform:translateY(-6px);
+  box-shadow:0 18px 44px rgba(11,31,63,.13);border-color:rgba(197,162,91,.45)}
+.pillar-card:hover::after,.compare-col:hover::after{transform:scaleX(1)}
+
+/* form focus */
+input,select,textarea{transition:border-color .25s,box-shadow .25s,background-color .25s}
+input:focus,select:focus,textarea:focus{outline:none;
+  box-shadow:0 0 0 3px rgba(197,162,91,.28);border-color:#C5A25B !important}
+
+/* footer + inline links */
+footer a,.contact-links a{position:relative}
+footer a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1px;
+  background:#C5A25B;transition:right .35s cubic-bezier(.2,.8,.2,1)}
+footer a:hover::after{right:0}
+
+@media(prefers-reduced-motion:reduce){
+  nav,nav .nav-inner,.btn,.pillar-card,.compare-col{transition:none!important}
+  .btn::before{display:none}
+}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -2160,6 +2216,25 @@ if(hero&&!RM&&matchMedia('(pointer:fine)').matches){
 }
 
 addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+<script>
+/* sharpening: nav condense + active section */
+(function(){
+ var nav=document.querySelector('nav'); if(!nav) return;
+ var links=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+ var map=links.map(function(a){var id=a.getAttribute('href').slice(1);
+   return {a:a,el:document.getElementById(id)};}).filter(function(x){return x.el;});
+ var t=-1;
+ function upd(){
+   nav.classList.toggle('cond', scrollY>40);
+   var best=null,bd=1e9;
+   map.forEach(function(m){var d=Math.abs(m.el.getBoundingClientRect().top-90);
+     if(m.el.getBoundingClientRect().top<innerHeight*0.55 && d<bd){bd=d;best=m;}});
+   if(best){links.forEach(function(a){a.classList.remove('cur')}); best.a.classList.add('cur');}
+ }
+ addEventListener('scroll',function(){ if(t) return; t=requestAnimationFrame(function(){t=0;upd();}); },{passive:true});
+ t=0; upd();
 })();
 </script>
 </body>
