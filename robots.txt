@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /heartssight-draft/
 Disallow: /hhg-draft-update-one/
+Disallow: /hhg-draft-notes/
