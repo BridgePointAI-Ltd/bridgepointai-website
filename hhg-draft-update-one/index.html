@@ -1661,6 +1661,30 @@ footer a:hover::after{right:0}
  background:linear-gradient(transparent,rgba(11,31,63,.9));font-size:12.5px;color:#C3CEE0}
 .lab-cap b{color:#D8BF94;font-weight:600}
 @media(max-width:760px){.lab-media{height:46vh;min-height:300px}.lab-ph h3{font-size:21px}}
+
+/* ---- real-photo fallback stack ---- */
+.lab-stack{position:absolute;inset:0}
+.lab-stack figure{position:absolute;inset:0;margin:0;opacity:0;
+ animation:labFade 32s linear infinite;will-change:opacity,transform}
+.lab-stack figure img{width:100%;height:100%;object-fit:cover;display:block;
+ animation:labZoom 32s ease-in-out infinite;will-change:transform}
+.lab-stack figure:nth-child(1),.lab-stack figure:nth-child(1) img{animation-delay:0s}
+.lab-stack figure:nth-child(2),.lab-stack figure:nth-child(2) img{animation-delay:-24s}
+.lab-stack figure:nth-child(3),.lab-stack figure:nth-child(3) img{animation-delay:-16s}
+.lab-stack figure:nth-child(4),.lab-stack figure:nth-child(4) img{animation-delay:-8s}
+@keyframes labFade{0%{opacity:0}4%{opacity:1}25%{opacity:1}29%{opacity:0}100%{opacity:0}}
+@keyframes labZoom{0%{transform:scale(1.02)}30%{transform:scale(1.1)}100%{transform:scale(1.1)}}
+.lab-veil{position:absolute;inset:0;background:
+ linear-gradient(90deg,rgba(11,31,63,.86) 0%,rgba(11,31,63,.5) 45%,rgba(11,31,63,.28) 100%)}
+.lab-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+ padding:0 34px;max-width:1240px;margin:0 auto;left:0;right:0}
+.lab-copy .k{font-size:10px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B;margin-bottom:10px}
+.lab-copy h3{font-family:'Playfair Display',Georgia,serif;font-size:30px;color:#fff;margin-bottom:10px;font-weight:600;max-width:15ch}
+.lab-copy p{font-size:14px;color:#C3CEE0;max-width:430px;line-height:1.6}
+@media(prefers-reduced-motion:reduce){.lab-stack figure,.lab-stack figure img{animation:none}
+ .lab-stack figure:nth-child(1){opacity:1}}
+@media(max-width:760px){.lab-copy{padding:0 20px}.lab-copy h3{font-size:22px}
+ .lab-veil{background:linear-gradient(180deg,rgba(11,31,63,.55),rgba(11,31,63,.9))}}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -2008,25 +2032,27 @@ footer a:hover::after{right:0}
 <!-- MARKETS WE SERVE -->
 
 <section class="lab" id="lab24">
+ 
  <div class="lab-media">
-  <video id="lab24Video" muted loop playsinline preload="metadata" poster="" style="display:none">
+  <video id="lab24Video" muted loop playsinline preload="metadata" style="display:none">
     <source src="assets/lab24.webm" type="video/webm">
     <source src="assets/lab24.mp4" type="video/mp4">
   </video>
-  <div class="lab-ph" id="lab24Ph">
-   <div class="k">Reserved &middot; awaiting footage</div>
-   <h3>Inside Lab 24</h3>
-   <p>This band is built and waiting for a file. Ten seconds of the laboratory actually working will do more
-   for this page than anything that can be drawn, because it is the one thing on the site that is unarguably theirs.</p>
-   <div class="spec">
-     drop the file in as <b style="color:#D8BF94">assets/lab24.mp4</b> and it plays automatically<br>
-     8 to 12 seconds &middot; silent &middot; landscape &middot; 1920&times;1080 or better &middot; locked off, no panning<br>
-     best subjects: a sequencing run underway &middot; a plate being loaded &middot; the clean room airlock cycling
-   </div>
+  <div class="lab-stack" id="lab24Stack" aria-hidden="true">
+   <figure><img src="assets/img3.webp" alt="" decoding="async" loading="lazy"></figure>
+   <figure><img src="assets/img4.webp" alt="" decoding="async" loading="lazy"></figure>
+   <figure><img src="assets/img5.webp" alt="" decoding="async" loading="lazy"></figure>
+   <figure><img src="assets/img6.webp" alt="" decoding="async" loading="lazy"></figure>
+  </div>
+  <div class="lab-veil"></div>
+  <div class="lab-copy">
+   <div class="k">Our own laboratories &middot; Nottingham</div>
+   <h3>The work is done here, not subcontracted.</h3>
+   <p>An ISO 7 controlled clean room with cell-culture capability, used for controlled manufacturing
+   and sensitive studies, alongside immunology, genetics and data.</p>
   </div>
  </div>
- <div class="lab-cap"><b>Lab 24.</b> ISO 7 controlled clean room with cell-culture capability, used for controlled
- manufacturing and sensitive studies.</div>
+<div class="lab-cap"><b>Photographed in HH's own laboratories.</b> Every image on this page is HH's. Nothing here is stock or generated.</div>
 </section>
 <section class="section" id="markets">
  <div class="container">
