@@ -1362,6 +1362,62 @@
  @media (max-width: 880px) {
    .compare-grid { grid-template-columns: 1fr; }
  }
+
+/* ---- gated pathway ---- */
+.gp-wrap{margin:2.2rem 0 1.6rem;padding:20px 10px 6px;background:#FAF8F5;border:1px solid #E2DDD5;border-radius:14px}
+.gp-svg{width:100%;height:auto;display:block;font-family:'Inter',sans-serif}
+.gp-track{fill:none;stroke:#E2DDD5;stroke-width:6;stroke-linecap:round}
+.gp-fill{fill:none;stroke:#C5A25B;stroke-width:6;stroke-linecap:round;stroke-dasharray:880;stroke-dashoffset:880}
+.gp-node circle{fill:#fff;stroke:#0B1F3F;stroke-width:3}
+.gp-node text.n{fill:#0B1F3F;font-size:15px;font-weight:700;text-anchor:middle}
+.gp-node text.l{fill:#2b3440;font-size:13px;font-weight:500;text-anchor:middle}
+.gp-node{opacity:0;transform:translateY(10px)}
+.gp-gate{opacity:0}
+.gp-gate line{stroke:#0B1F3F;stroke-width:2.4;stroke-linecap:round}
+.gp-gate text{fill:#6B7280;font-size:9.5px;font-weight:600;letter-spacing:1.1px;text-anchor:middle}
+.gp-go .gp-fill{animation:ohDraw 2.2s ease-in-out .1s forwards}
+.gp-go .gp-node{animation:ohUp .5s ease-out var(--d) forwards}
+.gp-go .gp-gate{animation:gpGate .5s ease-out var(--d) forwards}
+@keyframes gpGate{from{opacity:0;transform:scaleY(.3)}to{opacity:1;transform:scaleY(1)}}
+.gp-gate{transform-origin:center;transform-box:fill-box}
+
+/* ---- positioning plot ---- */
+.pp-wrap{margin:2.4rem 0 .4rem;padding:22px 10px 10px;background:#FAF8F5;border:1px solid #E2DDD5;border-radius:14px}
+.pp-svg{width:100%;height:auto;display:block;font-family:'Inter',sans-serif}
+.pp-axis{stroke:#C9C3B8;stroke-width:1.6}
+.pp-axl{fill:#6B7280;font-size:12.5px;font-weight:600;letter-spacing:.6px}
+.pp-tick{fill:#9AA3AE;font-size:11px}
+.pp-gap{fill:#C5A25B;opacity:0}
+.pp-gapl{fill:#9A7B33;font-size:12px;font-style:italic;text-anchor:middle;opacity:0}
+.pp-m{opacity:0}
+.pp-m circle{stroke-width:3}
+.pp-m text.t{font-size:14px;font-weight:700;text-anchor:middle}
+.pp-m text.s{font-size:11.5px;text-anchor:middle;fill:#6B7280}
+.pp-go .pp-gap{animation:ppGap .9s ease-out .25s forwards}
+.pp-go .pp-gapl{animation:ohPop .8s ease-out 1.5s forwards}
+.pp-go .pp-m{animation:ohUp .55s ease-out var(--d) forwards}
+@keyframes ppGap{to{opacity:.13}}
+
+/* ---- abstract texture divider ---- */
+.hhg-div{height:56px;margin:0;overflow:hidden;line-height:0;background:transparent}
+.hhg-div svg{width:100%;height:56px;display:block}
+.hhg-div path{fill:none;stroke:#C5A25B;stroke-width:1.2;opacity:.32}
+.hhg-div path.b{stroke:#0B1F3F;opacity:.10;stroke-width:1}
+
+/* ---- hero motion ---- */
+#hero .hero-decor{will-change:transform;animation:heroDrift 34s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-1.6%,1.4%,0) scale(1.045)}}
+#hero .h-img{overflow:hidden}
+#hero .h-img img{will-change:transform;animation:kb 30s ease-in-out infinite alternate}
+#hero .h-img:nth-child(2) img{animation-duration:36s;animation-delay:-6s}
+#hero .h-img:nth-child(3) img{animation-duration:41s;animation-delay:-13s}
+#hero .h-img:nth-child(4) img{animation-duration:33s;animation-delay:-19s}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){
+ #hero .hero-decor,#hero .h-img img{animation:none!important}
+ .gp-node,.gp-gate,.pp-m{opacity:1;transform:none}
+ .gp-fill{stroke-dashoffset:0}.pp-gap{opacity:.13}.pp-gapl{opacity:1}
+}
 </style>
 <style id="hhg-draft-one">
 .hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
@@ -1446,10 +1502,10 @@
  </div>
  </div>
  <div class="hero-images">
- <div class="h-img"><img src="assets/img3.webp" alt="HH Global research team at work" loading="lazy" decoding="async"></div>
- <div class="h-img"><img src="assets/img4.webp" alt="PCR workstation" loading="lazy" decoding="async"></div>
- <div class="h-img"><img src="assets/img5.webp" alt="Researcher at biosafety hood" loading="lazy" decoding="async"></div>
- <div class="h-img"><img src="assets/img6.webp" alt="Presenting research outcomes" loading="lazy" decoding="async"></div>
+ <div class="h-img"><img src="assets/img3.webp" alt="HH Global research team at work" fetchpriority="high" decoding="async"></div>
+ <div class="h-img"><img src="assets/img4.webp" alt="PCR workstation" decoding="async"></div>
+ <div class="h-img"><img src="assets/img5.webp" alt="Researcher at biosafety hood" decoding="async"></div>
+ <div class="h-img"><img src="assets/img6.webp" alt="Presenting research outcomes" decoding="async"></div>
  </div>
  </div>
 
@@ -1514,11 +1570,43 @@
  </div>
 </section>
 
+<div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
 <section class="section-alt" id="compare">
  <div class="container">
    <div class="section-tag">How We Compare</div>
    <h2 class="section-heading">Niche Specialist <em>with Infrastructure.</em></h2>
    <p class="section-lead">Buyers of regulated science typically face a binary: an industrial CRO with scale but limited customisation, or a solo academic with depth but no operating infrastructure. Our practice is built to occupy the gap between them.</p>
+<div class="pp-wrap" id="ppWrap">
+<svg class="pp-svg" viewBox="0 0 900 430" role="img" aria-label="Positioning: solo scientist has depth without delivery infrastructure, industrial CRO has infrastructure without depth, HH Global Holdings occupies the gap between them">
+ <!-- gap band -->
+ <path class="pp-gap" d="M168 158 C 300 180, 440 230, 760 312 L 748 356 C 430 272, 292 222, 152 202 Z"/>
+ <!-- axes -->
+ <line class="pp-axis" x1="104" y1="60" x2="104" y2="372"/>
+ <line class="pp-axis" x1="104" y1="372" x2="836" y2="372"/>
+ <text class="pp-axl" x="104" y="46">Scientific depth &amp; customisation</text>
+ <text class="pp-axl" x="836" y="404" text-anchor="end">Operating infrastructure &amp; accreditation</text>
+ <text class="pp-tick" x="112" y="368">low</text>
+ <text class="pp-tick" x="112" y="72">high</text>
+ <text class="pp-tick" x="832" y="392" text-anchor="end">high</text>
+ <!-- markers -->
+ <g class="pp-m" style="--d:.6s">
+  <circle cx="196" cy="132" r="15" fill="#fff" stroke="#6B7280"/>
+  <text class="t" x="196" y="106" fill="#4A5568">Solo Scientist</text>
+  <text class="s" x="196" y="168">depth without delivery</text>
+ </g>
+ <g class="pp-m" style="--d:.85s">
+  <circle cx="742" cy="298" r="15" fill="#fff" stroke="#6B7280"/>
+  <text class="t" x="742" y="272" fill="#4A5568">Industrial CRO</text>
+  <text class="s" x="742" y="334">scale without customisation</text>
+ </g>
+ <g class="pp-m" style="--d:1.7s">
+  <circle cx="452" cy="214" r="19" fill="#0B1F3F" stroke="#C5A25B"/>
+  <text class="t" x="452" y="184" fill="#0B1F3F">HH Global Holdings</text>
+  <text class="s" x="452" y="252">specialist depth, with the infrastructure</text>
+ </g>
+ <text class="pp-gapl" x="322" y="300">the gap</text>
+</svg></div>
+
 
    <div class="compare-grid">
      <div class="compare-col">
@@ -1653,11 +1741,20 @@
 </section>
 
 <!-- HOW WE ENGAGE -->
+<div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
 <section class="section-alt" id="engage">
  <div class="container">
  <div class="section-tag">How We Engage</div>
  <h2 class="section-heading">A Structured Pathway<br><em>from Enquiry to Impact</em></h2>
  <p class="section-lead">Every engagement follows a structured, gated process, ensuring scientific rigour at every stage and clear decision points before progressing to the next phase.</p>
+<div class="gp-wrap" id="gpWrap">
+<svg class="gp-svg" viewBox="0 0 1010 92" role="img" aria-label="Five stages with a decision gate between each stage before progressing">
+ <path class="gp-track" d="M70 56 L940 56"/>
+ <path class="gp-fill" d="M70 56 L940 56"/>
+ <g class="gp-gate" style="--d:0.55s"><line x1="178" y1="34" x2="178" y2="47"/><line x1="178" y1="65" x2="178" y2="78"/><text x="178" y="24">GATE</text></g><g class="gp-gate" style="--d:0.77s"><line x1="396" y1="34" x2="396" y2="47"/><line x1="396" y1="65" x2="396" y2="78"/><text x="396" y="24">GATE</text></g><g class="gp-gate" style="--d:0.99s"><line x1="613" y1="34" x2="613" y2="47"/><line x1="613" y1="65" x2="613" y2="78"/><text x="613" y="24">GATE</text></g><g class="gp-gate" style="--d:1.21s"><line x1="831" y1="34" x2="831" y2="47"/><line x1="831" y1="65" x2="831" y2="78"/><text x="831" y="24">GATE</text></g><g class="gp-node" style="--d:0.35s"><circle cx="70" cy="56" r="17"/><text class="n" x="70" y="62">1</text></g><g class="gp-node" style="--d:0.57s"><circle cx="287" cy="56" r="17"/><text class="n" x="287" y="62">2</text></g><g class="gp-node" style="--d:0.79s"><circle cx="505" cy="56" r="17"/><text class="n" x="505" y="62">3</text></g><g class="gp-node" style="--d:1.01s"><circle cx="722" cy="56" r="17"/><text class="n" x="722" y="62">4</text></g><g class="gp-node" style="--d:1.23s"><circle cx="940" cy="56" r="17"/><text class="n" x="940" y="62">5</text></g>
+ <text x="505" y="90" style="fill:#6B7280;font-size:12px;font-style:italic;text-anchor:middle">no stage begins until the previous one has passed its gate</text>
+</svg></div>
+
  <div class="engage-steps">
  <div class="engage-step">
  <div class="engage-icon">1</div>
@@ -1688,6 +1785,7 @@
  </div>
 </section>
 <!-- CONTACT CTA -->
+<div class="hhg-div" aria-hidden="true"><svg viewBox="0 0 1200 56" preserveAspectRatio="none"><path class="b" d="M0 26.6 L12 27.8 L24 28.1 L36 24.5 L48 20.8 L60 17.4 L72 16.8 L84 13.8 L96 14.8 L108 15.4 L120 6.0 L132 8.0 L144 8.0 L156 10.5 L168 11.2 L180 10.2 L192 6.0 L204 8.0 L216 8.0 L228 8.0 L240 10.4 L252 8.3 L264 8.5 L276 10.3 L288 14.2 L300 13.5 L312 10.7 L324 8.0 L336 10.1 L348 13.1 L360 14.7 L372 15.3 L384 18.0 L396 17.8 L408 14.3 L420 15.5 L432 18.1 L444 17.2 L456 13.3 L468 10.7 L480 8.0 L492 8.0 L504 8.0 L516 8.0 L528 8.4 L540 10.9 L552 9.2 L564 8.0 L576 11.7 L588 9.1 L600 8.0 L612 8.7 L624 8.0 L636 8.0 L648 11.6 L660 11.7 L672 6.0 L684 8.2 L696 10.6 L708 9.8 L720 10.9 L732 8.0 L744 8.0 L756 6.0 L768 8.0 L780 8.0 L792 8.9 L804 8.0 L816 8.0 L828 10.8 L840 10.5 L852 8.0 L864 8.0 L876 10.6 L888 8.0 L900 8.2 L912 6.0 L924 9.8 L936 11.4 L948 10.3 L960 12.5 L972 14.7 L984 12.5 L996 16.4 L1008 18.9 L1020 20.8 L1032 20.9 L1044 6.3 L1056 8.0 L1068 11.7 L1080 15.1 L1092 18.8 L1104 16.6 L1116 14.1 L1128 15.1 L1140 17.8 L1152 19.1 L1164 15.7 L1176 19.0 L1188 21.0 L1200 18.5"/><path d="M0 24.1 L12 23.2 L24 20.4 L36 18.2 L48 15.4 L60 16.7 L72 17.0 L84 16.3 L96 6.0 L108 8.0 L120 8.0 L132 11.6 L144 9.4 L156 9.8 L168 12.5 L180 10.1 L192 6.0 L204 8.9 L216 8.0 L228 9.8 L240 11.0 L252 8.0 L264 8.0 L276 9.2 L288 12.9 L300 16.8 L312 15.3 L324 16.3 L336 17.6 L348 15.2 L360 16.0 L372 12.8 L384 16.0 L396 20.0 L408 19.6 L420 19.2 L432 19.7 L444 16.5 L456 13.4 L468 12.1 L480 14.9 L492 14.9 L504 13.1 L516 14.0 L528 10.3 L540 8.0 L552 9.5 L564 11.7 L576 13.8 L588 6.0 L600 8.0 L612 8.0 L624 6.0 L636 8.0 L648 10.6 L660 8.0 L672 9.6 L684 12.5 L696 12.7 L708 12.4 L720 12.1 L732 9.1 L744 11.0 L756 12.6 L768 9.9 L780 8.0 L792 8.0 L804 8.0 L816 9.7 L828 8.0 L840 9.9 L852 8.0 L864 11.2 L876 8.8 L888 8.0 L900 10.5 L912 8.1 L924 8.0 L936 8.0 L948 8.0 L960 9.0 L972 9.0 L984 8.0 L996 8.0 L1008 8.0 L1020 6.0 L1032 8.1 L1044 11.4 L1056 10.6 L1068 8.5 L1080 11.2 L1092 9.8 L1104 10.4 L1116 9.4 L1128 12.9 L1140 13.0 L1152 11.5 L1164 12.9 L1176 10.7 L1188 13.3 L1200 6.0"/></svg></div>
 <section style="padding:80px 32px;background:linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%), url('hero-bg-cells.jpg') center/cover no-repeat;" id="contact">
  <div class="container">
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
@@ -1908,14 +2006,14 @@
    });
  })();
 </script>
-<div class="hhg-flag">HHG Draft Update One &middot; concept build for review &middot; not the live site</div>
+<div class="hhg-flag">HHG Draft Update One &middot; full concept build for review &middot; not the live site</div>
 <script>
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){
  if(!e.isIntersecting)return;
- if(e.target.id==='ohWrap'){e.target.querySelector('svg').classList.add('oh-go');}
+ var M={ohWrap:'oh-go',gpWrap:'gp-go',ppWrap:'pp-go'};if(M[e.target.id]){e.target.querySelector('svg').classList.add(M[e.target.id]);}
  else{e.target.classList.add('hhg-in');}
  io.unobserve(e.target);});},{threshold:.25});
- var w=document.getElementById('ohWrap');if(w)io.observe(w);
+ ['ohWrap','gpWrap','ppWrap'].forEach(function(id){var n=document.getElementById(id);if(n)io.observe(n);});
  document.querySelectorAll('#markets .pillar-card,#differentiator .pillar-card,#compare .pillar-card')
   .forEach(function(el,i){el.classList.add('hhg-rv');el.style.transitionDelay=((i%3)*0.09)+'s';io.observe(el);});})();
 </script>
