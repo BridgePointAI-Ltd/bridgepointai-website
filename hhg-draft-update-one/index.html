@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+ <title>HH Global Holdings, Contract Research & Regulatory Evidence</title>
+ <link rel="icon" href="assets/img1.png" type="image/png">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+ <style>
+ :root {
+ --navy: #0B1F3F;
+ --navy-mid: #152D55;
+ --navy-light: #1E3A6E;
+ --gold: #C9AA7D;
+ --gold-light: #D8BF94;
+ --gold-dim: rgba(201,170,125,0.12);
+ --cream: #FAF8F5;
+ --cream-dark: #F0EDE7;
+ --text: #1A1A2E;
+ --text-mid: #4A5568;
+ --text-light: #718096;
+ --border: #E2DDD5;
+ --white: #FFFFFF;
+ --max: 1200px;
+ }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+
+ body {
+ font-family: 'Inter', -apple-system, sans-serif;
+ color: var(--text);
+ line-height: 1.45;
+ background: var(--white);
+ -webkit-font-smoothing: antialiased;
+ }
+
+ /* ─ TYPOGRAPHY ─ */
+ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; }
+ h1 { font-size: clamp(26px, 3.5vw, 44px); }
+ h2 { font-size: clamp(18px, 2.6vw, 32px); }
+ h3 { font-size: clamp(16px, 1.8vw, 21px); }
+ h4 { font-size: 18px; font-weight: 600; font-family: 'Inter', sans-serif; }
+ p { font-size: 15px; line-height: 1.4; color: var(--text-mid); }
+ .body-lg { font-size: 16px; color: var(--text-mid); }
+ .body-sm { font-size: 14px; color: var(--text-light); }
+
+ .section-tag {
+ font-family: 'Inter', sans-serif;
+ font-size: 12px;
+ font-weight: 700;
+ letter-spacing: 3.5px;
+ text-transform: uppercase;
+ color: var(--gold);
+ margin-bottom: 12px;
+ }
+
+ .section-heading {
+ margin-bottom: 16px;
+ color: var(--navy);
+ }
+ h2 em { font-size: 0.82em; }
+
+ .section-lead {
+ font-size: 16px;
+ line-height: 1.2;
+ color: var(--text-mid);
+ max-width: 680px;
+ }
+
+ /* ─ LAYOUT ─ */
+ .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+ .section { padding: 80px 0; }
+ .section-alt { background: #F0EDE9; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; }
+ .section-dark { background: var(--navy); }
+ .text-center { text-align: center; }
+ .mx-auto { margin-left: auto; margin-right: auto; }
+
+ /* ─ NAV ─ */
+ nav {
+ position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+ background: rgba(11,31,63,0.98);
+ backdrop-filter: blur(12px);
+ border-bottom: 1px solid rgba(255,255,255,0.06);
+ width: 100%;
+ }
+ .nav-inner {
+ max-width: var(--max); margin: 0 auto;
+ display: flex; justify-content: space-between; align-items: center;
+ height: 68px; padding: 0 32px;
+ }
+ .nav-logo img { height: 38px; display: block; }
+ .nav-links { display: flex; gap: 32px; list-style: none; }
+ .nav-links a {
+ color: rgba(255,255,255,0.72); text-decoration: none;
+ font-size: 13px; font-weight: 500; letter-spacing: 0.3px;
+ transition: color 0.2s;
+ white-space: nowrap;
+ }
+ .nav-links a:hover { color: var(--gold); }
+ .nav-cta {
+ padding: 10px 24px;
+ background: var(--gold);
+ color: var(--navy);
+ border-radius: 5px;
+ font-size: 13px; font-weight: 600;
+ text-decoration: none;
+ transition: all 0.2s;
+ white-space: nowrap;
+ }
+ .nav-cta:hover { background: var(--gold-light); }
+ .dropdown { position: relative; }
+ .dropdown-menu {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ background: var(--navy);
+ min-width: 230px;
+ border-top: 2px solid var(--gold);
+ box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+ z-index: 200;
+ padding: 6px 0;
+ }
+ .dropdown:hover .dropdown-menu, .dropdown.open .dropdown-menu { display: block; }
+ .dropdown-menu a {
+ display: block;
+ padding: 10px 20px;
+ color: rgba(255,255,255,0.8);
+ font-size: 13px;
+ letter-spacing: 0.3px;
+ text-decoration: none;
+ white-space: nowrap;
+ }
+ .dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+ .nav-toggle {
+ display: none;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 24px; height: 18px;
+ background: none; border: none;
+ cursor: pointer; padding: 0;
+ }
+ .nav-toggle span {
+ display: block; width: 100%; height: 2px;
+ background: rgba(255,255,255,0.85);
+ border-radius: 2px; transition: all 0.3s;
+ }
+
+ /* ─ HERO ─ */
+ .hero {
+ min-height: 82vh;
+ background:
+ linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%),
+ url('hero-bg-cells.jpg') center/cover no-repeat;
+ display: flex; align-items: center; justify-content: flex-start;
+ position: relative; overflow: hidden;
+ padding: 120px 0 80px;
+ }
+ .hero::before {
+ content: '';
+ position: absolute; inset: 0;
+ background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(201,170,125,0.06) 0%, transparent 70%);
+ }
+ .hero-decor {
+ position: absolute; top: 50%; right: -5%; width: 55%; height: 60%;
+ transform: translateY(-50%);
+ background: radial-gradient(ellipse at 50% 50%, rgba(120,120,128,0.04), transparent 70%);
+ pointer-events: none;
+ }
+ .hero-content { position: relative; z-index: 2; max-width: 680px; margin-left: 0; }
+ .hero .section-tag { margin-bottom: 16px; text-align: left; }
+ .hero h1 {
+ color: var(--white);
+ margin-bottom: 24px;
+ text-align: left;
+ font-size: clamp(26px, 4vw, 42px);
+ }
+ .hero h1 em {
+ color: var(--gold);
+ font-style: italic;
+ font-size: 0.67em;
+ }
+ .hero p {
+ color: rgba(255,255,255,0.68);
+ font-size: 15px;
+ line-height: 1.45;
+ margin-bottom: 40px;
+ max-width: 580px;
+ text-align: left;
+ }
+ .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; }
+ .btn {
+ display: inline-block;
+ padding: 14px 30px;
+ border-radius: 5px;
+ font-size: 13px; font-weight: 600;
+ text-decoration: none;
+ letter-spacing: 0.5px;
+ text-transform: uppercase;
+ transition: all 0.25s;
+ }
+ .btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; }
+ .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+ .btn-outline { border: 1px solid rgba(255,255,255,0.25); color: var(--white); }
+ .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+ /* ─ CREDIBILITY BAR ─ */
+ .cred-bar {
+ background: var(--cream-dark);
+ border-bottom: 1px solid var(--border);
+ padding: 0 32px;
+ }
+ .cred-inner {
+ max-width: var(--max); margin: 0 auto;
+ display: grid; grid-template-columns: repeat(5, 1fr);
+ }
+ .cred-item {
+ text-align: center;
+ padding: 22px 12px;
+ border-right: 1px solid var(--border);
+ }
+ .cred-item:last-child { border-right: none; }
+ .cred-label {
+ font-size: 11px; font-weight: 600;
+ color: var(--text-mid);
+ letter-spacing: 0.5px;
+ text-transform: uppercase;
+ }
+ .cred-label::before {
+ content: '•';
+ color: var(--gold);
+ margin-right: 6px;
+ }
+
+ /* ─ ABOUT ─ */
+ .about-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: 64px; align-items: start;
+ margin-top: 56px;
+ }
+ .about-text p { margin-bottom: 20px; }
+ .about-text p:last-child { margin-bottom: 0; }
+ .about-stats {
+ display: flex; flex-direction: column; gap: 20px;
+ }
+ .stat-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 28px;
+ }
+ .stat-card .stat-number {
+ font-family: 'Playfair Display', serif;
+ font-size: 28px; font-weight: 600;
+ color: var(--navy);
+ margin-bottom: 4px;
+ }
+ .stat-card .stat-desc {
+ font-size: 14px; color: var(--text-light);
+ line-height: 1.4;
+ }
+
+ /* ─ FOUR PILLARS ─ */
+ .pillars-grid {
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 20px; margin-top: 56px;
+ }
+ .pillar-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 32px 24px;
+ transition: all 0.25s;
+ position: relative;
+ overflow: hidden;
+ }
+ .pillar-card::before {
+ content: '';
+ position: absolute; top: 0; left: 0; right: 0;
+ height: 3px;
+ background: var(--gold);
+ transform: scaleX(0);
+ transition: transform 0.3s;
+ }
+ .pillar-card:hover::before { transform: scaleX(1); }
+ .pillar-card:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(201,170,125,0.08); }
+ .pillar-num {
+ font-family: 'Playfair Display', serif;
+ font-size: 48px; font-weight: 700;
+ color: var(--gold-dim);
+ line-height: 1;
+ margin-bottom: 12px;
+ }
+ .pillar-card h4 {
+ color: var(--navy);
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 14px;
+ line-height: 1.2;
+ }
+ .pillar-card ul {
+ margin: 0;
+ padding-left: 20px;
+ }
+ .pillar-card li {
+ font-size: 13px;
+ line-height: 1.4;
+ margin-bottom: 8px;
+ color: var(--text-light);
+ }
+ .pillar-card p {
+ font-size: 14px;
+ line-height: 1.4;
+ color: var(--text-light);
+ margin-bottom: 18px;
+ }
+
+ /* ─ INNOVATION & IP ─ */
+ .ip-category-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+ gap: 28px;
+ margin-top: 54px;
+ }
+ .ip-category {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 32px;
+ transition: all 0.25s;
+ position: relative; overflow: hidden;
+ }
+ .ip-category::before {
+ content: ''; position: absolute; top: 0; left: 0; right: 0;
+ height: 3px; background: var(--gold);
+ transform: scaleX(0); transition: transform 0.3s ease; z-index: 1;
+ }
+ .ip-category:hover {
+ border-color: var(--gold);
+ box-shadow: 0 8px 30px rgba(201,170,125,0.12);
+ transform: translateY(-2px);
+ }
+ .ip-category:hover::before { transform: scaleX(1); }
+ .ip-category h3 {
+ color: var(--navy);
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 14px;
+ line-height: 1.2;
+ }
+ .ip-category > p {
+ font-size: 14px;
+ line-height: 1.4;
+ color: var(--text-light);
+ margin-bottom: 18px;
+ }
+ .ip-category ul {
+ margin: 0;
+ padding-left: 0;
+ list-style: none;
+ }
+ .ip-category li {
+ font-size: 14px;
+ line-height: 1.4;
+ color: var(--text-light);
+ margin-bottom: 16px;
+ padding-left: 20px;
+ position: relative;
+ }
+ .ip-category li:last-child {
+ margin-bottom: 0;
+ }
+ .ip-category li::before {
+ content: '•';
+ position: absolute;
+ left: 0;
+ color: var(--gold);
+ font-weight: bold;
+ }
+ .ip-category strong {
+ color: var(--navy);
+ font-weight: 700;
+ }
+ .ip-extra {
+ grid-column: 1 / -1;
+ background: rgba(201,170,125,0.06);
+ border: 1px dashed rgba(197,162,91,0.3);
+ text-align: center;
+ padding: 28px;
+ border-radius: 10px;
+ }
+ .ip-extra p {
+ color: rgba(255,255,255,0.55);
+ font-size: 14px;
+ margin-bottom: 0;
+ }
+
+ /* ─ LEADERSHIP ─ */
+ .team-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+ margin-top: 54px;
+ }
+
+ .team-card:hover {
+ border-color: var(--gold);
+ box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+ transform: translateY(-3px);
+ }
+
+ .team-body { padding: 28px; }
+ .team-body h3 { color: var(--navy); font-size: 20px; margin-bottom: 4px; }
+ .team-role {
+ font-size: 11px; font-weight: 600;
+ color: var(--gold);
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ margin-bottom: 14px;
+ }
+ .team-body p {
+ font-size: 14px; line-height: 1.45;
+ margin-bottom: 12px;
+ }
+ .team-body p:last-child { margin-bottom: 0; }
+ .team-links { display: flex; gap: 12px; margin-top: 14px; }
+ .team-links a {
+ font-size: 13px; font-weight: 500;
+ color: var(--navy);
+ text-decoration: none;
+ border-bottom: 1px solid var(--border);
+ transition: all 0.2s;
+ }
+ .team-links a:hover { color: var(--gold); border-color: var(--gold); }
+
+ /* ─ MARKETS ─ */
+ .markets-grid {
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 20px; margin-top: 56px;
+ }
+ .market-card {
+ padding: 30px 24px;
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ transition: all 0.25s;
+ background: var(--white);
+ }
+ .market-card:hover { border-color: var(--gold); }
+ .market-card h4 { color: var(--navy); margin-bottom: 8px; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.2; }
+ .market-card p { font-size: 13px; line-height: 1.4; }
+
+ /* ─ CASE STUDIES ─ */
+ .cases-grid {
+ display: grid; grid-template-columns: repeat(2, 1fr);
+ gap: 20px; margin-top: 56px;
+ }
+ .case-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px; padding: 32px;
+ transition: all 0.25s;
+ position: relative; overflow: hidden;
+ }
+ .case-card::before {
+ content: ''; position: absolute; top: 0; left: 0; right: 0;
+ height: 3px; background: var(--gold);
+ transform: scaleX(0); transition: transform 0.3s ease; z-index: 1;
+ }
+ .case-card:hover { border-color: var(--gold); box-shadow: 0 8px 30px rgba(201,170,125,0.12); transform: translateY(-2px); }
+ .case-card:hover::before { transform: scaleX(1); }
+ .case-tag {
+ font-size: 11px; font-weight: 700;
+ letter-spacing: 1.5px; text-transform: uppercase;
+ color: var(--gold);
+ margin-bottom: 10px;
+ }
+ .case-card h4 { color: var(--navy); margin-bottom: 14px; font-size: 18px; line-height: 1.2; }
+ .case-card p { font-size: 14px; line-height: 1.4; color: var(--text-light); }
+
+ /* ─ ENGAGEMENT ─ */
+ .engage-steps {
+ display: grid; grid-template-columns: repeat(5, 1fr);
+ gap: 16px; margin-top: 56px;
+ position: relative;
+ }
+ .engage-steps::before {
+ content: '';
+ position: absolute;
+ top: 54px; left: 10%; right: 10%;
+ height: 2px;
+ background: var(--border);
+ }
+ .engage-step {
+ text-align: center;
+ position: relative;
+ z-index: 2;
+ }
+ .engage-icon {
+ width: 48px; height: 48px;
+ border-radius: 50%;
+ background: var(--navy);
+ color: var(--gold);
+ display: flex; align-items: center; justify-content: center;
+ margin: 0 auto 16px;
+ font-family: 'Playfair Display', serif;
+ font-size: 18px; font-weight: 600;
+ }
+ .engage-step h4 {
+ font-size: 14px; margin-bottom: 6px; text-align: center;
+ color: var(--navy);
+ }
+ .engage-step p {
+ font-size: 12px; color: var(--text-light);
+ line-height: 1.45; text-align: center;
+ }
+
+ /* ─ CTA ─ */
+ .cta-section {
+ padding: 100px 32px;
+ background: linear-gradient(160deg, var(--navy), var(--navy-light));
+ text-align: center;
+ }
+ .cta-section h2 { color: var(--white); margin-bottom: 14px; }
+ .cta-section p {
+ color: rgba(255,255,255,0.6);
+ font-size: 17px;
+ max-width: 520px;
+ margin: 0 auto 32px;
+ }
+
+ /* ─ FOOTER ─ */
+ footer {
+ background: #0B1F3F;
+ padding: 40px 32px;
+ }
+ .footer-inner {
+ max-width: var(--max); margin: 0 auto;
+ display: flex; justify-content: space-between;
+ align-items: flex-start; flex-wrap: wrap; gap: 24px;
+ }
+ .footer-brand img { height: 32px; margin-bottom: 10px; }
+ .footer-brand p { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+ .footer-links { text-align: right; }
+ .footer-links a {
+ color: rgba(255,255,255,0.5); text-decoration: none;
+ font-size: 13px; transition: color 0.2s;
+ }
+ .footer-links a:hover { color: var(--gold); }
+ .footer-legal {
+ width: 100%;
+ border-top: 1px solid rgba(255,255,255,0.06);
+ padding-top: 20px; margin-top: 12px;
+ text-align: center;
+ }
+ .footer-legal p {
+ font-size: 11px; color: rgba(255,255,255,0.25);
+ line-height: 1.4;
+ }
+
+ /* ─ HERO LEFT ALIGN ─ */
+ 
+ /* ─ HERO BACKGROUND IMAGE ─ */
+ .hero-bg {{
+ position: absolute;
+ inset: 0;
+ background-image: url('assets/img2.webp');
+ background-size: cover;
+ background-position: center;
+ opacity: 0.12;
+ z-index: 0;
+ }}
+
+ .hero .container {
+ margin-left: 32px;
+ margin-right: auto;
+ }
+
+ /* ─ TEAM CARDS ─ */
+ .team-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 12px;
+ overflow: hidden;
+ transition: all 0.25s;
+ }
+ .team-card:hover {
+ border-color: var(--gold);
+ box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+ transform: translateY(-3px);
+ }
+ .team-card-visual {
+ width: 100%;
+ aspect-ratio: 4/3;
+ position: relative;
+ overflow: hidden;
+ }
+ .team-card-visual::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ }
+ .team-card-visual .visual-icon {
+ position: absolute;
+ width: 80px;
+ height: 80px;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ opacity: 0.15;
+ }
+.visual-gradient-2 {
+ background: linear-gradient(135deg, #1B3A4B 0%, #0F2537 100%);
+ }
+.team-card .team-body {
+ padding: 28px;
+ }
+ .team-body h3 {
+ color: var(--navy);
+ font-size: 20px;
+ margin-bottom: 4px;
+ }
+ .team-role {
+ font-size: 10.5px;
+ font-weight: 700;
+ color: var(--gold);
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ margin-bottom: 14px;
+ }
+ .team-body p {
+ font-size: 13.5px;
+ line-height: 1.45;
+ margin-bottom: 8px;
+ }
+ .team-body p:last-child { margin-bottom: 0; }
+ .team-links {
+ display: flex;
+ gap: 14px;
+ margin-top: 14px;
+ flex-wrap: wrap;
+ }
+ .team-links a {
+ font-size: 12.5px;
+ font-weight: 500;
+ color: var(--navy);
+ text-decoration: none;
+ border-bottom: 1px solid var(--border);
+ transition: all 0.2s;
+ }
+ .team-links a:hover {
+ color: var(--gold);
+ border-color: var(--gold);
+ }
+
+ /* ─ TEAM CARD VISUALS ─ */
+
+ .team-card-visual {
+ width: 100%;
+ aspect-ratio: 3/2;
+ position: relative;
+ overflow: hidden;
+ }
+ .visual-protein {
+ background: linear-gradient(135deg, #0B2744 0%, #153D6A 50%, #0D3050 100%);
+ }
+ .visual-protein::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ radial-gradient(circle at 25% 35%, rgba(197,162,91,0.15) 8px, transparent 12px),
+ radial-gradient(circle at 75% 65%, rgba(197,162,91,0.3) 12px, transparent 16px),
+ radial-gradient(circle at 45% 25%, rgba(197,162,91,0.25) 8px, transparent 10px),
+ radial-gradient(circle at 65% 45%, rgba(201,170,125,0.2) 6px, transparent 8px),
+ radial-gradient(circle at 35% 55%, rgba(201,170,125,0.2) 4px, transparent 6px);
+ }
+ .visual-protein::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ linear-gradient(90deg, transparent 30%, rgba(197,162,91,0.1) 31%, transparent 32%) repeat-x,
+ linear-gradient(0deg, transparent 30%, rgba(197,162,91,0.1) 31%, transparent 32%) repeat-y;
+ background-size: 40px 40px, 40px 40px;
+ }
+ .visual-microscope {
+ background: linear-gradient(135deg, #0A2040 0%, #183760 50%, #0B2A4A 100%);
+ }
+ .visual-microscope::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ radial-gradient(circle at 50% 50%, rgba(201,170,125,0.08) 35%, rgba(197,162,91,0.12) 40%, transparent 55%),
+ radial-gradient(circle at 50% 50%, transparent 25%, rgba(201,170,125,0.06) 30%, transparent 50%);
+ }
+ .visual-microscope::after {
+ content: '';
+ position: absolute;
+ inset: 20%;
+ border: 1px solid rgba(201,170,125,0.08);
+ border-radius: 50%;
+ }
+ .visual-abstract {
+ background: linear-gradient(135deg, #0B2038 0%, #132F52 50%, #0E2745 100%);
+ }
+ .visual-abstract::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(120,120,128,0.04) 50px, rgba(120,120,128,0.04) 51px),
+ repeating-linear-gradient(-45deg, transparent, transparent 50px, rgba(120,120,128,0.04) 50px, rgba(120,120,128,0.04) 51px);
+ }
+ .visual-abstract::after {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 40%;
+ height: 40%;
+ border: 1px solid rgba(197,162,91,0.12);
+ border-radius: 50%;
+ transform: translate(-50%, -50%);
+ }
+
+ /* ─ TEAM CARD VISUALS ─ */
+
+ /* ── TEAM CARD VISUALS ── */
+ .team-card-visual {
+ width: 100%;
+ aspect-ratio: 3/2;
+ position: relative;
+ overflow: hidden;
+ background: var(--navy);
+ }
+ .visual-protein {
+ background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+ }
+ .visual-protein::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ radial-gradient(circle at 30% 40%, rgba(196,164,78,0.12), transparent 45%),
+ radial-gradient(circle at 70% 60%, rgba(196,164,78,0.08), transparent 35%),
+ radial-gradient(circle at 50% 50%, rgba(196,164,78,0.15), transparent 50%);
+ }
+ .visual-protein::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(196,164,78,0.04) 60px, rgba(196,164,78,0.04) 61px),
+ repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(196,164,78,0.04) 40px, rgba(196,164,78,0.04) 41px);
+ }
+ .visual-genomics {
+ background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+ }
+ .visual-genomics::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ radial-gradient(circle at 35% 30%, rgba(196,164,78,0.1), transparent 30%),
+ radial-gradient(circle at 65% 55%, rgba(196,164,78,0.13), transparent 40%),
+ radial-gradient(circle at 45% 70%, rgba(196,164,78,0.08), transparent 25%),
+ radial-gradient(circle at 80% 25%, rgba(196,164,78,0.06), transparent 20%);
+ }
+ .visual-genomics::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ repeating-linear-gradient(60deg, transparent, transparent 50px, rgba(196,164,78,0.035) 50px, rgba(196,164,78,0.035) 51px),
+ repeating-linear-gradient(-60deg, transparent, transparent 50px, rgba(196,164,78,0.035) 50px, rgba(196,164,78,0.035) 51px);
+ }
+ .visual-operations {
+ background: linear-gradient(135deg, var(--navy-light), var(--navy));
+ }
+ .visual-operations::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ radial-gradient(circle at 25% 50%, rgba(196,164,78,0.1), transparent 35%),
+ radial-gradient(circle at 75% 50%, rgba(196,164,78,0.1), transparent 35%);
+ }
+ .visual-operations::after {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+ repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(196,164,78,0.05) 80px, rgba(196,164,78,0.05) 81px);
+ }
+
+ /* ─ TEAM BADGES ─ */
+ .team-badges {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin: 12px 0 16px;
+ }
+ .team-badge {
+ display: inline-block;
+ background: rgba(197,162,91,0.15);
+ color: var(--gold);
+ font-size: 11px;
+ font-weight: 600;
+ padding: 4px 10px;
+ border-radius: 20px;
+ border: 1px solid rgba(197,162,91,0.3);
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ /* ─ CONTACT SECTION ─ */
+ .contact-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 48px;
+ margin-top: 54px;
+ }
+ .contact-column {
+ display: flex;
+ flex-direction: column;
+ gap: 24px;
+ }
+ .contact-detail {
+ padding: 20px 0;
+ border-bottom: 1px solid var(--border);
+ }
+ .contact-detail:last-child {
+ border-bottom: none;
+ }
+ .contact-label {
+ font-size: 11px;
+ font-weight: 700;
+ letter-spacing: 1px;
+ text-transform: uppercase;
+ color: var(--gold);
+ margin-bottom: 8px;
+ display: block;
+ }
+ .contact-detail p {
+ font-size: 14px;
+ line-height: 1.4;
+ color: var(--text);
+ margin: 0;
+ }
+ .contact-detail a {
+ color: var(--gold);
+ text-decoration: none;
+ border-bottom: 1px solid var(--gold);
+ transition: all 0.2s;
+ }
+ .contact-detail a:hover {
+ opacity: 0.8;
+ }
+ .contact-cta {
+ margin-top: 12px;
+ }
+ @media (max-width: 768px) {
+ .contact-grid {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ }
+
+ /* ─ FADE-IN ANIMATIONS ─ */
+ @keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ .fade-in {
+ animation: fadeInUp 0.6s ease-out forwards;
+ }
+ .pillar-card { animation-delay: 0.1s; }
+ .pillar-card:nth-child(2) { animation-delay: 0.2s; }
+ .pillar-card:nth-child(3) { animation-delay: 0.3s; }
+ .ip-card { animation-delay: 0.1s; }
+ .ip-card:nth-child(2) { animation-delay: 0.2s; }
+ .ip-card:nth-child(3) { animation-delay: 0.3s; }
+ .ip-card:nth-child(4) { animation-delay: 0.4s; }
+ .team-card { animation-delay: 0.1s; }
+ .team-card:nth-child(2) { animation-delay: 0.2s; }
+ .team-card:nth-child(3) { animation-delay: 0.3s; }
+ .market-card { animation-delay: 0.1s; }
+ .market-card:nth-child(2) { animation-delay: 0.15s; }
+ .market-card:nth-child(3) { animation-delay: 0.2s; }
+ .market-card:nth-child(4) { animation-delay: 0.25s; }
+ .market-card:nth-child(5) { animation-delay: 0.3s; }
+ .market-card:nth-child(6) { animation-delay: 0.35s; }
+ .case-card { animation-delay: 0.1s; }
+ .case-card:nth-child(2) { animation-delay: 0.15s; }
+ .case-card:nth-child(3) { animation-delay: 0.2s; }
+ .case-card:nth-child(4) { animation-delay: 0.25s; }
+ .case-card:nth-child(5) { animation-delay: 0.3s; }
+ .case-card:nth-child(6) { animation-delay: 0.35s; }
+
+ /* ─ SUBSIDIARIES SECTION ─ */
+ .subsidiaries-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+ gap: 28px;
+ margin-top: 54px;
+ }
+ .subsidiary-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 32px;
+ transition: all 0.25s;
+ position: relative;
+ }
+ .subsidiary-card:hover {
+ border-color: var(--gold);
+ box-shadow: 0 8px 30px rgba(201,170,125,0.08);
+ transform: translateY(-3px);
+ }
+ .subsidiary-header {
+ margin-bottom: 16px;
+ border-bottom: 2px solid var(--gold);
+ padding-bottom: 12px;
+ }
+ .subsidiary-card h3 {
+ color: var(--navy);
+ font-size: 20px;
+ font-weight: 700;
+ margin-bottom: 8px;
+ }
+ .subsidiary-badge {
+ display: inline-block;
+ background: rgba(197,162,91,0.15);
+ color: var(--gold);
+ font-size: 11px;
+ font-weight: 700;
+ padding: 4px 10px;
+ border-radius: 16px;
+ letter-spacing: 0.5px;
+ text-transform: uppercase;
+ }
+ .subsidiary-intro {
+ font-size: 14px;
+ line-height: 1.4;
+ color: #2D3E52;
+ margin-bottom: 18px;
+ }
+ .subsidiary-capabilities h4 {
+ color: var(--navy);
+ font-size: 13px;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ margin-bottom: 12px;
+ }
+ .subsidiary-capabilities ul {
+ margin: 0;
+ padding-left: 20px;
+ }
+ .subsidiary-capabilities li {
+ font-size: 13px;
+ line-height: 1.45;
+ color: #2D3E52;
+ margin-bottom: 8px;
+ }
+ .subsidiary-capabilities li:last-child {
+ margin-bottom: 0;
+ }
+
+ /* ─ GROUP SYNERGY ─ */
+ .synergy-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 24px;
+ margin: 54px 0;
+ }
+ .synergy-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 32px 24px;
+ text-align: center;
+ transition: all 0.25s;
+ position: relative;
+ }
+ .synergy-card:hover {
+ border-color: var(--gold);
+ box-shadow: 0 8px 30px rgba(201,170,125,0.08);
+ transform: translateY(-3px);
+ }
+ .synergy-icon {
+ font-size: 40px;
+ margin-bottom: 12px;
+ display: block;
+ }
+ .synergy-card h3 {
+ color: var(--navy);
+ font-size: 18px;
+ font-weight: 700;
+ margin-bottom: 12px;
+ }
+ .synergy-card p {
+ font-size: 13.5px;
+ line-height: 1.45;
+ color: #2D3E52;
+ }
+ .synergy-flow {
+ margin-top: 54px;
+ padding: 40px 32px;
+ background: linear-gradient(135deg, rgba(201,170,125,0.08), rgba(120,120,128,0.04));
+ border: 1px solid rgba(201,170,125,0.2);
+ border-radius: 12px;
+ }
+ .synergy-flow h3 {
+ text-align: center;
+ color: var(--navy);
+ font-size: 20px;
+ margin-bottom: 32px;
+ }
+ .flow-diagram {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+ flex-wrap: wrap;
+ }
+ .flow-step {
+ background: var(--white);
+ border: 1px solid var(--gold);
+ border-radius: 8px;
+ padding: 20px 16px;
+ text-align: center;
+ min-width: 140px;
+ flex-shrink: 0;
+ }
+ .flow-label {
+ font-weight: 700;
+ color: var(--navy);
+ font-size: 13px;
+ margin-bottom: 6px;
+ }
+ .flow-step p {
+ font-size: 12px;
+ color: var(--text-light);
+ margin: 0;
+ }
+ .flow-arrow {
+ font-size: 24px;
+ color: var(--gold);
+ font-weight: bold;
+ }
+ @media (max-width: 768px) {
+ .flow-diagram {
+ flex-direction: column;
+ gap: 12px;
+ }
+ .flow-arrow {
+ transform: rotate(90deg);
+ }
+ .synergy-grid {
+ grid-template-columns: 1fr;
+ }
+ }
+
+ /* ─ RESPONSIVE ─ */
+ @media (max-width: 1024px) {
+ .pillars-grid, .markets-grid { grid-template-columns: repeat(2, 1fr); }
+ .engage-steps { grid-template-columns: repeat(3, 1fr); }
+ .engage-steps::before { display: none; }
+ .cred-inner { grid-template-columns: repeat(3, 1fr); }
+ .cred-item:nth-child(3) { border-right: none; }
+ }
+ @media (max-width: 1100px) {
+ .nav-toggle { display: flex; }
+ .nav-links {
+ display: none;
+ position: absolute; top: 68px; left: 0; right: 0;
+ background: rgba(11,31,63,0.98);
+ flex-direction: column; padding: 16px 20px 20px; gap: 0;
+ border-bottom: 1px solid rgba(255,255,255,0.06);
+ }
+ .nav-links.open { display: flex; }
+ .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+ .nav-links a { display: block; padding: 12px 0; }
+ .nav-cta { display: none; }
+ }
+ @media (max-width: 768px) {
+ .about-grid, .team-grid, .ip-grid { grid-template-columns: 1fr; }
+ .cases-grid, .pillars-grid, .markets-grid { grid-template-columns: 1fr; }
+ .engage-steps { grid-template-columns: repeat(2, 1fr); }
+ .cred-inner { grid-template-columns: repeat(2, 1fr); }
+ .cred-item:nth-child(2), .cred-item:nth-child(4) { border-right: none; }
+ .section { padding: 64px 0; }
+ .section-alt { padding: 64px 0; }
+ .hero { padding: 100px 20px 60px; }
+ .container { padding: 0 20px; }
+ }
+ @media (max-width: 480px) {
+ .engage-steps { grid-template-columns: 1fr; }
+ .hero-cred-item { font-size: 10px; padding: 5px 10px; letter-spacing: 1px; }
+ .hero-creds { gap: 6px; }
+ }
+
+ /* ─ HERO LEFT ALIGN ─ */
+ 
+ /* ─ HERO BACKGROUND IMAGE ─ */
+ .hero-bg {{
+ position: absolute;
+ inset: 0;
+ background-image: url('assets/img2.webp');
+ background-size: cover;
+ background-position: center;
+ opacity: 0.12;
+ z-index: 0;
+ }}
+
+ .hero .container {
+ margin-left: 32px;
+ margin-right: auto;
+ }
+ /* ─ HERO WITH SIDE IMAGES ─ */
+ .hero-inner {
+ display: grid;
+ grid-template-columns: 1.1fr 1fr;
+ gap: 40px;
+ align-items: center;
+ max-width: var(--max);
+ margin: 0 auto;
+ padding: 0 32px;
+ width: 100%;
+ position: relative;
+ z-index: 2;
+ }
+ .hero-images {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr;
+ gap: 8px;
+ height: 420px;
+ }
+ .hero-images .h-img {
+ overflow: hidden;
+ border-radius: 6px;
+ }
+ .hero-images .h-img img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.4s ease;
+ }
+ .hero-images .h-img:hover img {
+ transform: scale(1.05);
+ }
+ @media (max-width: 900px) {
+ .hero-inner {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .hero-images {
+ height: 300px;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+ }
+ /* ─ SCIENTIFIC LEADERSHIP BAR ─ */
+ .science-bar {
+ background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+ padding: 14px 0;
+ border-top: 1px solid rgba(201,170,125,0.2);
+ position: relative;
+ z-index: 2;
+ }
+ .science-bar-inner {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 40px;
+ flex-wrap: wrap;
+ max-width: var(--max);
+ margin: 0 auto;
+ padding: 0 32px;
+ }
+ .science-item {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ color: rgba(255,255,255,0.85);
+ font-size: 13px;
+ font-weight: 500;
+ }
+ .science-item::before {
+ content: '•';
+ color: var(--gold);
+ font-size: 12px;
+ }
+ @media (max-width: 768px) {
+ .science-bar-inner { gap: 16px; }
+ .science-item { font-size: 11px; }
+ }
+ /* ─ PUBLICATIONS & IMPACT ─ */
+ .pub-section { background: var(--cream); }
+ .pub-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+ margin-top: 48px;
+ }
+ .pub-card {
+ background: var(--white);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ padding: 28px;
+ text-align: center;
+ }
+ .pub-number {
+ font-size: 36px;
+ font-weight: 700;
+ color: var(--gold);
+ line-height: 1;
+ margin-bottom: 8px;
+ }
+ .pub-label {
+ font-size: 13px;
+ font-weight: 600;
+ color: var(--navy);
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ margin-bottom: 8px;
+ }
+ .pub-desc {
+ font-size: 13px;
+ color: var(--text-light);
+ line-height: 1.4;
+ }
+ .pub-cta {
+ text-align: center;
+ margin-top: 40px;
+ }
+ @media (max-width: 900px) {
+ .pub-grid { grid-template-columns: 1fr; }
+ }
+
+ /* ─ HERO CREDENTIAL PILLS ─ */
+ .hero-creds {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ gap: 8px;
+ grid-column: 1 / -1;
+ margin-top: 24px;
+ position: relative;
+ z-index: 2;
+ }
+ .hero-creds .science-item { font-size: 15px; }
+ .hero-cred-item {
+ display: inline-flex;
+ align-items: center;
+ gap: 6px;
+ font-family: 'Inter', sans-serif;
+ font-size: 11px;
+ font-weight: 600;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.75);
+ }
+ .hero-cred-item::before {
+ content: '•';
+ color: var(--gold);
+ font-size: 9px;
+ }
+ .section-alt {
+ background: linear-gradient(rgba(250,248,245,0.70), rgba(250,248,245,0.70)),
+ url('neuro-bg.jpg') center/cover no-repeat !important;
+ }
+
+ .persona-num-home {
+   font-family: 'Playfair Display', serif;
+   font-size: 22px; font-weight: 600;
+   color: var(--gold);
+   line-height: 1;
+   margin-bottom: 8px;
+ }
+ .who-card-link {
+   display: inline-block;
+   margin-top: 14px;
+   font-size: 13px; font-weight: 600;
+   color: var(--gold);
+   text-decoration: none;
+   letter-spacing: 0.5px;
+   border-top: 1px solid var(--border);
+   padding-top: 14px;
+   width: 100%;
+   transition: color 0.2s;
+ }
+ .who-card-link:hover { color: var(--navy); }
+
+ .compare-grid {
+   display: grid;
+   grid-template-columns: 1fr 1.15fr 1fr;
+   gap: 18px;
+   margin-top: 48px;
+   align-items: stretch;
+ }
+ .compare-col {
+   background: var(--white);
+   border: 1px solid var(--border);
+   border-radius: 10px;
+   padding: 28px 24px;
+   transition: all 0.25s;
+ }
+ .compare-col h4 {
+   font-family: 'Playfair Display', serif;
+   font-weight: 500;
+   color: var(--text-mid);
+   font-size: 18px;
+   margin-bottom: 6px;
+   line-height: 1.2;
+ }
+ .compare-line {
+   font-size: 12px; font-weight: 700;
+   letter-spacing: 1.2px; text-transform: uppercase;
+   color: var(--text-light);
+   margin-bottom: 16px;
+   padding-bottom: 14px;
+   border-bottom: 1px solid var(--border);
+ }
+ .compare-col ul { list-style: none; padding: 0; margin: 0; }
+ .compare-col li {
+   font-size: 13px; line-height: 1.5;
+   color: var(--text-mid);
+   padding: 5px 0 5px 18px;
+   position: relative;
+ }
+ .compare-col li::before {
+   content: '·';
+   color: var(--text-light);
+   position: absolute;
+   left: 4px; top: 2px;
+   font-weight: 700; font-size: 18px;
+ }
+ .compare-feature {
+   background: #FAF8F5;
+   border: 1px solid var(--gold);
+   border-top: 3px solid var(--gold);
+   box-shadow: 0 8px 30px rgba(201,170,125,0.10);
+ }
+ .compare-feature h4 { color: var(--navy); font-size: 22px; }
+ .compare-feature .compare-line { color: var(--gold); }
+ .compare-feature li { color: #1A1A2E; font-weight: 500; }
+ .compare-feature li::before { content: '✓'; color: var(--gold); font-size: 13px; top: 5px; }
+ @media (max-width: 880px) {
+   .compare-grid { grid-template-columns: 1fr; }
+ }
+</style>
+<style id="hhg-draft-one">
+.hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
+ font:600 11px/1.5 'Inter',sans-serif;letter-spacing:1.6px;text-transform:uppercase;text-align:center;
+ padding:8px 14px;border-top:2px solid #C5A25B}
+.oh-wrap{margin:2.6rem 0 .6rem;padding:26px 10px 12px;background:#FAF8F5;border:1px solid #E2DDD5;border-radius:14px}
+.oh-svg{width:100%;height:auto;display:block;font-family:'Inter',sans-serif}
+.oh-pill rect{fill:#fff;stroke:#C5A25B;stroke-width:1.4}
+.oh-pill text{fill:#0B1F3F;font-size:15px;font-weight:600;text-anchor:middle}
+.oh-pill{opacity:0;transform:translateX(-14px)}
+.oh-feed{fill:none;stroke:#C5A25B;stroke-width:2;opacity:.85;stroke-dasharray:400;stroke-dashoffset:400}
+.oh-join{fill:#0B1F3F;opacity:0}
+.oh-spine{fill:none;stroke:url(#ohSpine);stroke-width:4;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:700}
+.oh-stage circle{fill:#fff;stroke:#0B1F3F;stroke-width:3}
+.oh-stage.oh-last circle{fill:#0B1F3F;stroke:#C5A25B}
+.oh-stage text{fill:#2b3440;font-size:13px;font-weight:500;text-anchor:middle}
+.oh-stage{opacity:0;transform:translateY(8px)}
+.oh-spinelabel{fill:#6B7280;font-size:12px;font-style:italic;text-anchor:middle;opacity:0}
+.oh-go .oh-pill{animation:ohIn .55s ease-out var(--d) forwards}
+.oh-go .oh-feed{animation:ohDraw .8s ease-in-out var(--d) forwards}
+.oh-go .oh-join{animation:ohPop .4s ease-out var(--d) forwards}
+.oh-go .oh-spine{animation:ohDraw 1.1s ease-in-out var(--d) forwards}
+.oh-go .oh-stage{animation:ohUp .5s ease-out var(--d) forwards}
+.oh-go .oh-spinelabel{animation:ohPop .6s ease-out var(--d) forwards}
+@keyframes ohIn{to{opacity:1;transform:translateX(0)}}
+@keyframes ohUp{to{opacity:1;transform:translateY(0)}}
+@keyframes ohPop{to{opacity:1}}
+@keyframes ohDraw{to{stroke-dashoffset:0}}
+.hhg-rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
+.hhg-rv.hhg-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ .oh-pill,.oh-stage,.oh-join,.oh-spinelabel,.hhg-rv{opacity:1;transform:none}
+ .oh-feed,.oh-spine{stroke-dashoffset:0}.oh-go *{animation:none!important}}
+</style>
+<body>
+
+<!-- NAV -->
+<nav>
+ <div class="nav-inner">
+ <a href="index.html" class="nav-logo">
+ <img src="assets/img1.png" alt="HH Global">
+ </a>
+ <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+ <span></span><span></span><span></span>
+ </button>
+ <ul class="nav-links">
+ <li class="dropdown">
+ <a href="#clients">Who We Serve ▾</a>
+ <div class="dropdown-menu">
+ <a href="#differentiator">Why HH Global Holdings</a>
+ <a href="#markets">One Health</a>
+ </div>
+ </li>
+ <li><a href="labarchitect.html">LabArchitect™</a></li>
+ <li class="dropdown">
+ <a href="#cases">Case Studies ▾</a>
+ <div class="dropdown-menu">
+  <a href="cases-diagnostics.html">Diagnostics &amp; Drug Development</a>
+ <a href="cases-veterinary.html">Veterinary &amp; Environmental</a>
+ </div>
+ </li>
+ <li><a href="innovation-ip.html">Innovation & IP</a></li>
+ <li><a href="scientific-practice.html">Scientific Practice</a></li>
+ <li><a href="company.html">Company Profile</a></li>
+ <li><a href="company.html#articles">Publications</a></li>
+ </ul>
+ <a href="#contact" class="nav-cta">Contact Us</a>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+ <div class="hero-decor"></div>
+ <div class="hero-inner">
+ <div class="hero-content">
+ <div class="section-tag">Human Health · Animal Health · Environmental Health</div>
+ <h1 >The Translational Science<br>&amp; Evidence Solution.<br><em>One Health, One Solution — Human, Animal &amp; Environmental Health.</em></h1>
+ <p >HH Global Holdings is a translational science and evidence platform. We combine genomics, diagnostics, bioinformatics, regulatory intelligence and evidence systems to take scientific work from biomarker discovery through to compliant submission. Our integrated capability, preclinical research, ISO 17025/15189 compliance, multiplex diagnostic development, and regulatory evidence generation, translates seamlessly across human, animal and environmental health. One partner, one unified scientific framework, no handoff gaps.</p>
+ <div class="hero-btns">
+ <a href="#markets" class="btn btn-gold">One Health Framework</a>
+ <a href="#engage" class="btn btn-outline">How We Work</a>
+ </div>
+ </div>
+ <div class="hero-images">
+ <div class="h-img"><img src="assets/img3.webp" alt="HH Global research team at work" loading="lazy" decoding="async"></div>
+ <div class="h-img"><img src="assets/img4.webp" alt="PCR workstation" loading="lazy" decoding="async"></div>
+ <div class="h-img"><img src="assets/img5.webp" alt="Researcher at biosafety hood" loading="lazy" decoding="async"></div>
+ <div class="h-img"><img src="assets/img6.webp" alt="Presenting research outcomes" loading="lazy" decoding="async"></div>
+ </div>
+ </div>
+
+</section>
+<!-- SCIENTIFIC LEADERSHIP BAR -->
+<section class="science-bar">
+ <div class="science-bar-inner">
+ <span class="hero-cred-item">AstraZeneca Trial Delivery</span>
+ <span class="hero-cred-item">Regulatory by Design</span>
+ <span class="hero-cred-item">Government Advisory</span>
+ <span class="hero-cred-item">NHS Clinical Access</span>
+ 
+ </div>
+</section>
+<!-- CREDIBILITY BAR -->
+
+<!-- WHO WE SERVE -->
+<section class="section" id="clients">
+ <div class="container">
+ <div class="section-tag">Who We Serve</div>
+ <h2 class="section-heading">Do You Recognise<br><em>Yourself Here?</em></h2>
+ <p class="section-lead">Our clients come to us at the moment their science needs to become real, validated, compliant, and capable of withstanding regulatory or legal scrutiny. If one of these situations sounds familiar, we should talk.</p>
+ <div class="pillars-grid" style="grid-template-columns:repeat(4,1fr);">
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">01</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Embedded Scientific Capability</div>
+ <h4>Early-Stage Companies</h4>
+ <p>You have the science but not the credentialled team to validate or advance it. You need real scientists, not a consultancy. Whether it is systematic reviews, technical advisory, or R&amp;D without the overhead of an in-house lab, we become your scientific function.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">SMEs · Biotech startups · Environmental consultancies · Independent researchers</p>
+ <a href="scientific-practice.html" class="who-card-link">Scientific Practice →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">02</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Lab Build &amp; Accreditation</div>
+ <h4>Organisations Building or Upgrading Labs</h4>
+ <p>We design laboratories around what the client needs to achieve, regulatory compliance is structural, not an afterthought. Labs built to ISO 17025/15189 from the ground up, not retrofitted after the fact. From equipment specification and Standard Operating Procedure (SOP) development to UK Accreditation Service (UKAS) audit preparation, we have built accredited labs from empty rooms, designed for compliance from day one.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">NHS Trusts · Universities · Overseas health ministries · Private laboratories</p>
+ <a href="labarchitect.html" class="who-card-link">Explore LabArchitect™ →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">03</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Diagnostic Development</div>
+ <h4>Pharma, Biotech &amp; Agri-Health Companies</h4>
+ <p>You have a diagnostic concept, an assay, a lateral flow test, a genomic panel, or an environmental sensor, and you need validation, clinical or field evidence, and a regulatory pathway to certification for the UK and European markets (UKCA and CE marks) or beyond. From women's health and menopause biomarkers to camelid genomics and population-scale research programmes, we take diagnostics from concept to compliant submission across human, animal, and environmental applications.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Pharmaceutical companies · Biotech startups · Drug discovery companies · Women's health companies · Population health programmes · Agricultural diagnostics · Veterinary health companies</p>
+ <a href="scientific-practice.html#pillars" class="who-card-link">Diagnostic &amp; Evidence Sciences →</a>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:28px;border-top:3px solid var(--gold);position:relative;">
+ <div class="persona-num-home">04</div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">UK Market Entry Support</div>
+ <h4>International Organisations &amp; Investors</h4>
+ <p>You are entering a new market, the UK, UAE, Europe, or beyond, and you need local scientific credibility, regulatory alignment, and laboratory capability to make it work. Whether you are a government agency, family office, or investment vehicle establishing diagnostic infrastructure, or an international programme requiring species-specific genomics capability, equine, camelid, or otherwise, we provide the scientific and operational infrastructure your expansion requires.</p>
+ <p style="font-size:12px;color:#6B7280;margin-top:12px;font-style:italic;">Government health agencies · International distributors · Family offices · Overseas health ministries · UAE &amp; Gulf region genomics programmes</p>
+ <a href="company.html#contact" class="who-card-link">Get in Touch →</a>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<section class="section-alt" id="compare">
+ <div class="container">
+   <div class="section-tag">How We Compare</div>
+   <h2 class="section-heading">Niche Specialist <em>with Infrastructure.</em></h2>
+   <p class="section-lead">Buyers of regulated science typically face a binary: an industrial CRO with scale but limited customisation, or a solo academic with depth but no operating infrastructure. Our practice is built to occupy the gap between them.</p>
+
+   <div class="compare-grid">
+     <div class="compare-col">
+       <h4>Industrial CRO</h4>
+       <p class="compare-line">Scale &amp; capacity</p>
+       <ul>
+         <li>High throughput</li>
+         <li>Standardised workflows</li>
+         <li>Limited customisation</li>
+         <li>Programme-level engagement</li>
+         <li>Generalist account team</li>
+       </ul>
+     </div>
+     <div class="compare-col compare-feature">
+       <h4>HH Global Holdings</h4>
+       <p class="compare-line">Specialist depth with infrastructure</p>
+       <ul>
+         <li>Custom assay &amp; method design</li>
+         <li>ISO 17025 / 15189 operating model</li>
+         <li>Peer-reviewed scientific lead</li>
+         <li>End-to-end accountability</li>
+         <li>Practice continuity across engagements</li>
+       </ul>
+     </div>
+     <div class="compare-col">
+       <h4>Solo Scientist</h4>
+       <p class="compare-line">Depth without delivery</p>
+       <ul>
+         <li>Deep specialist knowledge</li>
+         <li>Personal credibility</li>
+         <li>No accredited infrastructure</li>
+         <li>Project-by-project, no continuity</li>
+         <li>Limited bandwidth</li>
+       </ul>
+     </div>
+   </div>
+ </div>
+</section>
+<!-- OUR EDGE -->
+<section class="section-alt" id="differentiator">
+ <div class="container">
+ <div class="section-tag">Why HH Global Holdings — Operational Entities</div>
+ <h2 class="section-heading">Fundamental Science.<br>Commercial <em>Insight.</em></h2>
+ <p class="section-lead">Fragmented CRO (Contract Research Organisation) partnerships are where science goes to slow down. Handoff gaps, misaligned regulatory assumptions, and broad-spectrum guesswork all compound into costly delays. Here is how we eliminate them.</p>
+ <div class="pillars-grid">
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">01</span></div>
+ <h4>The Full Pipeline</h4>
+ <p>Most CROs can take you part of the way. The gap between where one ends and the next begins is where programmes stall. We cover the entire development pathway, from biomarker identification and preclinical work through to ISO 17025/15189 compliance. One partner, no handoff gaps, no restarts.</p>
+ </div>
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">02</span></div>
+ <h4>Targeted, Not Spray-and-Hope</h4>
+ <p>In vitro to in vivo translation is difficult, costly, and often fails when it relies on broad-spectrum assumptions. We identify the lock, find the key model, and replicate the mechanism, targeted development from day one. That is why our clients reach submission faster, with fewer failed iterations.</p>
+ </div>
+ <div class="pillar-card fade-in" style="text-align:center;padding:32px;">
+ <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C5A25B 0%,#0B1F3F 100%);display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><span style="color:#fff;font-size:20px;font-weight:700;">03</span></div>
+ <h4>Regulatory-First by Design</h4>
+ <p>Navigating regulatory requirements is one of the most stressful stages of development, and the most expensive to get wrong. We build every programme to meet compliance from day one, not as an afterthought. The result: evidence packages that work first time, submissions without surprises, and no expensive rework.</p>
+ </div>
+ </div>
+ </div>
+</section>
+<!-- MARKETS WE SERVE -->
+<section class="section" id="markets">
+ <div class="container">
+ <div class="section-tag">One Health Framework</div>
+ <h2 class="section-heading">Three Domains.<br><em>One Pipeline.</em></h2>
+ <p class="section-lead">Human, animal, and environmental health are interconnected. So is our capability. We cover the complete development pathway across all three domains, with the same rigour, the same regulatory discipline, and the same 100% client retention.</p>
+<div class="oh-wrap" id="ohWrap">
+<svg class="oh-svg" viewBox="0 0 1000 330" role="img" aria-label="Human, animal and environmental health converging into one pipeline from biomarker discovery to compliant submission">
+ <defs><linearGradient id="ohSpine" gradientUnits="userSpaceOnUse" x1="292" y1="165" x2="952" y2="165">
+  <stop offset="0%" stop-color="#C5A25B"/><stop offset="100%" stop-color="#D8BF94"/></linearGradient></defs>
+ <g class="oh-pill" style="--d:0s"><rect x="6" y="34" width="200" height="44" rx="22"/><text x="106" y="61">Human Health</text></g>
+ <g class="oh-pill" style="--d:.12s"><rect x="6" y="143" width="200" height="44" rx="22"/><text x="106" y="170">Animal Health</text></g>
+ <g class="oh-pill" style="--d:.24s"><rect x="6" y="252" width="200" height="44" rx="22"/><text x="106" y="279">Environmental Health</text></g>
+ <path class="oh-feed" style="--d:.35s" d="M206 56 C 254 56, 244 165, 292 165"/>
+ <path class="oh-feed" style="--d:.45s" d="M206 165 L 292 165"/>
+ <path class="oh-feed" style="--d:.55s" d="M206 274 C 254 274, 244 165, 292 165"/>
+ <circle class="oh-join" style="--d:.75s" cx="292" cy="165" r="11"/>
+ <path class="oh-spine" style="--d:.85s" d="M292 165 L 952 165"/>
+ <g class="oh-stage" style="--d:1.15s"><circle cx="378" cy="165" r="8"/><text x="378" y="206">Biomarker</text><text x="378" y="223">discovery</text></g>
+ <g class="oh-stage" style="--d:1.30s"><circle cx="568" cy="165" r="8"/><text x="568" y="206">Assay</text><text x="568" y="223">development</text></g>
+ <g class="oh-stage" style="--d:1.45s"><circle cx="758" cy="165" r="8"/><text x="758" y="206">Analytical &amp;</text><text x="758" y="223">clinical validation</text></g>
+ <g class="oh-stage oh-last" style="--d:1.60s"><circle cx="940" cy="165" r="11"/><text x="922" y="206">Compliant</text><text x="922" y="223">submission</text></g>
+ <text class="oh-spinelabel" style="--d:1.75s" x="622" y="138">one continuous evidence chain, no handoff gaps</text>
+</svg></div>
+
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem;">
+
+ <div class="pillar-card fade-in" style="padding:32px;">
+ <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">01 · Human Health</div>
+ <h3 style="font-size:18px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:14px;line-height:1.2;">Drug Development to Diagnostics</h3>
+ <p style="margin-bottom:18px;color:var(--text-light);font-size:14px;line-height: 1.4;">Too often, promising human health science stalls at the boundary of a CRO's capability, handed off, restarted, or simply abandoned. We cover the complete human health development pathway, from preclinical research through Phase 1 delivery, and from bench-top assays to point-of-care devices deployable in the field.</p>
+ <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Full-pipeline CRO: preclinical to Phase 1</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Multiplex lateral flow (patent pending), 20–60 analytes, 3 drops of blood</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Women's health &amp; menopause biomarker diagnostics</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Population health research &amp; large-scale biomarker programmes</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Systematic reviews &amp; evidence synthesis</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Specials licences &amp; unlicensed drug access</li>
+ </ul>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:32px;">
+ <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">02 · Animal Health</div>
+ <h3 style="font-size:18px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:14px;line-height:1.2;">Veterinary Diagnostics &amp; Therapeutics</h3>
+ <p style="margin-bottom:18px;color:var(--text-light);font-size:14px;line-height: 1.4;">Animal health diagnostics have lagged behind human medicine for decades, not because the science is harder, but because the commercial incentive was smaller. That gap is closing. We apply the same diagnostic rigour across species, because pathogens don't respect species boundaries, and neither do we.</p>
+ <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Lateral flow testing for animal disease, TB, brucellosis, any pathogen</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Genomic profiling, equine, camelid, and high-value species</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Vaccine development &amp; fractionation across species</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Veterinary specials licences &amp; cross-species regulatory alignment</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Medicinal cannabis, veterinary &amp; human pathways</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Any species, companion, livestock, camelid, wildlife</li>
+ </ul>
+ </div>
+
+ <div class="pillar-card fade-in" style="padding:32px;">
+ <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">03 · Environmental Health</div>
+ <h3 style="font-size:18px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:14px;line-height:1.2;">From Soil to Air to Legal Standard</h3>
+ <p style="margin-bottom:18px;color:var(--text-light);font-size:14px;line-height: 1.4;">Environmental health decisions, in agriculture, biosecurity, and public safety, are too often made without rigorous scientific evidence. We provide the science that holds up in labs and in front of regulators.</p>
+ <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Plant &amp; crop pathogen diagnostics</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Agri-environmental genomic analysis</li>
+ <li style="font-size:14px;padding-left:16px;position:relative;color:var(--text-light);line-height: 1.4;"><span style="position:absolute;left:0;color:var(--gold);">→</span>Bio-defence &amp; CBRN (Chemical, Biological, Radiological, Nuclear) pathogen detection</li>
+ </ul>
+ </div>
+
+ </div>
+ </div>
+</section>
+
+<!-- HOW WE ENGAGE -->
+<section class="section-alt" id="engage">
+ <div class="container">
+ <div class="section-tag">How We Engage</div>
+ <h2 class="section-heading">A Structured Pathway<br><em>from Enquiry to Impact</em></h2>
+ <p class="section-lead">Every engagement follows a structured, gated process, ensuring scientific rigour at every stage and clear decision points before progressing to the next phase.</p>
+ <div class="engage-steps">
+ <div class="engage-step">
+ <div class="engage-icon">1</div>
+ <h4>Discovery</h4>
+ <p>Initial scoping, needs assessment, feasibility, and programme definition with your team.</p>
+ </div>
+ <div class="engage-step">
+ <div class="engage-icon">2</div>
+ <h4>Preclinical & Research</h4>
+ <p>Literature review, systematic evaluation, laboratory work, biomarker identification, and early-stage development.</p>
+ </div>
+ <div class="engage-step">
+ <div class="engage-icon">3</div>
+ <h4>Validation</h4>
+ <p>Testing, optimisation, statistical analysis, reproducibility, and peer-reviewed evidence generation.</p>
+ </div>
+ <div class="engage-step">
+ <div class="engage-icon">4</div>
+ <h4>Regulatory</h4>
+ <p>ISO 17025/15189 compliance, MHRA and CE/UKCA regulatory submissions, compliance documentation, and expert evidence packages.</p>
+ </div>
+ <div class="engage-step">
+ <div class="engage-icon">5</div>
+ <h4>Deployment</h4>
+ <p>Commercialisation, manufacturing partnerships, scaling, ongoing support, and real-world monitoring across target markets.</p>
+ </div>
+ </div>
+ </div>
+</section>
+<!-- CONTACT CTA -->
+<section style="padding:80px 32px;background:linear-gradient(160deg, rgba(11,31,63,0.55) 0%, rgba(21,45,85,0.55) 40%, rgba(30,58,110,0.55) 100%), url('hero-bg-cells.jpg') center/cover no-repeat;" id="contact">
+ <div class="container">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+ <!-- Left: copy -->
+ <div>
+ <div class="section-tag" style="color:var(--gold)">Start a Conversation</div>
+ <h2 style="color:var(--white);margin-bottom:20px;">Let's Explore How<br>We Can <em style="color:var(--gold);font-style:italic;">Work Together</em></h2>
+ <p style="color:rgba(255,255,255,0.65);font-size:17px;line-height: 1.45;margin-bottom:32px;">Whether you need diagnostic platform development, expert evidence services, preclinical drug development, or a full laboratory setup, we'd welcome the opportunity to discuss your requirements.</p>
+ <div style="display:flex;flex-direction:column;gap:16px;">
+ <div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Email</div>
+ <a href="mailto:info@hhglobalholdings.com" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;">info@hhglobalholdings.com</a>
+ </div>
+ <div>
+ <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Address</div>
+ <p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0;line-height: 1.4;">73 Cornhill, London<br>EC3V 3QQ</p>
+ </div>
+ <div>
+ <a href="https://www.linkedin.com/company/110136969" target="_blank" style="color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.5px;">LinkedIn ↗</a>
+ </div>
+ </div>
+ </div>
+ <!-- Right: form -->
+ <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:40px;">
+ <form id="hh-contact-form" action="https://formspree.io/f/maqvgkga" method="POST" style="display:flex;flex-direction:column;gap:18px;">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Full Name *</label>
+ <input type="text" id="hh-name" name="name" required placeholder="Full name"
+ style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;">
+ </div>
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Company / Organisation *</label>
+ <input type="text" id="hh-company" name="company" required placeholder="Organisation"
+ style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;">
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Email Address *</label>
+ <input type="email" id="hh-email" name="email" required placeholder="Email address"
+ style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;">
+ </div>
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Phone Number</label>
+ <input type="tel" id="hh-phone" name="phone" placeholder="Phone number"
+ style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;">
+ </div>
+ </div>
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Area of Interest *</label>
+ <select id="hh-theme" name="theme" required
+ style="width:100%;padding:12px 14px;background:rgba(11,31,63,0.9);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;appearance:none;cursor:pointer;box-sizing:border-box;">
+ <option value="" disabled selected style="color:rgba(255,255,255,0.4);">Select a theme…</option>
+ <option value="Diagnostic Platform Development">Diagnostic Platform Development</option>
+ <option value="Drug / Therapeutic Development">Drug / Therapeutic Development</option>
+ <option value="Laboratory Setup & ISO Accreditation">Laboratory Setup &amp; ISO Accreditation</option>
+ <option value="Evidence Services / Systematic Review">Evidence Services / Systematic Review</option>
+ <option value="Expert Witness Services">Expert Witness Services</option>
+ <option value="Regulatory Guidance & ISO Compliance">Regulatory Guidance &amp; ISO Compliance</option>
+ <option value="Licensing / Partnership">Licensing / Partnership</option>
+ <option value="General Enquiry">General Enquiry</option>
+ </select>
+ </div>
+ <div>
+ <label style="display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Tell Us About Your Project</label>
+ <textarea id="hh-message" name="message" rows="3" placeholder="Brief overview of your requirements…"
+ style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:var(--white);font-size:14px;font-family:'Inter',sans-serif;outline:none;resize:vertical;box-sizing:border-box;"></textarea>
+ </div>
+ <!-- Hidden helpers: subject line + source page + honeypot anti-spam -->
+ <input type="hidden" name="_subject" id="hh-subject" value="HH Global Holdings Website Enquiry">
+ <input type="hidden" name="source_page" value="index.html">
+ <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+ <button type="submit" id="hh-submit-btn"
+ style="padding:15px 32px;background:var(--gold);color:var(--navy);border:none;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;">
+ Send Enquiry →
+ </button>
+ <p id="hh-form-msg" style="font-size:13px;color:rgba(255,255,255,0.7);margin:0;text-align:center;display:none;"></p>
+ </form>
+ </div>
+ </div>
+ </div>
+</section>
+<style>
+ #hh-contact-form input:focus,
+ #hh-contact-form select:focus,
+ #hh-contact-form textarea:focus {
+ border-color: var(--gold) !important;
+ background: rgba(255,255,255,0.1) !important;
+ }
+ #hh-contact-form input::placeholder,
+ #hh-contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+ #hh-contact-form select option { color: #0b1f3f; background: #ffffff; }
+ #hh-contact-form select option:disabled { color: rgba(11,31,63,0.4); }
+ #hh-contact-form button:hover { background: var(--gold-light); transform: translateY(-1px); }
+ @media (max-width: 768px) {
+ #hh-contact-form + div,
+ #contact > .container > div { grid-template-columns: 1fr !important; }
+ }
+
+/* ─ MOBILE-RESPONSIVE OVERRIDES (injected) ─
+   These rules win against inline grid-template-columns / flex layouts
+   so multi-column sections collapse cleanly on phone-sized viewports. */
+@media (max-width: 768px) {
+ [style*="grid-template-columns:repeat"],
+ [style*="grid-template-columns: repeat"],
+ [style*="grid-template-columns:1fr 1fr"],
+ [style*="grid-template-columns: 1fr 1fr"],
+ [style*="grid-template-columns:1fr 2fr"],
+ [style*="grid-template-columns:2fr 1fr"],
+ [style*="grid-template-columns:1.2fr"],
+ [style*="grid-template-columns: 1.2fr"] {
+ grid-template-columns: 1fr !important;
+ gap: 18px !important;
+ }
+ .pipeline-flow { flex-direction: column !important; gap: 20px !important; align-items: stretch !important; }
+ .pipeline-flow::before { display: none !important; }
+ .pipeline-card, .pipeline-step { width: 100% !important; }
+ /* Prevent any horizontal overflow */
+ body, html { overflow-x: hidden !important; }
+ img, .pillar-card, .pipeline-card { max-width: 100% !important; }
+}
+@media (max-width: 480px) {
+ .hero h1 { font-size: 28px !important; line-height: 1.15 !important; }
+ .section-heading { font-size: 26px !important; line-height: 1.2 !important; }
+}
+</style>
+<script>
+ (function () {
+ var form = document.getElementById('hh-contact-form');
+ var msg = document.getElementById('hh-form-msg');
+ var btn = document.getElementById('hh-submit-btn');
+ var subjectField = document.getElementById('hh-subject');
+
+ form.addEventListener('submit', function (e) {
+ e.preventDefault();
+
+ var theme = document.getElementById('hh-theme').value;
+ var company = document.getElementById('hh-company').value.trim();
+ subjectField.value = 'HH Global Holdings Enquiry — ' + theme + ' (' + company + ')';
+
+ btn.disabled = true;
+ btn.textContent = 'Sending…';
+ msg.style.display = 'block';
+ msg.style.color = 'rgba(255,255,255,0.7)';
+ msg.textContent = 'Sending your enquiry…';
+
+ fetch(form.action, {
+ method: 'POST',
+ body: new FormData(form),
+ headers: { 'Accept': 'application/json' }
+ }).then(function (response) {
+ if (response.ok) {
+ form.reset();
+ msg.style.color = 'var(--gold)';
+ msg.innerHTML = '<strong>Thank you.</strong> Your enquiry has been received — we will be in touch within 24 hours.';
+ btn.textContent = 'Sent ✓';
+ } else {
+ response.json().then(function (data) {
+ msg.style.color = '#ff9b9b';
+ msg.textContent = (data && data.errors && data.errors.map(function (er) { return er.message; }).join(', ')) || 'Sorry — something went wrong. Please email info@hhglobalholdings.com directly.';
+ btn.disabled = false;
+ btn.textContent = 'Send Enquiry →';
+ });
+ }
+ }).catch(function () {
+ msg.style.color = '#ff9b9b';
+ msg.textContent = 'Network error. Please email info@hhglobalholdings.com directly.';
+ btn.disabled = false;
+ btn.textContent = 'Send Enquiry →';
+ });
+ });
+ })();
+</script>
+<footer>
+ <div class="footer-inner">
+ <div class="footer-brand">
+ <p>HH Global Holdings<br>Science, Evidence & Innovation</p>
+ </div>
+ <div class="footer-links">
+ <a href="company.html">Company</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="company.html#articles">Publications</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="#contact">Contact</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="https://www.linkedin.com/company/110136969" target="_blank">LinkedIn</a>
+ </div>
+ <div class="footer-legal">
+ <p>HH Global Holdings Ltd<br>73 Cornhill, London, EC3V 3QQ<br>Company Registered in England & Wales · Company No. 16865238<br>© 2026 HH Global Holdings Ltd. All rights reserved.</p>
+ </div>
+ </div>
+</footer>
+<script>
+ document.getElementById('navToggle').addEventListener('click', function() {
+ document.querySelector('.nav-links').classList.toggle('open');
+ });
+</script>
+ <script>
+ // Touch-friendly dropdowns: first tap opens the menu (no double-tap needed),
+ // tapping a menu item or outside closes it. Pointer/hover devices keep :hover.
+ (function () {
+   var touch = window.matchMedia('(hover: none)').matches;
+   if (!touch) return;
+   document.querySelectorAll('.dropdown > a').forEach(function (link) {
+     link.addEventListener('click', function (e) {
+       var dd = link.parentElement;
+       if (!dd.classList.contains('open')) {
+         e.preventDefault();
+         document.querySelectorAll('.dropdown.open').forEach(function (o) {
+           if (o !== dd) o.classList.remove('open');
+         });
+         dd.classList.add('open');
+       }
+     });
+   });
+   document.addEventListener('click', function (e) {
+     if (!e.target.closest('.dropdown')) {
+       document.querySelectorAll('.dropdown.open').forEach(function (o) { o.classList.remove('open'); });
+     }
+   });
+ })();
+</script>
+<div class="hhg-flag">HHG Draft Update One &middot; concept build for review &middot; not the live site</div>
+<script>
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){
+ if(!e.isIntersecting)return;
+ if(e.target.id==='ohWrap'){e.target.querySelector('svg').classList.add('oh-go');}
+ else{e.target.classList.add('hhg-in');}
+ io.unobserve(e.target);});},{threshold:.25});
+ var w=document.getElementById('ohWrap');if(w)io.observe(w);
+ document.querySelectorAll('#markets .pillar-card,#differentiator .pillar-card,#compare .pillar-card')
+  .forEach(function(el,i){el.classList.add('hhg-rv');el.style.transitionDelay=((i%3)*0.09)+'s';io.observe(el);});})();
+</script>
+</body>
+</html>
