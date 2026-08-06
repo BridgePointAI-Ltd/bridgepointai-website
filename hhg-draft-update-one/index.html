@@ -1152,15 +1152,58 @@
  .hero-images .h-img {
  overflow: hidden;
  border-radius: 6px;
+ position: relative;
+ /* layer 1: staggered entrance */
+ opacity: 0;
+ transform: translateY(18px) scale(.985);
+ animation: hImgIn 1s cubic-bezier(.22,.9,.28,1) forwards;
+ /* layer 3: parallax offset, written by script */
+ --px: 0px; --py: 0px;
+ will-change: transform;
+ }
+ .hero-images .h-img:nth-child(1){animation-delay:.10s}
+ .hero-images .h-img:nth-child(2){animation-delay:.22s}
+ .hero-images .h-img:nth-child(3){animation-delay:.34s}
+ .hero-images .h-img:nth-child(4){animation-delay:.46s}
+ @keyframes hImgIn{to{opacity:1;transform:translateY(0) scale(1)}}
+ .hero-images.settled .h-img {
+ opacity: 1;
+ animation: none;
+ transform: translate3d(var(--px), var(--py), 0);
+ transition: transform .9s cubic-bezier(.16,.7,.2,1);
  }
  .hero-images .h-img img {
  width: 100%;
  height: 100%;
  object-fit: cover;
- transition: transform 0.4s ease;
+ display: block;
+ /* layer 2: slow drift, each tile on its own clock and direction */
+ animation: hDrift 34s ease-in-out infinite alternate;
+ will-change: transform;
  }
- .hero-images .h-img:hover img {
- transform: scale(1.05);
+ .hero-images .h-img:nth-child(1) img{animation-duration:34s;animation-delay:-2s}
+ .hero-images .h-img:nth-child(2) img{animation-name:hDriftB;animation-duration:41s;animation-delay:-13s}
+ .hero-images .h-img:nth-child(3) img{animation-name:hDriftC;animation-duration:38s;animation-delay:-27s}
+ .hero-images .h-img:nth-child(4) img{animation-name:hDriftD;animation-duration:45s;animation-delay:-8s}
+ @keyframes hDrift {from{transform:scale(1.06) translate(0,0)}    to{transform:scale(1.14) translate(-1.6%,-1.2%)}}
+ @keyframes hDriftB{from{transform:scale(1.12) translate(-1.4%,0)} to{transform:scale(1.05) translate(1.0%,-1.4%)}}
+ @keyframes hDriftC{from{transform:scale(1.05) translate(1.2%,-1%)}to{transform:scale(1.13) translate(-1.0%,1.2%)}}
+ @keyframes hDriftD{from{transform:scale(1.13) translate(0,1.2%)}  to{transform:scale(1.06) translate(-1.4%,-0.8%)}}
+ /* layer 4: hover lifts the tile and steadies the image under it */
+ .hero-images .h-img::after{
+ content:"";position:absolute;inset:0;border-radius:6px;pointer-events:none;
+ box-shadow:0 0 0 1px rgba(201,170,125,0) inset, 0 18px 40px rgba(0,0,0,0);
+ transition:box-shadow .5s ease}
+ .hero-images.settled .h-img:hover{
+ transform:translate3d(var(--px),calc(var(--py) - 6px),0) scale(1.014);
+ z-index:2}
+ .hero-images .h-img:hover::after{
+ box-shadow:0 0 0 1px rgba(201,170,125,.45) inset, 0 18px 40px rgba(0,0,0,.32)}
+ @media (prefers-reduced-motion: reduce){
+ .hero-images .h-img{opacity:1;transform:none;animation:none}
+ .hero-images .h-img img{animation:none}
+ .hero-images.settled .h-img{transform:none;transition:none}
+ .hero-images.settled .h-img:hover{transform:none}
  }
  @media (max-width: 900px) {
  .hero-inner {
@@ -1769,7 +1812,7 @@ footer a:hover::after{right:0}
  <a href="#engage" class="btn btn-outline">How We Work</a>
  </div>
  </div>
- <div class="hero-images">
+ <div class="hero-images" id="heroGrid">
  <div class="h-img"><img src="assets/img3.webp" alt="HH Global research team at work" fetchpriority="high" decoding="async"></div>
  <div class="h-img"><img src="assets/img4.webp" alt="PCR workstation" decoding="async"></div>
  <div class="h-img"><img src="assets/img5.webp" alt="Researcher at biosafety hood" decoding="async"></div>
@@ -3084,6 +3127,42 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
    io.observe(v);
  });
  v.addEventListener('error',function(){ v.style.display='none'; });
+})();
+</script>
+
+<script>
+/* Hero grid parallax. Pointer moves tiles a few pixels against the cursor,
+   scroll drifts them apart as the hero leaves. Both are capped small on
+   purpose: the grid should feel alive, not animated. */
+(function(){
+  var grid=document.getElementById('heroGrid'); if(!grid) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var tiles=[].slice.call(grid.querySelectorAll('.h-img'));
+  var depth=[1.0,-0.7,-0.55,0.85];   /* opposing directions read as depth */
+  var mx=0,my=0,sy=0,raf=null;
+  setTimeout(function(){grid.classList.add('settled');},1600);
+  function apply(){
+    raf=null;
+    for(var i=0;i<tiles.length;i++){
+      var d=depth[i];
+      tiles[i].style.setProperty('--px',(mx*7*d).toFixed(2)+'px');
+      tiles[i].style.setProperty('--py',((my*7*d)+(sy*14*d)).toFixed(2)+'px');
+    }
+  }
+  function queue(){ if(!raf) raf=requestAnimationFrame(apply); }
+  window.addEventListener('pointermove',function(e){
+    if(e.pointerType!=='mouse') return;
+    var r=grid.getBoundingClientRect();
+    mx=((e.clientX-(r.left+r.width/2))/(r.width/2))||0;
+    my=((e.clientY-(r.top+r.height/2))/(r.height/2))||0;
+    mx=Math.max(-1,Math.min(1,mx)); my=Math.max(-1,Math.min(1,my));
+    queue();
+  },{passive:true});
+  window.addEventListener('scroll',function(){
+    var r=grid.getBoundingClientRect();
+    sy=Math.max(0,Math.min(1,-r.top/(r.height+240)));
+    queue();
+  },{passive:true});
 })();
 </script>
 </body>
