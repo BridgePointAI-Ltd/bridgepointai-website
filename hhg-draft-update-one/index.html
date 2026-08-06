@@ -1143,67 +1143,60 @@
  z-index: 2;
  }
  .hero-images {
- display: grid;
- grid-template-columns: 1fr 1fr;
- grid-template-rows: 1fr 1fr;
- gap: 8px;
- height: 420px;
- }
- .hero-images .h-img {
- overflow: hidden;
- border-radius: 6px;
  position: relative;
- /* layer 1: staggered entrance */
- opacity: 0;
- transform: translateY(18px) scale(.985);
- animation: hImgIn 1s cubic-bezier(.22,.9,.28,1) forwards;
- /* layer 3: parallax offset, written by script */
+ height: 460px;
+ border-radius: 6px;
+ overflow: hidden;
  --px: 0px; --py: 0px;
+ opacity: 0;
+ animation: heroPanelIn 1.1s cubic-bezier(.22,.9,.28,1) .15s forwards;
+ box-shadow: 0 24px 60px rgba(0,0,0,.34);
  will-change: transform;
  }
- .hero-images .h-img:nth-child(1){animation-delay:.10s}
- .hero-images .h-img:nth-child(2){animation-delay:.22s}
- .hero-images .h-img:nth-child(3){animation-delay:.34s}
- .hero-images .h-img:nth-child(4){animation-delay:.46s}
- @keyframes hImgIn{to{opacity:1;transform:translateY(0) scale(1)}}
- .hero-images.settled .h-img {
- opacity: 1;
- animation: none;
+ @keyframes heroPanelIn{from{opacity:0;transform:translateY(20px) scale(.99)}
+                          to{opacity:1;transform:translateY(0) scale(1)}}
+ .hero-images.settled{
+ opacity:1; animation:none;
  transform: translate3d(var(--px), var(--py), 0);
  transition: transform .9s cubic-bezier(.16,.7,.2,1);
  }
- .hero-images .h-img img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- display: block;
- /* layer 2: slow drift, each tile on its own clock and direction */
- animation: hDrift 34s ease-in-out infinite alternate;
- will-change: transform;
- }
- .hero-images .h-img:nth-child(1) img{animation-duration:34s;animation-delay:-2s}
- .hero-images .h-img:nth-child(2) img{animation-name:hDriftB;animation-duration:41s;animation-delay:-13s}
- .hero-images .h-img:nth-child(3) img{animation-name:hDriftC;animation-duration:38s;animation-delay:-27s}
- .hero-images .h-img:nth-child(4) img{animation-name:hDriftD;animation-duration:45s;animation-delay:-8s}
- @keyframes hDrift {from{transform:scale(1.06) translate(0,0)}    to{transform:scale(1.14) translate(-1.6%,-1.2%)}}
- @keyframes hDriftB{from{transform:scale(1.12) translate(-1.4%,0)} to{transform:scale(1.05) translate(1.0%,-1.4%)}}
- @keyframes hDriftC{from{transform:scale(1.05) translate(1.2%,-1%)}to{transform:scale(1.13) translate(-1.0%,1.2%)}}
- @keyframes hDriftD{from{transform:scale(1.13) translate(0,1.2%)}  to{transform:scale(1.06) translate(-1.4%,-0.8%)}}
- /* layer 4: hover lifts the tile and steadies the image under it */
- .hero-images .h-img::after{
- content:"";position:absolute;inset:0;border-radius:6px;pointer-events:none;
- box-shadow:0 0 0 1px rgba(201,170,125,0) inset, 0 18px 40px rgba(0,0,0,0);
- transition:box-shadow .5s ease}
- .hero-images.settled .h-img:hover{
- transform:translate3d(var(--px),calc(var(--py) - 6px),0) scale(1.014);
- z-index:2}
- .hero-images .h-img:hover::after{
- box-shadow:0 0 0 1px rgba(201,170,125,.45) inset, 0 18px 40px rgba(0,0,0,.32)}
+ /* Four photographs, one frame. 28 second cycle, 7 seconds each, soft
+    cross-fade with a slow zoom underneath so the frame is never quite still. */
+ .hero-images figure{
+ position:absolute; inset:0; margin:0; opacity:0;
+ animation:heroFade 28s linear infinite; will-change:opacity}
+ .hero-images figure img{
+ width:100%; height:100%; object-fit:cover; display:block;
+ animation:heroZoom 28s ease-in-out infinite; will-change:transform}
+ .hero-images figure:nth-child(1),.hero-images figure:nth-child(1) img{animation-delay:0s}
+ .hero-images figure:nth-child(2),.hero-images figure:nth-child(2) img{animation-delay:-21s}
+ .hero-images figure:nth-child(3),.hero-images figure:nth-child(3) img{animation-delay:-14s}
+ .hero-images figure:nth-child(4),.hero-images figure:nth-child(4) img{animation-delay:-7s}
+ @keyframes heroFade{0%{opacity:0}5%{opacity:1}23%{opacity:1}28%{opacity:0}100%{opacity:0}}
+ @keyframes heroZoom{0%{transform:scale(1.02)}30%{transform:scale(1.11)}100%{transform:scale(1.11)}}
+
+ .hero-fade{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(11,31,63,0) 0%,rgba(11,31,63,.6) 100%)}
+
+ /* Four bars, each filling across its own seven seconds, so the rotation
+    reads as deliberate rather than random. */
+ .hero-dots{position:absolute;left:18px;bottom:16px;display:flex;gap:7px;z-index:2}
+ .hero-dots i{width:30px;height:2px;border-radius:2px;position:relative;overflow:hidden;
+ background:rgba(255,255,255,.3)}
+ .hero-dots i::after{content:"";position:absolute;inset:0;background:#C9AA7D;
+ transform:scaleX(0);transform-origin:left;animation:heroBar 28s linear infinite}
+ .hero-dots i:nth-child(1)::after{animation-delay:0s}
+ .hero-dots i:nth-child(2)::after{animation-delay:-21s}
+ .hero-dots i:nth-child(3)::after{animation-delay:-14s}
+ .hero-dots i:nth-child(4)::after{animation-delay:-7s}
+ @keyframes heroBar{0%{transform:scaleX(0)}25%{transform:scaleX(1)}
+                    25.01%,100%{transform:scaleX(0)}}
+
  @media (prefers-reduced-motion: reduce){
- .hero-images .h-img{opacity:1;transform:none;animation:none}
- .hero-images .h-img img{animation:none}
- .hero-images.settled .h-img{transform:none;transition:none}
- .hero-images.settled .h-img:hover{transform:none}
+ .hero-images{opacity:1;animation:none;transform:none;transition:none}
+ .hero-images figure,.hero-images figure img{animation:none}
+ .hero-images figure:nth-child(1){opacity:1}
+ .hero-dots{display:none}
  }
  @media (max-width: 900px) {
  .hero-inner {
@@ -1211,7 +1204,7 @@
  gap: 32px;
  }
  .hero-images {
- height: 300px;
+ height: 330px;
  max-width: 600px;
  margin: 0 auto;
  }
@@ -1450,14 +1443,8 @@
 /* ---- hero motion ---- */
 #hero .hero-decor{will-change:transform;animation:heroDrift 34s ease-in-out infinite alternate}
 @keyframes heroDrift{from{transform:translateY(-50%) translate3d(0,0,0) scale(1)}to{transform:translateY(-50%) translate3d(-2%,1.5%,0) scale(1.06)}}
-#hero .h-img{overflow:hidden}
-#hero .h-img img{will-change:transform;animation:kb 30s ease-in-out infinite alternate}
-#hero .h-img:nth-child(2) img{animation-duration:36s;animation-delay:-6s}
-#hero .h-img:nth-child(3) img{animation-duration:41s;animation-delay:-13s}
-#hero .h-img:nth-child(4) img{animation-duration:33s;animation-delay:-19s}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
 @media(prefers-reduced-motion:reduce){
- #hero .hero-decor,#hero .h-img img{animation:none!important}
+ #hero .hero-decor{animation:none!important}
  .gp-node,.gp-gate,.pp-m{opacity:1;transform:none}
  .gp-fill{stroke-dashoffset:0}.pp-gap{opacity:.13}.pp-gapl{opacity:1}
 }
@@ -1471,8 +1458,6 @@ html{scroll-behavior:smooth}
 #hero{position:relative;overflow:hidden}
 #hhgTrace{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5}
 #hero .hero-inner,#hero .hero-content{position:relative;z-index:2}
-/* pointer parallax */
-#hero .h-img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 /* word reveal */
 .wr>span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(1.2deg);
  transition:opacity .62s cubic-bezier(.2,.8,.2,1),transform .62s cubic-bezier(.2,.8,.2,1)}
@@ -1813,10 +1798,12 @@ footer a:hover::after{right:0}
  </div>
  </div>
  <div class="hero-images" id="heroGrid">
- <div class="h-img"><img src="assets/img3.webp" alt="HH Global research team at work" fetchpriority="high" decoding="async"></div>
- <div class="h-img"><img src="assets/img4.webp" alt="PCR workstation" decoding="async"></div>
- <div class="h-img"><img src="assets/img5.webp" alt="Researcher at biosafety hood" decoding="async"></div>
- <div class="h-img"><img src="assets/img6.webp" alt="Presenting research outcomes" decoding="async"></div>
+ <figure><img src="assets/img3.webp" alt="HH Global research team at work" fetchpriority="high" decoding="async"></figure>
+ <figure><img src="assets/img4.webp" alt="PCR workstation" decoding="async"></figure>
+ <figure><img src="assets/img5.webp" alt="Researcher at biosafety hood" decoding="async"></figure>
+ <figure><img src="assets/img6.webp" alt="Presenting research outcomes" decoding="async"></figure>
+ <div class="hero-fade" aria-hidden="true"></div>
+ <div class="hero-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
  </div>
  </div>
 
@@ -2679,20 +2666,7 @@ if(cv&&!RM){
   addEventListener('resize',size); size(); requestAnimationFrame(draw);
 }
 
-/* 5. pointer parallax on hero images */
-var hero=document.getElementById('hero');
-if(hero&&!RM&&matchMedia('(pointer:fine)').matches){
-  var imgs=hero.querySelectorAll('.h-img');
-  hero.addEventListener('pointermove',function(e){
-    var r=hero.getBoundingClientRect(),
-        dx=(e.clientX-r.left)/r.width-.5, dy=(e.clientY-r.top)/r.height-.5;
-    imgs.forEach(function(el,k){var d=(k%2?-1:1)*(6+k*2);
-      el.style.transform='translate3d('+(dx*d)+'px,'+(dy*d)+'px,0)';});
-  });
-  hero.addEventListener('pointerleave',function(){
-    imgs.forEach(function(el){el.style.transform='';});
-  });
-}
+/* 5. hero pointer parallax now lives with the hero panel, further down */
 
 addEventListener('scroll',onScroll,{passive:true}); onScroll();
 })();
@@ -2855,35 +2829,28 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
 </script>
 
 <script>
-/* Hero grid parallax. Pointer moves tiles a few pixels against the cursor,
-   scroll drifts them apart as the hero leaves. Both are capped small on
-   purpose: the grid should feel alive, not animated. */
+/* Hero panel parallax. The frame drifts a few pixels against the cursor and
+   separates gently on scroll. Deliberately capped small. */
 (function(){
-  var grid=document.getElementById('heroGrid'); if(!grid) return;
+  var panel=document.getElementById('heroGrid'); if(!panel) return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var tiles=[].slice.call(grid.querySelectorAll('.h-img'));
-  var depth=[1.0,-0.7,-0.55,0.85];   /* opposing directions read as depth */
   var mx=0,my=0,sy=0,raf=null;
-  setTimeout(function(){grid.classList.add('settled');},1600);
+  setTimeout(function(){panel.classList.add('settled');},1300);
   function apply(){
     raf=null;
-    for(var i=0;i<tiles.length;i++){
-      var d=depth[i];
-      tiles[i].style.setProperty('--px',(mx*7*d).toFixed(2)+'px');
-      tiles[i].style.setProperty('--py',((my*7*d)+(sy*14*d)).toFixed(2)+'px');
-    }
+    panel.style.setProperty('--px',(mx*9).toFixed(2)+'px');
+    panel.style.setProperty('--py',((my*9)+(sy*22)).toFixed(2)+'px');
   }
   function queue(){ if(!raf) raf=requestAnimationFrame(apply); }
   window.addEventListener('pointermove',function(e){
     if(e.pointerType!=='mouse') return;
-    var r=grid.getBoundingClientRect();
-    mx=((e.clientX-(r.left+r.width/2))/(r.width/2))||0;
-    my=((e.clientY-(r.top+r.height/2))/(r.height/2))||0;
-    mx=Math.max(-1,Math.min(1,mx)); my=Math.max(-1,Math.min(1,my));
+    var r=panel.getBoundingClientRect();
+    mx=Math.max(-1,Math.min(1,((e.clientX-(r.left+r.width/2))/(r.width/2))||0));
+    my=Math.max(-1,Math.min(1,((e.clientY-(r.top+r.height/2))/(r.height/2))||0));
     queue();
   },{passive:true});
   window.addEventListener('scroll',function(){
-    var r=grid.getBoundingClientRect();
+    var r=panel.getBoundingClientRect();
     sy=Math.max(0,Math.min(1,-r.top/(r.height+240)));
     queue();
   },{passive:true});
