@@ -2025,6 +2025,33 @@ footer a:hover::after{right:0}
 @media(prefers-reduced-motion:reduce){.ce-hero-media img,.ce-pill i{animation:none}}
 </style>
 
+<style>
+/* Section washes. HH's own photographs, deeply faded and navy-tinted, so they
+   read as texture behind the type rather than as pictures. Nothing new is
+   introduced: every image here already appears on the page at full strength. */
+.wash{position:relative;isolation:isolate}
+.wash::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--wash);background-size:cover;background-position:var(--wpos,center);
+  opacity:var(--wop,.30);filter:grayscale(.85) contrast(1.04)}
+.wash::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,
+    var(--wtop,rgba(255,255,255,.62)) 0%,
+    var(--wmid,rgba(255,255,255,.88)) 42%,
+    var(--wbot,rgba(255,255,255,.99)) 100%)}
+/* on the cream sections the veil is cream, not white */
+.section-alt.wash::after{
+  background:linear-gradient(180deg,
+    rgba(240,237,233,.60) 0%, rgba(240,237,233,.88) 42%, rgba(240,237,233,.99) 100%)}
+/* the airlock band is navy, so it takes a navy veil and can carry more image */
+.seq.wash::before{opacity:.30}
+.seq.wash::after{
+  background:linear-gradient(180deg,
+    rgba(11,31,63,.74) 0%, rgba(11,31,63,.90) 42%, rgba(11,31,63,.99) 100%)}
+@media(max-width:760px){.wash::before{opacity:.16}}
+</style>
+
 <body>
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
@@ -2081,7 +2108,7 @@ footer a:hover::after{right:0}
 </section>
 
 <!-- WHY IT MATTERS -->
-<section class="section" id="ce-why">
+<section class="section wash" id="ce-why" style="--wash:url(assets/img4.webp);--wpos:center 45%">
  <div class="container">
   <div class="section-tag">Why it changes the answer</div>
   <h2 class="section-heading">Provenance Is Lost<br><em>at the Handover.</em></h2>
@@ -2114,7 +2141,7 @@ footer a:hover::after{right:0}
  </div>
 </section>
 
-<section class="seq" id="airlock">
+<section class="seq wash" id="airlock" style="--wash:url(assets/cleanroom.webp);--wpos:center 45%">
  <div class="seq-head">
   <div class="k">Controlled entry &middot; Ten seconds</div>
   <h3>You do not walk into a clean room. You are admitted to it.</h3>
@@ -2178,7 +2205,7 @@ footer a:hover::after{right:0}
 </section>
 
 <!-- SPECIFICATION -->
-<section class="section-alt" id="ce-spec">
+<section class="section-alt wash" id="ce-spec" style="--wash:url(assets/img5.webp);--wpos:center 40%">
  <div class="container">
   <div class="section-tag">Specification</div>
   <h2 class="section-heading">Stated Plainly,<br><em>Before It Opens.</em></h2>
@@ -2210,7 +2237,7 @@ footer a:hover::after{right:0}
 </section>
 
 <!-- WHAT IT UNLOCKS -->
-<section class="section" id="ce-work">
+<section class="section wash" id="ce-work" style="--wash:url(assets/img3.webp);--wpos:center 30%">
  <div class="container">
   <div class="section-tag">What it unlocks</div>
   <h2 class="section-heading">Work We Currently<br><em>Have to Send Out.</em></h2>
