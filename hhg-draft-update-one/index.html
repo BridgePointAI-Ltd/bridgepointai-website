@@ -1874,6 +1874,13 @@ footer a:hover::after{right:0}
 
 <style>.nav-links{margin-right:28px}.nav-inner{gap:18px}</style>
 <style>.nav-links{margin-right:26px}.dropdown-menu a.sub{padding-left:26px;font-size:.92em;opacity:.85}.nav-links a.here{color:#C5A25B}</style>
+<style>
+/* Ambient trace, the same sequencing squiggle as the hero, made reusable.
+   Sits behind everything, never intercepts a click, and stops when off screen. */
+.hhg-tr{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
+@media(prefers-reduced-motion:reduce){.hhg-tr{display:none}}
+@media(max-width:760px){.hhg-tr{opacity:.35}}
+</style>
 <body>
 
 <!-- NAV -->
@@ -2005,7 +2012,7 @@ footer a:hover::after{right:0}
 
 
 <div class="coc-scope" id="cocScope">
- <div class="coc-sticky">
+ <div class="coc-sticky" data-trace data-trace-speed="0.18">
   <div class="coc-in">
    <div>
     <div class="coc-tag">Chain of custody</div>
@@ -2416,7 +2423,7 @@ footer a:hover::after{right:0}
  </div>
 <div class="lab-cap"><b>Clean room, opening September 2026.</b> Fully enclosed, with a gowning lobby and interlocked entry to the laboratory.</div>
 </section>
-<section class="seq wash" id="airlock" style="--wash:url(assets/cleanroom.webp);--wpos:center 45%">
+<section class="seq wash" id="airlock" data-trace data-trace-speed="0.22" style="--wash:url(assets/cleanroom.webp);--wpos:center 45%">
  <div class="seq-head">
   <div class="k">Controlled entry &middot; Ten seconds</div>
   <h3>You do not walk into a clean room. You are admitted to it.</h3>
@@ -3143,6 +3150,61 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
       io.unobserve(e.target);} });
   },{threshold:.3});
   [].forEach.call(cards,function(c){io.observe(c);});
+})();
+</script>
+
+<script>
+/* Reusable ambient trace. Attach with data-trace on any positioned container.
+   Three gold squiggles drifting at different rates, identical language to the
+   hero. Gated by IntersectionObserver so nothing animates off screen. */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var dpr = Math.min(2, window.devicePixelRatio || 1);
+
+  function attach(host){
+    var cv = document.createElement('canvas');
+    cv.className = 'hhg-tr'; cv.setAttribute('aria-hidden','true');
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    host.insertBefore(cv, host.firstChild);
+
+    var cx = cv.getContext('2d'), W = 0, H = 0, off = 0, raf = null, visible = false;
+    var speed = parseFloat(host.dataset.traceSpeed || '0.28');
+    var lines = [{a:26,y:.28,s:5,o:.18,w:1.1},{a:34,y:.54,s:6,o:.13,w:1.3},{a:20,y:.78,s:4,o:.09,w:1}];
+
+    function size(){
+      W = host.offsetWidth; H = host.offsetHeight;
+      cv.width = W*dpr; cv.height = H*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    function squiggle(seed, amp, y0, step){
+      var pts=[], v=y0;
+      for(var x=-40; x<W+60; x+=step){
+        var n = Math.sin((x+seed)*0.013) + Math.sin((x+seed)*0.041)*0.6 + Math.sin((x+seed)*0.117)*0.3;
+        v = y0 + n*amp; pts.push([x,v]);
+      }
+      return pts;
+    }
+    function draw(){
+      if(!visible){ raf=null; return; }
+      if(!W) size();
+      cx.clearRect(0,0,W,H); off += speed;
+      lines.forEach(function(L,k){
+        var pts = squiggle(off*(1+k*0.35)+k*900, L.a, H*L.y, L.s);
+        cx.beginPath(); cx.moveTo(pts[0][0], pts[0][1]);
+        for(var i=1;i<pts.length;i++) cx.lineTo(pts[i][0], pts[i][1]);
+        cx.strokeStyle = 'rgba(197,162,91,'+L.o+')';
+        cx.lineWidth = L.w; cx.stroke();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+    new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting;
+      if(visible && !raf){ size(); raf = requestAnimationFrame(draw); }
+    },{threshold:0}).observe(host);
+    window.addEventListener('resize', size, {passive:true});
+    size();
+  }
+
+  [].forEach.call(document.querySelectorAll('[data-trace]'), attach);
 })();
 </script>
 </body>
