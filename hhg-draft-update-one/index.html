@@ -1455,6 +1455,37 @@
 .ch-r{font-size:14.5px;line-height:1.65;color:#4A5568;max-width:66ch;margin:0}
 .ch-note{margin-top:12px;font-size:12.5px;color:#8A94A6;font-style:italic}
 
+
+/* Named leads. The whole page argues that a claim should be checkable, so the
+   credentials are stated specifically and linked out rather than asserted. */
+.leads{margin-top:3rem;padding-top:2.2rem;border-top:1px solid #E6E1D8}
+.leads-k{font-size:11px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
+ color:#9A7B33;margin-bottom:6px}
+.leads-lead{font-size:14.5px;line-height:1.65;color:#55617A;max-width:70ch;margin:0 0 26px}
+.leads-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.lead-card{background:#FAF8F5;border:1px solid #E6E1D8;border-radius:12px;padding:24px 24px 20px;
+ position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s}
+.lead-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#C5A25B;
+ transform:scaleY(0);transform-origin:top;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.lead-card.in::before{transform:scaleY(1)}
+.lead-card:hover{border-color:#C5A25B;box-shadow:0 14px 34px rgba(11,31,63,.09);transform:translateY(-2px)}
+.lead-card h4{font-family:'Playfair Display',Georgia,serif;font-size:21px;color:#0B1F3F;
+ margin:0 0 3px;font-weight:600}
+.lead-role{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+ color:#9A7B33;margin-bottom:14px}
+.lead-card p{font-size:13.5px;line-height:1.62;color:#55617A;margin:0 0 15px}
+.lead-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.lead-chips span{font-size:11.5px;line-height:1.35;padding:5px 10px;border-radius:5px;
+ background:#fff;border:1px solid #E2DDD5;color:#4A5568}
+.lead-chips span b{color:#0B1F3F;font-weight:600}
+.lead-links{font-size:12px;color:#8A94A6;border-top:1px solid #EDE8E0;padding-top:11px}
+.lead-links a{color:#9A7B33;text-decoration:none;border-bottom:1px solid rgba(154,123,51,.35)}
+.lead-links a:hover{color:#0B1F3F;border-bottom-color:#0B1F3F}
+.leads-cite{margin-top:20px;font-size:12.5px;color:#7C8CA6;line-height:1.6}
+.leads-cite b{color:#4A5568;font-weight:600}
+.leads-cite a{color:#9A7B33;text-decoration:none;border-bottom:1px solid rgba(154,123,51,.35)}
+@media(max-width:820px){.leads-grid{grid-template-columns:1fr}}
+
 /* ---- four questions ---- */
 .fq{width:100%;border-collapse:collapse;margin-top:2.6rem;font-size:13.5px}
 .fq caption{caption-side:top;text-align:left;font-size:11px;font-weight:700;letter-spacing:2.6px;
@@ -2112,6 +2143,57 @@ footer a:hover::after{right:0}
          <td data-l="Unaffiliated academic">It is usually the other side who finds it first.</td></tr>
      </tbody>
    </table>
+
+   <div class="leads">
+     <div class="leads-k">Who the named scientific lead actually is</div>
+     <p class="leads-lead">The row above says a named, peer-reviewed lead signs the work. That is
+     a claim, so here are the names and the specifics, with links so you can check them rather
+     than take our word for it.</p>
+     <div class="leads-grid">
+       <div class="lead-card">
+         <h4>Dr Samuel J. White</h4>
+         <div class="lead-role">Chief Executive &amp; Scientific Lead</div>
+         <p>Applied immunologist and geneticist. Fifteen years in translational research,
+         diagnostics development and One Health.</p>
+         <div class="lead-chips">
+           <span><b>Honorary Associate Professor</b> of Translational Immunology, University of Nottingham</span>
+           <span>PhD Applied Immunology</span>
+           <span>Formerly Associate Professor and Director, Centre for Applied Innovation, York St John</span>
+           <span>Patent holder, <b>multiplex lateral flow</b>, 20 to 60 analytes simultaneously</span>
+           <span>Patent holder, plaster-format microneedle diagnostic</span>
+           <span>FEI &middot; Chester Zoo &middot; Universit&auml;t Bern</span>
+         </div>
+         <div class="lead-links">Science communication for The Times, The Telegraph and BBC Radio 4.</div>
+       </div>
+       <div class="lead-card">
+         <h4>Professor Philippe B. Wilson</h4>
+         <div class="lead-role">Academic Lead</div>
+         <p>Professor of One Health. Metabolomics, bioinformatics and low-field NMR, with
+         government advisory work in toxicology and animal genetics.</p>
+         <div class="lead-chips">
+           <span><b>Forbes 30 Under 30</b>, Science &amp; Healthcare, 2018</span>
+           <span><b>Joseph Black Medal</b>, Royal Society of Chemistry, 2019</span>
+           <span>IUPAC Periodic Table of Younger Chemists, Krypton</span>
+           <span>Fellow, <b>Royal Society of Biology</b></span>
+           <span>Fellow, <b>Royal Society of Medicine</b></span>
+           <span>Fellow, <b>Linnean Society of London</b></span>
+           <span>UK Committee on Toxicity</span>
+           <span>Genetics of Livestock and Equines Committee</span>
+         </div>
+         <div class="lead-links">Verify:
+           <a href="https://en.wikipedia.org/wiki/Philippe_B._Wilson" target="_blank" rel="noopener">Wikipedia</a>
+           &middot;
+           <a href="https://www.forbes.com/profile/philippe-wilson/" target="_blank" rel="noopener">Forbes profile</a>
+         </div>
+       </div>
+     </div>
+     <p class="leads-cite"><b>A recent joint output.</b> Wilson PB, White SJ et al.
+     &ldquo;Genomic characterisation of bioaerosols within livestock facilities.&rdquo;
+     <em>Science of The Total Environment</em>, vol. 918, March 2024.
+     <a href="https://doi.org/10.1016/j.scitotenv.2024.170722" target="_blank" rel="noopener">doi:10.1016/j.scitotenv.2024.170722</a>.
+     Together they write for The Conversation, which reaches a combined readership of over
+     40 million a month.</p>
+   </div>
  </div>
  </div>
 </section>
@@ -2962,6 +3044,21 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
       if(!wrap.classList.contains('pp-go')) wrap.classList.add('pp-go');
     }
   });
+})();
+</script>
+
+<script>
+/* Reveal the gold rule on each lead card when it enters view. */
+(function(){
+  var cards=document.querySelectorAll('.lead-card'); if(!cards.length) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    [].forEach.call(cards,function(c){c.classList.add('in');}); return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e,k){ if(e.isIntersecting){
+      setTimeout(function(){e.target.classList.add('in');}, k*140);
+      io.unobserve(e.target);} });
+  },{threshold:.3});
+  [].forEach.call(cards,function(c){io.observe(c);});
 })();
 </script>
 </body>
