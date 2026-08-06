@@ -1631,12 +1631,22 @@ footer a:hover::after{right:0}
  background:#0B1F3F;color:#EAEEF8;overflow:hidden}
 .coc-sticky::before{content:"";position:absolute;inset:0;
  background:radial-gradient(ellipse 70% 60% at 20% 40%,rgba(197,162,91,.09),transparent 70%)}
+.coc-sticky::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:url('assets/img5.webp');background-size:cover;background-position:center 40%;
+ opacity:.13;filter:grayscale(.9) contrast(1.05);
+ mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.15) 70%,transparent);
+ -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.15) 70%,transparent)}
 .coc-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 34px;width:100%;
  display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
 .coc-tag{font-size:10.5px;font-weight:700;letter-spacing:2.8px;text-transform:uppercase;color:#C5A25B}
 .coc-h{font-family:'Playfair Display',Georgia,serif;font-size:34px;line-height:1.14;margin:10px 0 10px;color:#fff}
 .coc-h em{color:#D8BF94;font-style:italic}
 .coc-sub{font-size:14.5px;color:#B8C4D8;max-width:520px;line-height:1.55}
+.coc-breaks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;
+ padding-top:20px;border-top:1px solid rgba(197,162,91,.20)}
+.coc-breaks div{font-size:12.5px;line-height:1.55;color:#9FB0CD}
+.coc-breaks b{color:#D8BF94;font-weight:600;display:block;margin-bottom:3px;font-size:12px}
+@media(max-width:980px){.coc-breaks{grid-template-columns:1fr;gap:10px}}
 .coc-track{margin-top:26px}
 .coc-svg{width:100%;height:auto;display:block}
 .coc-rail{fill:none;stroke:rgba(197,162,91,.22);stroke-width:3;stroke-linecap:round}
@@ -1660,9 +1670,12 @@ footer a:hover::after{right:0}
 .coc-verify.ok{background:rgba(24,107,70,.28);color:#7FE0AE}
 .coc-rows{overflow:hidden;flex:1;scroll-behavior:smooth}
 .coc-row{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.45;
- padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.09);opacity:0;transform:translateY(6px);
- transition:opacity .4s,transform .4s}
-.coc-row.on{opacity:1;transform:none}
+ padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.09);opacity:.26;
+ transition:opacity .45s}
+.coc-row.on{opacity:1}
+/* a station that has not been reached shows its name and nothing else */
+.coc-row:not(.on) .shl,.coc-row:not(.on) .hsh,.coc-row:not(.on) br{display:none}
+.coc-row:not(.on)::after{content:"awaiting entry";color:#54637E;font-style:italic;margin-left:8px}
 .coc-row .n{color:#C5A25B}
 .coc-row .e{color:#EAEEF8}
 .coc-row .m{color:#8FA0BC}
@@ -2000,6 +2013,14 @@ footer a:hover::after{right:0}
     <p class="coc-sub">Scroll to move a sample through the laboratory. Each step writes an entry to the
     audit log, and each entry is sealed with a hash of the one before it. Alter any entry and the chain
     breaks. These hashes are computed in your browser, right now, from the entries as they are written.</p>
+    <div class="coc-breaks">
+     <div><b>At the handover.</b> The moment a sample leaves one quality system for another is
+     where custody most often develops a gap.</div>
+     <div><b>In the gap between systems.</b> Two organisations, two records, and nothing that
+     joins them into one account.</div>
+     <div><b>In the record nobody kept.</b> Not because anyone hid it, but because at the time
+     it did not seem like it would ever be asked for.</div>
+    </div>
     <div class="coc-track">
      <svg class="coc-svg" viewBox="0 0 1200 110" role="img" aria-label="Eight custody stations from collection to disclosure">
       <path class="coc-rail" d="M60 64 L1140 64"/>
@@ -2971,7 +2992,7 @@ function build(){
     d.className='coc-row'+(tampered&&k>=3?' bad':'')+(tampered&&k===3?' tampered':'');
     d.innerHTML='<span class="n">#'+String(k+1).padStart(2,'0')+'</span> '+
      '<span class="e">'+e[0].toUpperCase()+'</span> <span class="m">'+desc+'</span><br>'+
-     '<span class="m">sha256 </span><span class="hsh">'+h.slice(0,44)+'…</span>';
+     '<span class="m shl">sha256 </span><span class="hsh">'+h.slice(0,44)+'…</span>';
     rowsEl.appendChild(d); rows.push(d);
   });
 }
