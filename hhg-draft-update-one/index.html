@@ -1429,6 +1429,7 @@
 /* chooser drives the plot: the answer stays lit, the others recede */
 .pp-wrap.answered .pp-m{animation:none!important;opacity:.2;transition:opacity .5s ease}
 .pp-wrap.answered .pp-m.on{opacity:1}
+.pp-wrap.answered.none .pp-m{opacity:.2}
 .pp-m.on circle{filter:drop-shadow(0 0 10px rgba(197,162,91,.85))}
 .pp-halo{fill:none;stroke:#C5A25B;stroke-width:2;opacity:0}
 .pp-m.on .pp-halo{animation:ppHalo 2.6s ease-out infinite}
@@ -2013,7 +2014,7 @@ footer a:hover::after{right:0}
  <div class="container">
    <div class="section-tag">How We Compare</div>
    <h2 class="section-heading">The Choice You Are<br><em>Actually Making.</em></h2>
-   <p class="section-lead">Buyers of regulated science are usually offered a binary: an industrial CRO with scale but little customisation, or an individual academic with depth but no operating infrastructure. Which one is right depends entirely on what you are trying to do, and for a fair number of projects the answer is not us. Pick the situation that matches yours.</p>
+   <p class="section-lead">Buyers of regulated science are usually offered a binary: an industrial CRO with scale but little customisation, or an individual academic with depth but no operating infrastructure. It is a false binary. Our own scientific leads are peer-reviewed academics, working inside an accredited operating system, and we convene further specialists across One Health when a question calls for one. That said, which route is right depends entirely on what you are doing, and for some projects the answer is not us. Pick the situation that matches yours.</p>
 <div class="pp-wrap" id="ppWrap">
 <svg class="pp-svg" viewBox="0 0 900 430" role="img" aria-label="Positioning: solo scientist has depth without delivery infrastructure, industrial CRO has infrastructure without depth, HH Global Holdings occupies the gap between them">
  <!-- gap band -->
@@ -2029,8 +2030,8 @@ footer a:hover::after{right:0}
  <!-- markers -->
  <g class="pp-m" data-who="solo" style="--d:.6s">
   <circle class="pp-halo" cx="196" cy="132" r="15"/><circle cx="196" cy="132" r="15" fill="#fff" stroke="#6B7280"/>
-  <text class="t" x="196" y="106" fill="#4A5568">Solo Scientist</text>
-  <text class="s" x="196" y="168">depth without delivery</text>
+  <text class="t" x="196" y="106" fill="#4A5568">Unaffiliated academic</text>
+  <text class="s" x="196" y="168">depth, no operating infrastructure</text>
  </g>
  <g class="pp-m" data-who="cro" style="--d:.85s">
   <circle class="pp-halo" cx="742" cy="298" r="15"/><circle cx="742" cy="298" r="15" fill="#fff" stroke="#6B7280"/>
@@ -2053,17 +2054,21 @@ footer a:hover::after{right:0}
          data-v="Go to an industrial CRO."
          data-r="Throughput on a settled method is precisely what they are built for. We would cost you more and do it no better. Take the volume pricing.">
          A validated assay, thousands of samples, lowest unit cost</button>
-       <button type="button" aria-pressed="false" data-who="solo"
-         data-v="Go to a specialist academic."
-         data-r="If what you need is the leading authority on one organism and nothing else, engage them directly. Our infrastructure would be overhead you are not using.">
-         One narrow question, one discipline, and time to think</button>
+       <button type="button" aria-pressed="false" data-who="none"
+         data-v="Go wherever that scope is held."
+         data-r="If a specific test has to sit inside a named accredited scope, the only question that matters is who holds it. Ask for the schedule, not the certificate. If it is not ours we will say so, and we will usually know who it is.">
+         A test that must sit inside a specific accredited scope</button>
+       <button type="button" aria-pressed="false" data-who="hh"
+         data-v="This is our work, and it is who we are."
+         data-r="Our scientific leads are peer-reviewed academics, and we convene others across human, animal and environmental health when a question needs a particular authority. You get the specialist and the operating system around them, rather than choosing between the two.">
+         A named authority on one narrow discipline</button>
        <button type="button" aria-pressed="false" data-who="hh"
          data-v="This is our work."
-         data-r="Designing the method and building the evidential record around it at the same time. The CRO has no method to run yet. The academic has no accredited system to run it in.">
+         data-r="Designing the method and building the evidential record around it at the same time. The CRO has no method to run yet. An unaffiliated academic has no accredited system to run it in.">
          The method does not exist yet, and it must survive scrutiny later</button>
        <button type="button" aria-pressed="false" data-who="hh"
          data-v="This is our work."
-         data-r="Independent examination of somebody else's method, provenance and limits. A CRO will not review work it competes for. An academic gives you an opinion, which is not the same as an audit.">
+         data-r="Independent examination of somebody else's method, provenance and limits. A CRO will not review work it competes for. An opinion from one individual is not the same as an audit.">
          Evidence already exists and you need to know whether it holds</button>
        <button type="button" aria-pressed="false" data-who="hh"
          data-v="This is our work, from September 2026."
@@ -2074,33 +2079,37 @@ footer a:hover::after{right:0}
        <p class="ch-v" id="chV"></p>
        <p class="ch-r" id="chR"></p>
      </div>
-     <p class="ch-note">Two of those five are not us, and we would rather say so here than three
+     <p class="ch-note">Two of those six are not us, and we would rather say so here than three
      months into an engagement.</p>
    </div>
 
    <table class="fq">
-     <caption>The four questions that actually decide it</caption>
+     <caption>The five questions that actually decide it</caption>
      <thead><tr><th scope="col">&nbsp;</th>
        <th scope="col">Industrial CRO</th>
        <th scope="col" class="me">HH Global Holdings</th>
-       <th scope="col">Specialist academic</th></tr></thead>
+       <th scope="col">Unaffiliated academic</th></tr></thead>
      <tbody>
        <tr><th scope="row">Who actually does the science?</th>
          <td data-l="Industrial CRO">A team assigned to the account, often changing between phases.</td>
-         <td class="me" data-l="HH Global Holdings">A named scientific lead who stays with the work and signs it.</td>
-         <td data-l="Specialist academic">The person you engaged, and only them.</td></tr>
+         <td class="me" data-l="HH Global Holdings">A named, peer-reviewed scientific lead who stays with the work and signs it.</td>
+         <td data-l="Unaffiliated academic">The person you engaged, and only them.</td></tr>
        <tr><th scope="row">What happens when the method does not exist?</th>
          <td data-l="Industrial CRO">Out of scope, or a change request and a place in the queue.</td>
          <td class="me" data-l="HH Global Holdings">That is the starting point rather than the exception.</td>
-         <td data-l="Specialist academic">They can design it. Running it to standard is the harder half.</td></tr>
+         <td data-l="Unaffiliated academic">They can design it. Running it to standard is the harder half.</td></tr>
        <tr><th scope="row">Who stands behind it when it is challenged?</th>
          <td data-l="Industrial CRO">The contract. Rarely a person in a witness box.</td>
          <td class="me" data-l="HH Global Holdings">A named expert, in a report or under cross examination.</td>
-         <td data-l="Specialist academic">Them, personally, subject to their bandwidth that month.</td></tr>
+         <td data-l="Unaffiliated academic">Them, personally, subject to their bandwidth that month.</td></tr>
+       <tr><th scope="row">What if the question needs a different specialist?</th>
+         <td data-l="Industrial CRO">Reassigned inside the same account team.</td>
+         <td class="me" data-l="HH Global Holdings">We convene one, from a network across human, animal and environmental health.</td>
+         <td data-l="Unaffiliated academic">Outside their field is outside the engagement.</td></tr>
        <tr><th scope="row">What does it cost when it goes wrong?</th>
          <td data-l="Industrial CRO">A rerun at your expense, on the method that already failed.</td>
          <td class="me" data-l="HH Global Holdings">We say so early when the answer is unfavourable. Early is cheaper.</td>
-         <td data-l="Specialist academic">It is usually the other side who finds it first.</td></tr>
+         <td data-l="Unaffiliated academic">It is usually the other side who finds it first.</td></tr>
      </tbody>
    </table>
  </div>
@@ -2947,6 +2956,7 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
     ans.classList.add('in');
     if(wrap){
       wrap.classList.add('answered');
+      wrap.classList.toggle('none', who==='none');
       [].forEach.call(wrap.querySelectorAll('.pp-m'),function(m){
         m.classList.toggle('on', m.dataset.who===who);});
       if(!wrap.classList.contains('pp-go')) wrap.classList.add('pp-go');
