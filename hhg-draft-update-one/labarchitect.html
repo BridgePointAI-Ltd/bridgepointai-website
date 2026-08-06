@@ -2211,6 +2211,37 @@ footer a:hover::after{right:0}
  .lp-clean,.lp-grid,.lp-lb text,.lp-flow,.lp-cap{opacity:1;animation:none}
  .lp-dot{display:none}}
 </style>
+
+<style id="hhg-nav-mobile">
+/* Mobile nav, below the 1100px breakpoint where the bar collapses to a burger.
+   Two problems this fixes:
+   1. The submenu kept position:absolute inside the stacked panel, so it would
+      have overlaid the items beneath it instead of pushing them down.
+   2. Nothing indicated which parents expand, so a tap looked like a dead end. */
+@media (max-width:1100px){
+ .nav-links .dropdown-menu{
+   position:static;min-width:0;background:transparent;box-shadow:none;
+   border-top:0;border-left:2px solid rgba(197,162,91,.45);
+   margin:0 0 12px 4px;padding:2px 0 2px 0}
+ .nav-links .dropdown-menu a{padding:10px 0 10px 16px;font-size:12.5px}
+ .nav-links .dropdown-menu a.sub{padding-left:30px}
+ .nav-links{max-height:calc(100vh - 68px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+  /* a desktop override leaked a 26px right margin into the panel, and the
+     .98 alpha let the hero type read through the menu */
+  margin-right:0!important;background:#0B1F3F;padding-bottom:28px}
+}
+.nav-cta-m{display:none}
+@media (max-width:1100px){
+ /* The gold Contact button is display:none below this width, which left the
+    primary call to action unreachable on a phone. This is the same link,
+    surfaced inside the panel. */
+ .nav-cta-m{display:block;border-bottom:0!important;margin-top:14px}
+ .nav-cta-m a{display:block!important;text-align:center;background:#C5A25B;color:#0B1F3F!important;
+  border-radius:6px;padding:14px 0!important;font-size:11.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase}
+}
+
+</style>
 <body>
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
@@ -2218,10 +2249,11 @@ footer a:hover::after{right:0}
  <a href="index.html" class="nav-logo">
  <img src="assets/img1.png" alt="HH Global">
  </a>
- <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+ <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
  <span></span><span></span><span></span>
  </button>
- <ul class="nav-links"> <li class="dropdown">
+ <ul class="nav-links">
+ <li class="dropdown">
  <a href="index.html#clients">Who We Serve &#9662;</a>
  <div class="dropdown-menu">
  <a href="index.html#differentiator">Why HH Global Holdings</a>
@@ -2249,7 +2281,8 @@ footer a:hover::after{right:0}
  <li><a href="https://hhglobalholdings.com/scientific-practice.html">Scientific Practice</a></li>
  <li><a href="https://hhglobalholdings.com/company.html">Company Profile</a></li>
  <li><a href="https://hhglobalholdings.com/company.html#articles">Publications</a></li>
-</ul>
+ <li class="nav-cta-m"><a href="index.html#contact">Contact Us</a></li>
+ </ul>
  <a href="index.html#contact" class="nav-cta">Contact Us</a>
  </div>
 </nav>
@@ -2637,9 +2670,6 @@ footer a:hover::after{right:0}
     var h=document.documentElement;
     p.style.transform='scaleX('+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+')';
   },{passive:true});
-  var tg=document.getElementById('navToggle');
-  if(tg) tg.addEventListener('click',function(){
-    document.querySelector('.nav-links').classList.toggle('open');});
 })();
 </script>
 
@@ -2710,6 +2740,43 @@ footer a:hover::after{right:0}
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
   },{threshold:.6});
   steps.forEach(function(s){ io.observe(s); });
+})();
+</script>
+<script id="hhg-nav-behaviour">
+/* One nav behaviour for all three pages. Previously this lived only on the
+   home page, so on Controlled Environments and LabArchitect a tap on a
+   dropdown parent navigated instead of expanding, which put nine of the
+   eighteen nav destinations out of reach on a phone. */
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links  = document.querySelector('.nav-links');
+  if (toggle && links) toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open) document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+
+  /* Touch and burger-width devices expand on first tap. Pointer devices keep
+     :hover, so nothing changes on a desktop. */
+  function tapMode(){
+    return window.matchMedia('(hover: none)').matches || window.innerWidth <= 1100;
+  }
+  document.querySelectorAll('.dropdown > a').forEach(function(link){
+    link.addEventListener('click', function(e){
+      if (!tapMode()) return;
+      var dd = link.parentElement;
+      if (!dd.classList.contains('open')) {
+        e.preventDefault();
+        document.querySelectorAll('.dropdown.open').forEach(function(o){ if(o!==dd) o.classList.remove('open'); });
+        dd.classList.add('open');
+      }
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+    }
+  });
 })();
 </script>
 </body>
