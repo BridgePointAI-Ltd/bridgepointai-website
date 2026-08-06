@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow,noarchive">
- <title>Controlled Environments | HH Global Holdings, Contract Research & Regulatory Evidence</title>
+ <title>LabArchitect | HH Global Holdings, Laboratory Deployment System</title>
  <link rel="icon" href="assets/img1.png" type="image/png">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2061,11 +2061,161 @@ footer a:hover::after{right:0}
 @media(prefers-reduced-motion:reduce){.hhg-tr{display:none}}
 @media(max-width:760px){.hhg-tr{opacity:.35}}
 </style>
+
+<style>
+/* ---- LabArchitect page ---- */
+.la-hero{position:relative;min-height:82vh;display:flex;align-items:center;
+ background:#0B1F3F;overflow:hidden;padding:150px 0 110px}
+/* The drawing sits to the right of the copy, which is where the veil lets it
+   through. Pushed off centre so the headline reads on clean navy. */
+.la-hero-plan{position:absolute;top:50%;left:66%;transform:translate(-50%,-50%);
+ width:min(1120px,104%);opacity:.40;pointer-events:none}
+.la-hero-veil{position:absolute;inset:0;background:
+ radial-gradient(120% 90% at 18% 50%,rgba(11,31,63,.97) 0%,rgba(11,31,63,.86) 46%,rgba(11,31,63,.42) 100%)}
+.la-hero-copy{position:relative;z-index:3;width:100%}
+.la-k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+ color:#C5A25B;margin-bottom:16px}
+.la-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4.8vw,60px);
+ line-height:1.07;color:#fff;font-weight:600;margin:0 0 22px}
+.la-hero h1 em{color:#D8BF94;font-style:italic}
+.la-lead{font-size:15.5px;line-height:1.74;color:#C3CEE0;max-width:58ch;margin:0}
+.la-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.la-chip{padding:8px 16px;border:1px solid rgba(197,162,91,.42);border-radius:999px;
+ font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E4CE9E;
+ background:rgba(11,31,63,.4)}
+
+/* the plan given room to breathe, as a section of its own */
+.la-planband{position:relative;background:#0B1F3F;padding:96px 0 84px;overflow:hidden}
+.la-planband .container{position:relative;z-index:2}
+.la-planhead{max-width:66ch;margin-bottom:2.4rem}
+.la-planhead .k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+ color:#C5A25B;margin-bottom:14px}
+.la-planhead h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,3.1vw,38px);
+ line-height:1.16;color:#fff;font-weight:600;margin:0 0 16px}
+.la-planhead h2 em{color:#D8BF94;font-style:italic}
+.la-planhead p{font-size:15px;line-height:1.74;color:#AFBDD4;margin:0}
+.la-planwrap{max-width:940px;margin:0 auto}
+
+/* eight modules */
+.la-mods{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:2.8rem}
+.la-mod{background:#FAF8F5;border:1px solid #E6E1D8;border-radius:12px;padding:24px 22px;
+ position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s}
+.la-mod::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#C5A25B;
+ transform:scaleY(0);transform-origin:top;transition:transform .45s ease}
+.la-mod:hover{border-color:#C5A25B;box-shadow:0 16px 38px rgba(11,31,63,.10);transform:translateY(-3px)}
+.la-mod:hover::before{transform:scaleY(1)}
+.la-mod .n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#C5A25B;
+ letter-spacing:2px;margin-bottom:12px}
+.la-mod h4{font-size:15px;color:#0B1F3F;margin:0 0 9px;font-weight:600;line-height:1.3}
+.la-mod p{font-size:13px;line-height:1.6;color:#55617A;margin:0}
+
+/* outcomes */
+.la-out{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 34px;margin-top:2.6rem}
+.la-out h4{font-size:15.5px;color:#0B1F3F;margin:0 0 8px;font-weight:600;
+ padding-left:24px;position:relative;line-height:1.35}
+.la-out h4::before{content:"";position:absolute;left:0;top:.52em;width:11px;height:6px;
+ border-left:2px solid #C5A25B;border-bottom:2px solid #C5A25B;transform:rotate(-45deg)}
+.la-out p{font-size:13.2px;line-height:1.62;color:#55617A;margin:0;padding-left:24px}
+
+/* who we build for */
+.la-who{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.6rem}
+.la-whoc{border:1px solid #E6E1D8;border-radius:12px;padding:24px 22px;background:rgba(255,255,255,.72);
+ transition:border-color .3s,transform .3s}
+.la-whoc:hover{border-color:#C5A25B;transform:translateY(-2px)}
+.la-whoc h4{font-size:15px;color:#0B1F3F;margin:0 0 8px;font-weight:600}
+.la-whoc p{font-size:13px;line-height:1.6;color:#55617A;margin:0}
+
+/* the gated process */
+.la-proc{margin-top:2.8rem;position:relative}
+.la-proc::before{content:"";position:absolute;left:19px;top:14px;bottom:14px;width:1px;
+ background:linear-gradient(180deg,#C5A25B,rgba(197,162,91,.15))}
+.la-step{position:relative;padding:0 0 30px 62px}
+.la-step:last-child{padding-bottom:0}
+.la-step .dot{position:absolute;left:11px;top:4px;width:18px;height:18px;border-radius:50%;
+ background:#FAF8F5;border:2px solid #C5A25B}
+.la-step .dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#C5A25B;
+ opacity:0;transition:opacity .5s}
+.la-step.on .dot::after{opacity:1}
+.la-step .g{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#C5A25B;
+ letter-spacing:2px;margin-bottom:7px}
+.la-step h4{font-size:16.5px;color:#0B1F3F;margin:0 0 8px;font-weight:600}
+.la-step p{font-size:13.6px;line-height:1.66;color:#55617A;margin:0;max-width:66ch}
+.la-gate{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:1.6px;
+ text-transform:uppercase;color:#9A7B33;border:1px solid rgba(197,162,91,.5);
+ border-radius:4px;padding:5px 11px}
+
+/* care band */
+.la-care{background:#0B1F3F;padding:86px 0;position:relative;overflow:hidden}
+.la-care .container{position:relative;z-index:2}
+.la-care .k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+ color:#C5A25B;margin-bottom:14px}
+.la-care h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(25px,3vw,36px);
+ line-height:1.18;color:#fff;font-weight:600;margin:0 0 16px;max-width:22ch}
+.la-care h2 em{color:#D8BF94;font-style:italic}
+.la-care .lead{font-size:15px;line-height:1.74;color:#AFBDD4;margin:0;max-width:64ch}
+.la-care-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.6rem}
+.la-carec{border:1px solid rgba(197,162,91,.26);border-radius:12px;padding:24px 22px;
+ background:rgba(255,255,255,.03)}
+.la-carec h4{font-size:14.5px;color:#E4CE9E;margin:0 0 8px;font-weight:600}
+.la-carec p{font-size:13px;line-height:1.62;color:#9FB0CD;margin:0}
+
+/* the people */
+.la-ppl{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:2.8rem}
+.la-p{border:1px solid #E6E1D8;border-radius:14px;padding:30px 28px;background:#FAF8F5}
+.la-p .role{font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;
+ color:#C5A25B;margin-bottom:10px}
+.la-p h4{font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#0B1F3F;
+ margin:0 0 12px;font-weight:600}
+.la-p p{font-size:13.6px;line-height:1.68;color:#55617A;margin:0 0 16px}
+.la-p ul{list-style:none;margin:0;padding:0;border-top:1px solid #E6E1D8;padding-top:15px}
+.la-p li{font-size:12.8px;line-height:1.5;color:#55617A;padding:6px 0 6px 18px;position:relative}
+.la-p li::before{content:"";position:absolute;left:0;top:.85em;width:5px;height:5px;
+ border-radius:50%;background:#C5A25B}
+.la-pnote{margin-top:22px;font-size:12.6px;line-height:1.65;color:#8A94A6;font-style:italic;
+ max-width:82ch;border-left:3px solid #E6E1D8;padding-left:16px}
+
+@media(max-width:1050px){.la-mods{grid-template-columns:repeat(2,1fr)}
+ .la-out,.la-who,.la-care-g{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.la-mods,.la-out,.la-who,.la-care-g,.la-ppl{grid-template-columns:1fr}
+ .la-hero{min-height:auto;padding:120px 0 70px}
+ .la-hero-plan{width:210%;opacity:.30}
+ .la-planband{padding:64px 0 56px}}
+@media(prefers-reduced-motion:reduce){.la-mod,.la-whoc,.la-p{transition:none}}
+</style>
+<style>
+.lp{width:100%;height:auto;display:block;font-family:'Inter',system-ui,sans-serif}
+.lp-w{fill:none;stroke:#C5A25B;stroke-width:1.6;stroke-linecap:square;
+ stroke-dasharray:2600;stroke-dashoffset:2600;animation:lpDraw 14s ease-in-out infinite}
+.lp-d1{animation-delay:0s}.lp-d2{animation-delay:.35s}.lp-d3{animation-delay:.7s}
+.lp-d4{animation-delay:1.05s}.lp-d5{animation-delay:1.4s}
+@keyframes lpDraw{0%{stroke-dashoffset:2600}18%{stroke-dashoffset:0}
+ 92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.lp-clean{fill:rgba(197,162,91,.07);stroke:#C5A25B;stroke-width:1.2;stroke-dasharray:5 5;
+ opacity:0;animation:lpFade 14s ease-in-out infinite;animation-delay:1.7s}
+.lp-grid{opacity:0;animation:lpFade 14s ease-in-out infinite}
+@keyframes lpFade{0%,10%{opacity:0}22%{opacity:1}92%{opacity:1}100%{opacity:0}}
+.lp-n{fill:#C5A25B;font-size:11px;font-weight:700;letter-spacing:1.6px}
+.lp-t{fill:#D8E0EE;font-size:14px;font-weight:600}
+.lp-s{fill:#9FB0CD;font-size:11px;letter-spacing:1.4px}
+.lp-lb text{opacity:0;animation:lpFade 14s ease-in-out infinite}
+.lp-l1 {animation-delay:1.9s}.lp-l2{animation-delay:2.1s}.lp-l3{animation-delay:2.3s}
+.lp-l4{animation-delay:2.5s}.lp-l5{animation-delay:2.7s}.lp-l6{animation-delay:2.9s}
+.lp-l7{animation-delay:3.1s}
+.lp-flow{fill:none;stroke:#D8BF94;stroke-width:1.6;stroke-dasharray:6 8;opacity:0;
+ animation:lpFade 14s ease-in-out infinite;animation-delay:3.3s}
+.lp-dot{fill:#fff;filter:drop-shadow(0 0 6px rgba(216,191,148,.9))}
+.lp-cap{fill:#6F7F99;font-size:11px;font-style:italic;opacity:0;
+ animation:lpFade 14s ease-in-out infinite;animation-delay:3.6s}
+@media(prefers-reduced-motion:reduce){
+ .lp-w{stroke-dashoffset:0;animation:none}
+ .lp-clean,.lp-grid,.lp-lb text,.lp-flow,.lp-cap{opacity:1;animation:none}
+ .lp-dot{display:none}}
+</style>
 <body>
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
  <div class="nav-inner">
- <a href="https://hhglobalholdings.com/index.html" class="nav-logo">
+ <a href="index.html" class="nav-logo">
  <img src="assets/img1.png" alt="HH Global">
  </a>
  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -2079,10 +2229,10 @@ footer a:hover::after{right:0}
  </div>
  </li>
  <li class="dropdown">
- <a href="controlled-environments.html">Capabilities &#9662;</a>
+ <a href="labarchitect.html" class="here">Capabilities &#9662;</a>
  <div class="dropdown-menu">
- <a href="labarchitect.html">LabArchitect&trade;</a>
- <a href="controlled-environments.html" class="here">Controlled Environments</a>
+ <a href="labarchitect.html" class="here">LabArchitect&trade;</a>
+ <a href="controlled-environments.html">Controlled Environments</a>
  <a href="controlled-environments.html#airlock" class="sub">&mdash; Lab 24, the clean room</a>
  <a href="index.html#evidence-synthesis">Evidence Synthesis</a>
  <a href="index.html#competence">Competence Assurance</a>
@@ -2105,204 +2255,381 @@ footer a:hover::after{right:0}
 </nav>
 <div class="hhg-flag">HHG Draft Update One<span class="long"> &middot; full concept build for review</span> &middot; not the live site</div>
 
-<!-- CE HERO -->
-<section class="ce-hero" data-trace data-trace-speed="0.15">
- <div class="ce-hero-media">
-  <img src="assets/cleanroom.webp" alt="Clean room interior with gowning lobby and interlocked door"
-       fetchpriority="high" decoding="async">
- </div>
- <div class="ce-hero-veil"></div>
- <div class="container ce-hero-copy">
-  <div class="ce-k">Controlled Environments &middot; Nottingham</div>
-  <h1>Work That Has to Be<br><em>Done Somewhere Clean.</em></h1>
-  <p class="ce-lead">A controlled environment is not a nicer laboratory. It is a room whose
-  particle count, pressure and access are specified, monitored and recorded, so that a result
-  produced inside it carries a provenance that can be examined afterwards. Ours opens in
-  September 2026.</p>
-  <div class="ce-pill"><i></i>Opening September 2026</div>
- </div>
-</section>
+<!-- HERO -->
+<section class="la-hero">
+ <div class="la-hero-plan"><svg class="lp" viewBox="0 0 900 620" role="img"
+  aria-label="Architectural plan of a laboratory: sample receipt, preparation, cold store, main laboratory, gowning lobby, clean room, data and reporting, with the sample route drawn through it">
+ <defs>
+  <pattern id="lpGridH" width="30" height="30" patternUnits="userSpaceOnUse">
+   <path d="M30 0 L0 0 0 30" fill="none" stroke="#C5A25B" stroke-width=".4" opacity=".13"/>
+  </pattern>
+ </defs>
+ <rect x="0" y="0" width="900" height="620" fill="none"/>
+ <rect class="lp-grid" x="40" y="40" width="820" height="540" fill="url(#lpGridH)"/>
 
-<!-- WHY IT MATTERS -->
-<section class="section wash" id="ce-why" style="--wash:url(assets/img4.webp);--wpos:center 45%">
- <div class="container">
-  <div class="section-tag">Why it changes the answer</div>
-  <h2 class="section-heading">Provenance Is Lost<br><em>at the Handover.</em></h2>
-  <p class="section-lead">Most laboratories that need controlled-environment work subcontract it.
-  That is a perfectly ordinary arrangement and it is also the single most common place a chain of
-  custody develops a gap, because the moment a sample leaves your quality system it is governed by
-  somebody else's. Bringing the room in house does not make the science better on its own. It makes
-  the record continuous, and the record is what gets examined.</p>
+ <!-- outer envelope -->
+ <rect class="lp-w lp-d1" x="40" y="40" width="820" height="540" rx="2"/>
 
-  <div class="ce-cards">
-   <div class="ce-card">
-    <div class="ce-n">01</div>
-    <h4>One quality system, end to end</h4>
-    <p>Sample receipt, controlled work and reporting sit under a single set of procedures rather
-    than being stitched together across two organisations after the fact.</p>
-   </div>
-   <div class="ce-card">
-    <div class="ce-n">02</div>
-    <h4>The record travels with the result</h4>
-    <p>Environmental monitoring, access and batch data are held against the work itself, so a
-    question asked two years later has an answer that does not depend on a third party's archive.</p>
-   </div>
-   <div class="ce-card">
-    <div class="ce-n">03</div>
-    <h4>Method design and execution in one place</h4>
-    <p>When a method has to be developed rather than run, the people designing it and the room it
-    will run in are not separated by a contract.</p>
-   </div>
+ <!-- partitions, drawn with door gaps -->
+ <path class="lp-w lp-d2" d="M300 40 L300 150 M300 200 L300 280"/>
+ <path class="lp-w lp-d2" d="M560 40 L560 150 M560 200 L560 280"/>
+ <path class="lp-w lp-d3" d="M40 280 L150 280 M210 280 L470 280 M530 280 L860 280"/>
+ <path class="lp-w lp-d4" d="M340 280 L340 400 M340 460 L340 580"/>
+ <path class="lp-w lp-d4" d="M470 280 L470 400 M470 460 L470 580"/>
+ <path class="lp-w lp-d5" d="M620 280 L620 400 M620 460 L620 580"/>
+
+ <!-- clean room, marked as the controlled zone -->
+ <rect class="lp-clean lp-d6" x="470" y="280" width="150" height="300"/>
+
+ <!-- room labels -->
+ <g class="lp-lb">
+  <text class="lp-n lp-l1" x="60" y="72">01</text><text class="lp-t lp-l1" x="60" y="92">Sample receipt</text>
+  <text class="lp-n lp-l2" x="320" y="72">02</text><text class="lp-t lp-l2" x="320" y="92">Preparation</text>
+  <text class="lp-n lp-l3" x="580" y="72">03</text><text class="lp-t lp-l3" x="580" y="92">Cold store</text>
+  <text class="lp-n lp-l4" x="60" y="312">04</text><text class="lp-t lp-l4" x="60" y="332">Main laboratory</text>
+  <text class="lp-n lp-l5" x="360" y="312">05</text><text class="lp-t lp-l5" x="360" y="332">Gowning</text>
+  <text class="lp-n lp-l6" x="490" y="312">06</text><text class="lp-t lp-l6" x="490" y="332">Clean room</text>
+  <text class="lp-s lp-l6" x="490" y="350">ISO 7</text>
+  <text class="lp-n lp-l7" x="640" y="312">07</text><text class="lp-t lp-l7" x="640" y="332">Data &amp; reporting</text>
+ </g>
+
+ <!-- the route a sample takes -->
+ <path class="lp-flow" id="lpRouteH"
+   d="M175 130 L430 130 L430 175 L690 175 L690 230 L175 230 L175 430 L400 430 L400 520 L545 520 L545 430 L740 430"/>
+ <circle class="lp-dot" r="5"><animateMotion dur="14s" repeatCount="indefinite"
+   keyPoints="0;0;1;1" keyTimes="0;0.28;0.92;1" calcMode="linear">
+   <mpath href="#lpRouteH"/></animateMotion></circle>
+
+ <text class="lp-cap" x="40" y="606">Indicative plan. Every deployment is drawn to the work it has to carry.</text>
+</svg></div>
+ <div class="la-hero-veil"></div>
+ <div class="container la-hero-copy">
+  <div class="la-k">LabArchitect&trade; &middot; Laboratory Deployment System</div>
+  <h1>From Strategy<br><em>to Audit-Ready.</em></h1>
+  <p class="la-lead">Eight modules that take a laboratory from feasibility and site selection through
+  to a validated, accreditation-ready facility. ISO 17025 and 15189 built in from the first drawing
+  rather than retrofitted once the auditors are booked. One partner holding overall leadership and a
+  single point of accountability across governance, infrastructure, digital systems, quality control
+  and defensible reporting.</p>
+  <div class="la-chips">
+   <span class="la-chip">Compliance by design</span>
+   <span class="la-chip">Not retrofit</span>
+   <span class="la-chip">One partner</span>
+   <span class="la-chip">Full accountability</span>
   </div>
  </div>
 </section>
 
-<section class="seq wash" id="airlock" data-trace data-trace-speed="0.22" style="--wash:url(assets/cleanroom.webp);--wpos:center 45%">
- <div class="seq-head">
-  <div class="k">Controlled entry &middot; Ten seconds</div>
-  <h3>You do not walk into a clean room. You are admitted to it.</h3>
-  <p>Fully enclosed, with a gowning lobby between the corridor and the laboratory, and interlocked
-  doors so that the two never stand open together. Air is held at higher pressure inside than out,
-  so any leakage runs the safe way. This is that sequence, drawn to the classifications the room
-  is built to.</p>
- </div>
- <div class="seq-wrap">
-  <svg class="seq-svg" viewBox="24 64 1132 366" role="img"
-       aria-label="Schematic of clean room entry: corridor, gowning lobby, interlocked doors, ISO 7 laboratory">
-   <rect x="0" y="0" width="1180" height="440" fill="#0B1F3F"/>
-   
-   <rect class="room " x="40" y="82" width="320" height="300"/>
-   <text class="lbl" x="56" y="112">Corridor</text>
-   <text class="iso" x="56" y="136">ISO 9</text>
-   <text class="cnt" x="56" y="154">35,200,000</text>
-   <text class="pa p1" x="56" y="358">+0 Pa</text>
-   
-   <rect class="room " x="392" y="82" width="320" height="300"/>
-   <text class="lbl" x="408" y="112">Gowning lobby</text>
-   <text class="iso" x="408" y="136">ISO 8</text>
-   <text class="cnt" x="408" y="154">3,520,000</text>
-   <text class="pa p2" x="408" y="358">+15 Pa</text>
-   
-   <rect class="room clean" x="744" y="82" width="396" height="300"/>
-   <text class="lbl" x="760" y="112">Laboratory</text>
-   <text class="iso" x="760" y="136">ISO 7</text>
-   <text class="cnt" x="760" y="154">352,000</text>
-   <text class="pa p3" x="760" y="358">+30 Pa</text>
-   <rect class="hepa" x="757" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="811" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="865" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="919" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="973" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1027" y="91" width="46" height="14" rx="1"/><rect class="hepa" x="1081" y="91" width="46" height="14" rx="1"/>
-   <line class="flow" x1="766" y1="112" x2="766" y2="362" style="animation-delay:0s,-0.00s"/><line class="flow" x1="792" y1="112" x2="792" y2="362" style="animation-delay:0s,-0.22s"/><line class="flow" x1="818" y1="112" x2="818" y2="362" style="animation-delay:0s,-0.44s"/><line class="flow" x1="844" y1="112" x2="844" y2="362" style="animation-delay:0s,-0.66s"/><line class="flow" x1="870" y1="112" x2="870" y2="362" style="animation-delay:0s,-0.88s"/><line class="flow" x1="896" y1="112" x2="896" y2="362" style="animation-delay:0s,-1.10s"/><line class="flow" x1="922" y1="112" x2="922" y2="362" style="animation-delay:0s,-1.32s"/><line class="flow" x1="948" y1="112" x2="948" y2="362" style="animation-delay:0s,-1.54s"/><line class="flow" x1="974" y1="112" x2="974" y2="362" style="animation-delay:0s,-1.76s"/><line class="flow" x1="1000" y1="112" x2="1000" y2="362" style="animation-delay:0s,-1.98s"/><line class="flow" x1="1026" y1="112" x2="1026" y2="362" style="animation-delay:0s,-2.20s"/><line class="flow" x1="1052" y1="112" x2="1052" y2="362" style="animation-delay:0s,-2.42s"/><line class="flow" x1="1078" y1="112" x2="1078" y2="362" style="animation-delay:0s,-2.64s"/><line class="flow" x1="1104" y1="112" x2="1104" y2="362" style="animation-delay:0s,-2.86s"/><line class="flow" x1="1130" y1="112" x2="1130" y2="362" style="animation-delay:0s,-3.08s"/>
-   <rect class="floor" x="40" y="376" width="1100" height="6"/><line x1="744" y1="110" x2="1140" y2="110" stroke="#33598F" stroke-width="1" opacity=".6"/>
-   <rect class="wall" x="40" y="82" width="1100" height="300"/>
-   <line class="wall" x1="360" y1="82" x2="360" y2="382"/>
-   <line class="wall" x1="392" y1="82" x2="392" y2="382"/>
-   <line class="wall" x1="712" y1="82" x2="712" y2="382"/>
-   <line class="wall" x1="744" y1="82" x2="744" y2="382"/>
-   <rect class="leaf d1a" x="361" y="180" width="15" height="196"/>
-   <rect class="leaf d1b" x="376" y="180" width="15" height="196"/>
-   <rect class="leaf d2a" x="713" y="180" width="15" height="196"/>
-   <rect class="leaf d2b" x="728" y="180" width="15" height="196"/>
-   <g class="fig">
-    <g transform="translate(160,0)">
-     <circle class="body-st" cx="0" cy="286" r="11"/>
-     <rect class="body-st" x="-11" y="300" width="22" height="76" rx="9"/>
-     <circle class="gown" cx="0" cy="286" r="11"/>
-     <rect class="gown" x="-12" y="299" width="24" height="77" rx="9"/>
-    </g>
-   </g>
-   <g class="stamp" style="transform-origin:1040px 300px">
-    <circle cx="1040" cy="300" r="42"/>
-    <text x="1040" y="296" text-anchor="middle">ISO 7</text>
-    <text x="1040" y="314" text-anchor="middle" style="font-size:8.5px;letter-spacing:2px;fill:#9C8455">CONTROLLED</text>
-   </g>
-   <text class="cnt" x="40" y="412">Particles &#8805;0.5 &#181;m per cubic metre. Class limits, ISO 14644-1.</text>
-  </svg>
- </div>
- <div class="seq-foot"><b>Schematic, not a photograph.</b> It shows the classifications and the
- pressure cascade the room is built to, nothing more.</div>
-</section>
-
-<!-- SPECIFICATION -->
-<section class="section-alt wash" id="ce-spec" style="--wash:url(assets/img5.webp);--wpos:center 40%">
+<!-- THE PROBLEM -->
+<section class="section wash" id="la-problem" data-trace data-trace-speed="0.16"
+         style="--wash:url(assets/img5.webp);--wpos:center 38%">
  <div class="container">
-  <div class="section-tag">Specification</div>
-  <h2 class="section-heading">Stated Plainly,<br><em>Before It Opens.</em></h2>
-  <p class="section-lead">Published while the facility is in build, so it can be held against what
-  is delivered. Where something is planned rather than in place, it says so.</p>
-  <table class="ce-spec-t">
-   <tbody>
-    <tr><th scope="row">Classification</th><td>ISO 7 controlled clean room</td>
-        <td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Entry</th><td>Fully enclosed, gowning lobby, interlocked doors between
-        corridor, lobby and laboratory</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Air</th><td>HEPA filtration with a positive pressure cascade outward from
-        the laboratory</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Capability</th><td>Cell culture, controlled manufacturing and sensitive
-        studies</td><td class="st planned">Specified, in build</td></tr>
-    <tr><th scope="row">Location</th><td>HH Global Holdings, Nottingham, alongside immunology,
-        genetics and data</td><td class="st live">In place</td></tr>
-    <tr><th scope="row">Operating model</th><td>Run to ISO 17025 and ISO 15189 disciplines, under
-        HH's own quality system</td><td class="st live">In place</td></tr>
-    <tr><th scope="row">Accredited scope</th><td>Accreditation is granted against named activities,
-        not against a room. Scope will be published as it is granted, and we will say what is not
-        covered.</td><td class="st note">Not yet claimed</td></tr>
-   </tbody>
-  </table>
-  <p class="ce-cav"><b>One deliberate omission.</b> We are not claiming UKAS accreditation for this
-  facility or for any named test in it, because it is not yet open. When there is a schedule, it
-  will be linked here and you should ask to see it rather than take the statement.</p>
+  <div class="section-tag">The problem we solve</div>
+  <h2 class="section-heading">Most Laboratories<br><em>Are Built Twice.</em></h2>
+  <p class="section-lead">First on a budget. Then again, painfully, when the assessors arrive and the
+  documentation, traceability and quality systems do not hold up. Retrofitting ISO 17025 or 15189 onto
+  a laboratory that is already running is one of the most expensive corrections in regulated science,
+  because the cost is not only the rebuild. It is the work done in the interim that now has to be
+  defended, repeated or quietly set aside.</p>
+  <p class="section-lead" style="margin-top:1.1rem">LabArchitect inverts the sequence. Governance,
+  validation, traceability and reporting architecture are built before the laboratory opens, so
+  accreditation becomes the natural endpoint of how the place already works rather than a separate
+  project bolted on eighteen months later.</p>
  </div>
 </section>
 
-<!-- WHAT IT UNLOCKS -->
-<section class="section wash" id="ce-work" style="--wash:url(assets/img3.webp);--wpos:center 30%">
+<!-- THE PLAN -->
+<section class="la-planband">
  <div class="container">
-  <div class="section-tag">What it unlocks</div>
-  <h2 class="section-heading">Work We Currently<br><em>Have to Send Out.</em></h2>
-  <div class="ce-unlock">
-   <div><h4>Cell culture under controlled conditions</h4>
-    <p>Studies where contamination control is part of the result rather than housekeeping.</p></div>
-   <div><h4>Small-scale controlled manufacture</h4>
-    <p>Producing material to a defined standard, with the environmental record attached to the batch.</p></div>
-   <div><h4>Sensitive sample handling</h4>
-    <p>Low-biomass and trace work, where the environment is a plausible source of the signal and
-    has to be excluded by evidence rather than assertion.</p></div>
-   <div><h4>Method development that needs the room</h4>
-    <p>Designing a method in the environment it will eventually run in, rather than designing it
-    somewhere else and hoping it transfers.</p></div>
+  <div class="la-planhead">
+   <div class="k">Module 02 &middot; Drawn before it is built</div>
+   <h2>The Plan Comes First,<br><em>and the Plan Is the Argument.</em></h2>
+   <p>A laboratory floor plan is not a layout exercise. It is where contamination control, sample
+   flow and access control are either designed in or lost. Where gowning sits relative to the
+   controlled space, whether a sample can move forward without crossing back over itself, and which
+   walls have to hold a pressure differential are decisions made on a drawing, months before anyone
+   orders a bench.</p>
+  </div>
+  <div class="la-planwrap"><svg class="lp" viewBox="0 0 900 620" role="img"
+  aria-label="Architectural plan of a laboratory: sample receipt, preparation, cold store, main laboratory, gowning lobby, clean room, data and reporting, with the sample route drawn through it">
+ <defs>
+  <pattern id="lpGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+   <path d="M30 0 L0 0 0 30" fill="none" stroke="#C5A25B" stroke-width=".4" opacity=".13"/>
+  </pattern>
+ </defs>
+ <rect x="0" y="0" width="900" height="620" fill="none"/>
+ <rect class="lp-grid" x="40" y="40" width="820" height="540" fill="url(#lpGrid)"/>
+
+ <!-- outer envelope -->
+ <rect class="lp-w lp-d1" x="40" y="40" width="820" height="540" rx="2"/>
+
+ <!-- partitions, drawn with door gaps -->
+ <path class="lp-w lp-d2" d="M300 40 L300 150 M300 200 L300 280"/>
+ <path class="lp-w lp-d2" d="M560 40 L560 150 M560 200 L560 280"/>
+ <path class="lp-w lp-d3" d="M40 280 L150 280 M210 280 L470 280 M530 280 L860 280"/>
+ <path class="lp-w lp-d4" d="M340 280 L340 400 M340 460 L340 580"/>
+ <path class="lp-w lp-d4" d="M470 280 L470 400 M470 460 L470 580"/>
+ <path class="lp-w lp-d5" d="M620 280 L620 400 M620 460 L620 580"/>
+
+ <!-- clean room, marked as the controlled zone -->
+ <rect class="lp-clean lp-d6" x="470" y="280" width="150" height="300"/>
+
+ <!-- room labels -->
+ <g class="lp-lb">
+  <text class="lp-n lp-l1" x="60" y="72">01</text><text class="lp-t lp-l1" x="60" y="92">Sample receipt</text>
+  <text class="lp-n lp-l2" x="320" y="72">02</text><text class="lp-t lp-l2" x="320" y="92">Preparation</text>
+  <text class="lp-n lp-l3" x="580" y="72">03</text><text class="lp-t lp-l3" x="580" y="92">Cold store</text>
+  <text class="lp-n lp-l4" x="60" y="312">04</text><text class="lp-t lp-l4" x="60" y="332">Main laboratory</text>
+  <text class="lp-n lp-l5" x="360" y="312">05</text><text class="lp-t lp-l5" x="360" y="332">Gowning</text>
+  <text class="lp-n lp-l6" x="490" y="312">06</text><text class="lp-t lp-l6" x="490" y="332">Clean room</text>
+  <text class="lp-s lp-l6" x="490" y="350">ISO 7</text>
+  <text class="lp-n lp-l7" x="640" y="312">07</text><text class="lp-t lp-l7" x="640" y="332">Data &amp; reporting</text>
+ </g>
+
+ <!-- the route a sample takes -->
+ <path class="lp-flow" id="lpRoute"
+   d="M175 130 L430 130 L430 175 L690 175 L690 230 L175 230 L175 430 L400 430 L400 520 L545 520 L545 430 L740 430"/>
+ <circle class="lp-dot" r="5"><animateMotion dur="14s" repeatCount="indefinite"
+   keyPoints="0;0;1;1" keyTimes="0;0.28;0.92;1" calcMode="linear">
+   <mpath href="#lpRoute"/></animateMotion></circle>
+
+ <text class="lp-cap" x="40" y="606">Indicative plan. Every deployment is drawn to the work it has to carry.</text>
+</svg></div>
+ </div>
+</section>
+
+<!-- EIGHT MODULES -->
+<section class="section-alt wash" id="modules"
+         style="--wash:url(assets/img3.webp);--wpos:center 30%">
+ <div class="container">
+  <div class="section-tag">The deployment system</div>
+  <h2 class="section-heading">Eight Modules.<br><em>One Integrated Laboratory.</em></h2>
+  <p class="section-lead">Each module is a self-contained workstream with defined deliverables,
+  validation steps and a named owner. They can be scoped individually. Taken together they constitute
+  a complete, audit-ready laboratory.</p>
+  <div class="la-mods">
+   <div class="la-mod"><div class="n">01</div><h4>Laboratory Governance Pack</h4>
+    <p>Quality manual, organisational structure, role accountabilities, document control framework
+    and management review architecture.</p></div>
+   <div class="la-mod"><div class="n">02</div><h4>Infrastructure &amp; Resource System</h4>
+    <p>Floor planning, equipment specification, environmental controls, calibration schedules and
+    supplier qualification protocols.</p></div>
+   <div class="la-mod"><div class="n">03</div><h4>Validated Workflow Engine</h4>
+    <p>Standard operating procedures, method validation, technical procedures and training matrices.
+    Every workflow documented and verified before deployment.</p></div>
+   <div class="la-mod"><div class="n">04</div><h4>Sample &amp; Data Traceability</h4>
+    <p>End-to-end sample lifecycle controls covering receipt, chain of custody, storage, retention
+    and disposition, with audit trail integrity throughout.</p></div>
+   <div class="la-mod"><div class="n">05</div><h4>Digital Laboratory Backbone</h4>
+    <p>LIMS architecture, electronic records, data integrity controls, instrument integration and
+    21 CFR Part 11 aligned audit trails where the work requires them.</p></div>
+   <div class="la-mod"><div class="n">06</div><h4>Quality Control &amp; Assurance</h4>
+    <p>Internal QC schedules, proficiency testing, inter-laboratory comparison, non-conformance
+    handling and corrective action frameworks.</p></div>
+   <div class="la-mod"><div class="n">07</div><h4>Defensible Reporting Suite</h4>
+    <p>Report templates, uncertainty statements, opinion frameworks and customer communication
+    protocols built to survive regulator review and cross-examination.</p></div>
+   <div class="la-mod"><div class="n">08</div><h4>ISO Management System Engine</h4>
+    <p>Internal audits, management review cycles, accreditation submission packs and continuous
+    improvement architecture aligned to ISO 17025 and 15189.</p></div>
   </div>
  </div>
 </section>
 
-<!-- REGISTER -->
-<section class="section-alt wash" id="ce-register" style="--wash:url(assets/cleanroom.webp);--wpos:center 40%">
+<!-- OUTCOMES -->
+<section class="section wash" id="la-outcomes"
+         style="--wash:url(assets/img6.webp);--wpos:center 40%">
+ <div class="container">
+  <div class="section-tag">What you get</div>
+  <h2 class="section-heading">Outcomes You<br><em>Can Defend.</em></h2>
+  <p class="section-lead">LabArchitect is judged on the operational reality it creates, not on the
+  weight of documentation it ships.</p>
+  <div class="la-out">
+   <div><h4>An audit-ready laboratory from day one</h4>
+    <p>Not a laboratory that becomes audit-ready six months after opening. The standard is the
+    operating model, not a future project.</p></div>
+   <div><h4>Defensible methods, defensible data</h4>
+    <p>Every method validated, every result traceable, every report able to stand up in assessment,
+    in regulator review and in court.</p></div>
+   <div><h4>One partner accountable for the whole build</h4>
+    <p>We hold overall leadership and coordinate specialist suppliers across fit-out, equipment and
+    validation, so nothing falls into the gap between two contracts.</p></div>
+   <div><h4>A team trained on its own systems</h4>
+    <p>Your scientists are inducted on the actual procedures, workflows and digital systems the
+    build deploys, not on a generic framework.</p></div>
+   <div><h4>A clear path to accreditation</h4>
+    <p>The submission pack is a by-product of how the laboratory already runs. Accreditation becomes
+    a milestone rather than a rebuild.</p></div>
+   <div><h4>Reduced rebuild cost</h4>
+    <p>Building it right the first time is materially cheaper than retrofitting, in capital, in time
+    to first revenue, and in scientific reputation.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- WHO WE BUILD FOR -->
+<section class="section-alt wash" id="la-who"
+         style="--wash:url(assets/img4.webp);--wpos:center 45%">
+ <div class="container">
+  <div class="section-tag">Who we build for</div>
+  <h2 class="section-heading">Organisations Standing Up<br><em>Regulated Capability.</em></h2>
+  <p class="section-lead">LabArchitect is for institutions that need their first laboratory to be
+  their last one. Built right, accredited cleanly, defensible from the day it opens.</p>
+  <div class="la-who">
+   <div class="la-whoc"><h4>NHS trusts and healthcare estates</h4>
+    <p>New diagnostic, pathology or specialised testing facilities, compliant from inception, with
+    infection control and inspection-ready documentation.</p></div>
+   <div class="la-whoc"><h4>Universities and research institutes</h4>
+    <p>Translational research laboratories, spin-out diagnostic facilities and core service units
+    that need to operate to commercial accreditation standards immediately.</p></div>
+   <div class="la-whoc"><h4>Overseas health ministries</h4>
+    <p>National laboratory capacity programmes covering public health testing, food safety,
+    environmental monitoring and reference work, delivered with full documentation transfer.</p></div>
+   <div class="la-whoc"><h4>Private diagnostic laboratories</h4>
+    <p>Independent clinical and analytical laboratories entering regulated markets, where
+    accreditation is a condition of entry rather than a later ambition.</p></div>
+   <div class="la-whoc"><h4>Forensic and specialist diagnostics</h4>
+    <p>Toxicology and specialist diagnostic settings where defensible methods and chain of custody
+    integrity are not negotiable.</p></div>
+   <div class="la-whoc"><h4>Pharma, biotech and CROs</h4>
+    <p>Organisations establishing internal analytical capability or contract testing facilities, as
+    one integrated build with a complete validation pack.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section wash" id="la-process" data-trace data-trace-speed="0.2"
+         style="--wash:url(assets/img5.webp);--wpos:center 55%">
+ <div class="container">
+  <div class="section-tag">How we work</div>
+  <h2 class="section-heading">From Brief<br><em>to Accreditation.</em></h2>
+  <p class="section-lead">A gated process. Each stage has to close before the next one opens, which
+  is the mechanism that stops a build drifting away from the standard it is meant to meet.</p>
+  <div class="la-proc">
+   <div class="la-step"><div class="dot"></div>
+    <div class="g">STAGE 01</div><h4>Discovery and scoping</h4>
+    <p>Capability requirements, intended scope of accreditation, regulatory frame, budget envelope
+    and timeline. We map the end state first and reverse engineer the build from it.</p>
+    <span class="la-gate">Gate: scope of accreditation agreed</span></div>
+   <div class="la-step"><div class="dot"></div>
+    <div class="g">STAGE 02</div><h4>Design and documentation</h4>
+    <p>Floor plans, equipment specifications, governance pack, procedures and validation protocols.
+    Every module is designed before the first instrument is purchased.</p>
+    <span class="la-gate">Gate: design frozen, protocols approved</span></div>
+   <div class="la-step"><div class="dot"></div>
+    <div class="g">STAGE 03</div><h4>Deployment and validation</h4>
+    <p>Fit-out, equipment installation, system commissioning, method validation and staff training.
+    Each module is signed off against its own acceptance criteria rather than as one lump.</p>
+    <span class="la-gate">Gate: module sign-off complete</span></div>
+   <div class="la-step"><div class="dot"></div>
+    <div class="g">STAGE 04</div><h4>Submission and assessment support</h4>
+    <p>Accreditation submission pack, pre-assessment readiness, mock audit and on-site support
+    during the UKAS or equivalent assessment visit.</p>
+    <span class="la-gate">Gate: assessment attended</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- CARE -->
+<section class="la-care" data-trace data-trace-speed="0.24">
+ <div class="container">
+  <div class="k">Optional &middot; LabArchitect Care</div>
+  <h2>The Build Is the Beginning.<br><em>The Laboratory Is the Asset.</em></h2>
+  <p class="lead">Accreditation is not a state you reach, it is a state you hold. Care covers the
+  maintenance work that keeps a quality system live after the assessors have gone, delivered as a
+  continuing arrangement rather than a series of emergencies.</p>
+  <div class="la-care-g">
+   <div class="la-carec"><h4>Audit cycle management</h4>
+    <p>Annual internal audit programme, management reviews and non-conformance resolution taken in
+    hand before they mature into findings.</p></div>
+   <div class="la-carec"><h4>Method and document review</h4>
+    <p>Scheduled validation reviews, procedure refresh cycles and document control oversight aligned
+    to your accreditation calendar.</p></div>
+   <div class="la-carec"><h4>Regulatory horizon scanning</h4>
+    <p>Early sight of standard updates and regulator guidance, with an impact assessment and an
+    upgrade path rather than a bulletin.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="section-alt wash" id="la-people"
+         style="--wash:url(assets/img3.webp);--wpos:center 55%">
+ <div class="container">
+  <div class="section-tag">The people behind the build</div>
+  <h2 class="section-heading">Built by Scientists Who Have<br><em>Been Assessed Themselves.</em></h2>
+  <p class="section-lead">The eight-module framework was written by people who have stood up
+  regulated laboratory capability and been through accreditation from the inside, which is a
+  different experience from advising on it.</p>
+  <div class="la-ppl">
+   <div class="la-p">
+    <div class="role">Executive Chairman</div>
+    <h4>Professor Philippe B. Wilson</h4>
+    <p>Professor of One Health, with a research career spanning computational chemistry, veterinary
+    and environmental science, and a record of translating laboratory work into policy. Has served on
+    government advisory committees and worked on clinical trials with AstraZeneca.</p>
+    <ul>
+     <li>Professor of One Health, York St John University</li>
+     <li>Forbes 30 Under 30, Healthcare and Science, 2018</li>
+     <li>Joseph Black Medal, Royal Society of Chemistry, 2019</li>
+     <li>Fellow of the Royal Society of Biology, the Royal Society of Medicine and the Linnean Society</li>
+    </ul>
+   </div>
+   <div class="la-p">
+    <div class="role">Chief Executive &middot; Programme Lead</div>
+    <h4>Dr Samuel J. White</h4>
+    <p>Fifteen years in translational research, diagnostics development and laboratory operational
+    leadership. Author of the eight-module framework, written from the direct experience of standing
+    up regulated capability rather than from a template.</p>
+    <ul>
+     <li>PhD Applied Immunology, University of Nottingham</li>
+     <li>Honorary Associate Professor of Translational Immunology, University of Nottingham</li>
+     <li>Formerly Associate Professor and Director of the Centre for Innovation, York St John University</li>
+     <li>Formerly Senior Lecturer, Nottingham Trent University</li>
+     <li>Court-recognised expert witness. Science communication in The Times, The Telegraph and for the BBC</li>
+    </ul>
+   </div>
+  </div>
+  <p class="la-pnote">Titles, fellowships and awards listed above are held personally by the
+  individuals named. They are not accreditations, certifications or endorsements of HH Global
+  Holdings Ltd.</p>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section wash" id="la-contact"
+         style="--wash:url(assets/cleanroom.webp);--wpos:center 40%">
  <div class="container ce-reg">
-  <div class="section-tag">September 2026</div>
-  <h2 class="section-heading">Tell Us What You<br><em>Would Bring.</em></h2>
-  <p class="section-lead">Capacity in the first months will be limited and we would rather commit it
-  deliberately than on a first come basis. If you have work that has been waiting for a room like
-  this, describe it and we will tell you honestly whether it fits, including if it does not.</p>
-  <a class="ce-btn" href="mailto:mark.evans-smith@hhglobalholdings.com?subject=Controlled%20Environments%20%E2%80%93%20September%202026">
-   Register your interest</a>
-  <p class="ce-small">Goes to Mark Evans-Smith. No list, no newsletter, just a conversation about
-  whether the work fits the room.</p>
+  <div class="section-tag">Start a conversation</div>
+  <h2 class="section-heading">Discuss Your<br><em>Laboratory Build.</em></h2>
+  <p class="section-lead">If you are standing up a regulated laboratory, whether clinical, forensic,
+  analytical or research, we would welcome a conversation about scope, timeline and the accreditation
+  pathway. Initial conversations are free of charge and confidential, and we will tell you if the
+  work does not fit.</p>
+  <a class="ce-btn" href="mailto:mark.evans-smith@hhglobalholdings.com?subject=LabArchitect%20%E2%80%93%20laboratory%20build">
+   Discuss your build</a>
+  <p class="ce-small">Goes to Mark Evans-Smith. No list, no newsletter.</p>
  </div>
 </section>
 
 <footer>
  <div class="footer-inner">
  <div class="footer-brand">
- <p>HH Global Holdings<br>Science, Evidence & Innovation</p>
+ <p>HH Global Holdings<br>Science, Evidence &amp; Innovation</p>
  </div>
  <div class="footer-links">
- <a href="https://hhglobalholdings.com/company.html">Company</a>&nbsp;&nbsp;·&nbsp;&nbsp;
- <a href="https://hhglobalholdings.com/company.html#articles">Publications</a>&nbsp;&nbsp;·&nbsp;&nbsp;
- <a href="index.html#contact">Contact</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+ <a href="https://hhglobalholdings.com/company.html">Company</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+ <a href="https://hhglobalholdings.com/company.html#articles">Publications</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+ <a href="index.html#contact">Contact</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;
  <a href="https://www.linkedin.com/company/110136969" target="_blank">LinkedIn</a>
  </div>
  <div class="footer-legal">
- <p>HH Global Holdings Ltd<br>73 Cornhill, London, EC3V 3QQ<br>Company Registered in England & Wales · Company No. 16865238<br>© 2026 HH Global Holdings Ltd. All rights reserved.</p>
+ <p>HH Global Holdings Ltd<br>73 Cornhill, London, EC3V 3QQ<br>Company Registered in England &amp; Wales &middot; Company No. 16865238<br>&copy; 2026 HH Global Holdings Ltd. All rights reserved.</p>
  </div>
  </div>
 </footer>
+
 <script>
 (function(){
   var p=document.getElementById('hhgProg');
@@ -2368,6 +2695,21 @@ footer a:hover::after{right:0}
   }
 
   [].forEach.call(document.querySelectorAll('[data-trace]'), attach);
+})();
+</script>
+<script>
+/* Process gates light as they are reached. Same language as the chain of
+   custody rows: unanswered until the scroll actually gets there. */
+(function(){
+  var steps = [].slice.call(document.querySelectorAll('.la-step'));
+  if(!steps.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    steps.forEach(function(s){ s.classList.add('on'); }); return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  },{threshold:.6});
+  steps.forEach(function(s){ io.observe(s); });
 })();
 </script>
 </body>
