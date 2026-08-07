@@ -2068,6 +2068,10 @@ footer a:hover::after{right:0}
  background:#0B1F3F;overflow:hidden;padding:150px 0 110px}
 /* The drawing sits to the right of the copy, which is where the veil lets it
    through. Pushed off centre so the headline reads on clean navy. */
+
+/* The plan appears twice on this page. Behind the hero it is texture, so it
+   sheds its labels and caption and leaves those to the full-size drawing. */
+.la-hero-plan .lp-lb,.la-hero-plan .lp-cap{display:none}
 .la-hero-plan{position:absolute;top:50%;left:66%;transform:translate(-50%,-50%);
  width:min(1120px,104%);opacity:.40;pointer-events:none}
 .la-hero-veil{position:absolute;inset:0;background:
