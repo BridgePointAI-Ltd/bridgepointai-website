@@ -1920,6 +1920,58 @@ footer a:hover::after{right:0}
 }
 
 </style>
+
+<style id="hhg-splash-css">
+/* Intro splash. Sits over the page, waves, then clears itself. The fade is a
+   CSS animation with fill:forwards, so it lifts even if the script never runs. */
+#hhgSplash{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;
+ justify-content:center;background:#0B1F3F;
+ animation:hhgSplashOut .9s cubic-bezier(.4,0,.2,1) 4.4s forwards}
+#hhgSplash.go{animation:hhgSplashOut .55s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes hhgSplashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+#hhgSplash .sp-in{text-align:center;padding:24px;position:relative;z-index:2}
+#hhgSplash .sp-k{font:700 11px/1.5 'Inter',system-ui,sans-serif;letter-spacing:3.4px;
+ text-transform:uppercase;color:#C5A25B;opacity:0;animation:spUp .7s ease-out 1.15s forwards}
+#hhgSplash h1{font-family:'Playfair Display',Georgia,serif;
+ font-size:clamp(38px,6.4vw,74px);line-height:1.05;color:#fff;font-weight:600;
+ margin:20px 0 18px;opacity:0;animation:spUp .8s cubic-bezier(.22,.9,.28,1) 1.35s forwards}
+#hhgSplash h1 em{color:#D8BF94;font-style:italic}
+#hhgSplash .sp-sub{font:400 15px/1.7 'Inter',system-ui,sans-serif;color:#9FB0CD;
+ max-width:44ch;margin:0 auto;opacity:0;animation:spUp .8s ease-out 1.6s forwards}
+#hhgSplash .sp-skip{margin-top:34px;background:none;border:1px solid rgba(197,162,91,.5);
+ border-radius:999px;color:#E4CE9E;font:700 10.5px/1 'Inter',system-ui,sans-serif;
+ letter-spacing:2.4px;text-transform:uppercase;padding:13px 26px;cursor:pointer;
+ opacity:0;animation:spUp .8s ease-out 2.0s forwards;transition:background .25s,color .25s}
+#hhgSplash .sp-skip:hover{background:#C5A25B;color:#0B1F3F}
+@keyframes spUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* the hand */
+.sp-hand{width:clamp(96px,13vw,140px);height:auto;display:block;margin:0 auto;overflow:visible}
+.sp-hand .hd{transform-origin:64px 132px;animation:spRise .75s cubic-bezier(.22,.9,.28,1) .1s both,
+ spWave 1.05s ease-in-out .85s 3}
+.sp-hand path,.sp-hand rect{fill:none;stroke:#C5A25B;stroke-width:5;
+ stroke-linecap:round;stroke-linejoin:round}
+@keyframes spRise{from{opacity:0;transform:translateY(26px) scale(.86)}
+ to{opacity:1;transform:none}}
+@keyframes spWave{0%,100%{transform:rotate(0deg)}
+ 25%{transform:rotate(-17deg)}75%{transform:rotate(17deg)}}
+.sp-arc{stroke:#C5A25B;stroke-width:4;fill:none;stroke-linecap:round;opacity:0;
+ animation:spArc 1.05s ease-out .85s 3}
+.sp-arc.a2{animation-delay:.95s}
+.sp-arc.a3{animation-delay:1.05s}
+@keyframes spArc{0%{opacity:0;transform:translateX(-4px)}
+ 40%{opacity:.75}100%{opacity:0;transform:translateX(6px)}}
+
+/* the same ambient trace language as the rest of the site */
+#hhgSplashTrace{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.5}
+@media (max-width:760px){#hhgSplashTrace{opacity:.34}}
+
+@media (prefers-reduced-motion:reduce){
+ #hhgSplash *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+ #hhgSplash{animation:hhgSplashOut .3s linear 3s forwards}
+ .sp-arc{display:none}
+}
+</style>
 <body>
 
 <!-- NAV -->
@@ -2837,6 +2889,30 @@ footer a:hover::after{right:0}
 </footer>
 
  
+
+<div id="hhgSplash" role="dialog" aria-label="Welcome">
+ <canvas id="hhgSplashTrace" aria-hidden="true"></canvas>
+ <div class="sp-in">
+  <svg class="sp-hand" viewBox="0 0 128 150" aria-hidden="true">
+ <g class="hd">
+  <rect x="38" y="30"  width="13" height="50" rx="6.5"/>
+  <rect x="53" y="20"  width="13" height="60" rx="6.5"/>
+  <rect x="68" y="27"  width="13" height="53" rx="6.5"/>
+  <rect x="83" y="41"  width="13" height="39" rx="6.5"/>
+  <path d="M36 66 L26 80 A8 8 0 0 0 30 92 L38 96"/>
+  <path d="M36 64 L36 96 A30 30 0 0 0 66 126 L70 126 A28 28 0 0 0 98 98 L98 64"/>
+ </g>
+ <path class="sp-arc"    d="M108 48 A26 26 0 0 1 108 92"/>
+ <path class="sp-arc a2" d="M117 40 A36 36 0 0 1 117 100"/>
+ <path class="sp-arc a3" d="M126 32 A46 46 0 0 1 126 108"/>
+</svg>
+  <div class="sp-k">HH Global Holdings &middot; Concept Draft</div>
+  <h1>Hello, <em>Mike.</em></h1>
+  <p class="sp-sub">Thanks for taking a look. What follows is a working draft, not the
+  live site, so everything on it is still open to argument.</p>
+  <button class="sp-skip" type="button">Enter the site</button>
+ </div>
+</div>
 <div class="hhg-prog" id="hhgProg"></div>
 <div class="hhg-flag">HHG Draft Update One<span class="long"> &middot; full concept build for review</span> &middot; not the live site</div>
 <script>
@@ -3255,6 +3331,48 @@ addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); u
       document.querySelectorAll('.dropdown.open').forEach(function(o){ o.classList.remove('open'); });
     }
   });
+})();
+</script>
+<script id="hhg-splash-js">
+(function(){
+  var el = document.getElementById('hhgSplash');
+  if(!el) return;
+  document.documentElement.style.overflow = 'hidden';
+  function dismiss(){
+    if(el.dataset.gone) return;
+    el.dataset.gone = '1';
+    el.classList.add('go');
+    document.documentElement.style.overflow = '';
+    setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 700);
+  }
+  el.addEventListener('click', dismiss);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'||e.key===' ') dismiss(); });
+  /* belt and braces: the CSS fade is the real timer, this clears the node after it */
+  setTimeout(dismiss, 5300);
+
+  /* the site's ambient trace, reused so the splash speaks the same language */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cv = document.getElementById('hhgSplashTrace'); if(!cv) return;
+  var cx = cv.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio||1), W=0,H=0,off=0,raf=null;
+  var lines=[{a:30,y:.24,s:5,o:.16,w:1.2},{a:40,y:.55,s:6,o:.11,w:1.4},{a:24,y:.8,s:4,o:.08,w:1}];
+  function size(){ W=cv.offsetWidth; H=cv.offsetHeight; cv.width=W*dpr; cv.height=H*dpr; cx.setTransform(dpr,0,0,dpr,0,0); }
+  function draw(){
+    if(el.dataset.gone){ cancelAnimationFrame(raf); return; }
+    cx.clearRect(0,0,W,H); off += 0.3;
+    lines.forEach(function(L,k){
+      cx.beginPath();
+      for(var x=-40,first=true; x<W+60; x+=L.s){
+        var sd = off*(1+k*0.35)+k*900;
+        var n = Math.sin((x+sd)*0.013) + Math.sin((x+sd)*0.041)*0.6 + Math.sin((x+sd)*0.117)*0.3;
+        var y = H*L.y + n*L.a;
+        if(first){ cx.moveTo(x,y); first=false; } else cx.lineTo(x,y);
+      }
+      cx.strokeStyle='rgba(197,162,91,'+L.o+')'; cx.lineWidth=L.w; cx.stroke();
+    });
+    raf = requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', size, {passive:true});
+  size(); raf = requestAnimationFrame(draw);
 })();
 </script>
 </body>
