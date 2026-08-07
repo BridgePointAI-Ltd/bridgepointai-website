@@ -1314,6 +1314,165 @@
 }
 </style>
 <!-- NAV -->
+<style id="hhg-draft-one">
+.hhg-flag{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B1F3F;color:#D8BF94;
+ font:600 11px/1.5 'Inter',sans-serif;letter-spacing:1.6px;text-transform:uppercase;text-align:center;
+ padding:8px 14px;border-top:2px solid #C5A25B}
+.oh-wrap{margin:2.6rem 0 .6rem;padding:26px 10px 12px;background:#FAF8F5;border:1px solid #E2DDD5;border-radius:14px}
+.oh-svg{width:100%;height:auto;display:block;font-family:'Inter',sans-serif}
+.oh-pill rect{fill:#fff;stroke:#C5A25B;stroke-width:1.4}
+.oh-pill text{fill:#0B1F3F;font-size:15px;font-weight:600;text-anchor:middle}
+.oh-pill{opacity:0;transform:translateX(-14px)}
+.oh-feed{fill:none;stroke:#C5A25B;stroke-width:2;opacity:.85;stroke-dasharray:400;stroke-dashoffset:400}
+.oh-join{fill:#0B1F3F;opacity:0}
+.oh-spine{fill:none;stroke:url(#ohSpine);stroke-width:4;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:700}
+.oh-stage circle{fill:#fff;stroke:#0B1F3F;stroke-width:3}
+.oh-stage.oh-last circle{fill:#0B1F3F;stroke:#C5A25B}
+.oh-stage text{fill:#2b3440;font-size:13px;font-weight:500;text-anchor:middle}
+.oh-stage{opacity:0;transform:translateY(8px)}
+.oh-spinelabel{fill:#6B7280;font-size:12px;font-style:italic;text-anchor:middle;opacity:0}
+.oh-go .oh-pill{animation:ohIn .55s ease-out var(--d) forwards}
+.oh-go .oh-feed{animation:ohDraw .8s ease-in-out var(--d) forwards}
+.oh-go .oh-join{animation:ohPop .4s ease-out var(--d) forwards}
+.oh-go .oh-spine{animation:ohDraw 1.1s ease-in-out var(--d) forwards}
+.oh-go .oh-stage{animation:ohUp .5s ease-out var(--d) forwards}
+.oh-go .oh-spinelabel{animation:ohPop .6s ease-out var(--d) forwards}
+@keyframes ohIn{to{opacity:1;transform:translateX(0)}}
+@keyframes ohUp{to{opacity:1;transform:translateY(0)}}
+@keyframes ohPop{to{opacity:1}}
+@keyframes ohDraw{to{stroke-dashoffset:0}}
+.hhg-rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
+.hhg-rv.hhg-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ .oh-pill,.oh-stage,.oh-join,.oh-spinelabel,.hhg-rv{opacity:1;transform:none}
+ .oh-feed,.oh-spine{stroke-dashoffset:0}.oh-go *{animation:none!important}}
+</style>
+<style id="hhg-nav-mobile">
+/* Mobile nav, below the 1100px breakpoint where the bar collapses to a burger.
+   Two problems this fixes:
+   1. The submenu kept position:absolute inside the stacked panel, so it would
+      have overlaid the items beneath it instead of pushing them down.
+   2. Nothing indicated which parents expand, so a tap looked like a dead end. */
+@media (max-width:1100px){
+ .nav-links .dropdown-menu{
+   position:static;min-width:0;background:transparent;box-shadow:none;
+   border-top:0;border-left:2px solid rgba(197,162,91,.45);
+   margin:0 0 12px 4px;padding:2px 0 2px 0}
+ .nav-links .dropdown-menu a{padding:10px 0 10px 16px;font-size:12.5px}
+ .nav-links .dropdown-menu a.sub{padding-left:30px}
+ .nav-links{max-height:calc(100vh - 68px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+  /* a desktop override leaked a 26px right margin into the panel, and the
+     .98 alpha let the hero type read through the menu */
+  margin-right:0!important;background:#0B1F3F;padding-bottom:28px}
+}
+.nav-cta-m{display:none}
+@media (max-width:1100px){
+ /* The gold Contact button is display:none below this width, which left the
+    primary call to action unreachable on a phone. This is the same link,
+    surfaced inside the panel. */
+ .nav-cta-m{display:block;border-bottom:0!important;margin-top:14px}
+ .nav-cta-m a{display:block!important;text-align:center;background:#C5A25B;color:#0B1F3F!important;
+  border-radius:6px;padding:14px 0!important;font-size:11.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase}
+}
+
+</style>
+<style id="hhg-productmark">
+/* Shared product-mark lockup. Lab 24 and LabArchitect are the two named
+   things HH sells, so they get the same treatment rather than one being a
+   kicker and the other a wordmark. */
+.pm{display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:4px}
+.pm .w{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,6.2vw,72px);
+ line-height:.92;font-weight:600;color:#fff;letter-spacing:-.5px}
+.pm .w em{color:#D8BF94;font-style:italic}
+.pm .tm{font-family:'Inter',system-ui,sans-serif;font-size:clamp(12px,1.4vw,18px);
+ font-weight:600;color:#C5A25B;line-height:1;margin-top:.4em}
+.pm-rule{width:96px;height:2px;background:#C5A25B;margin:20px 0}
+.pm-desc{font:700 11px/1.6 'Inter',system-ui,sans-serif;letter-spacing:3.2px;
+ text-transform:uppercase;color:#C5A25B;margin-bottom:22px}
+</style>
+<style>
+/* Section washes. HH's own photographs, deeply faded and navy-tinted, so they
+   read as texture behind the type rather than as pictures. Nothing new is
+   introduced: every image here already appears on the page at full strength. */
+.wash{position:relative;isolation:isolate}
+.wash::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--wash);background-size:cover;background-position:var(--wpos,center);
+  opacity:var(--wop,.30);filter:grayscale(.85) contrast(1.04)}
+.wash::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,
+    var(--wtop,rgba(255,255,255,.62)) 0%,
+    var(--wmid,rgba(255,255,255,.88)) 42%,
+    var(--wbot,rgba(255,255,255,.99)) 100%)}
+/* on the cream sections the veil is cream, not white */
+.section-alt.wash::after{
+  background:linear-gradient(180deg,
+    rgba(240,237,233,.60) 0%, rgba(240,237,233,.88) 42%, rgba(240,237,233,.99) 100%)}
+/* the airlock band is navy, so it takes a navy veil and can carry more image */
+.seq.wash::before{opacity:.30}
+.seq.wash::after{
+  background:linear-gradient(180deg,
+    rgba(11,31,63,.74) 0%, rgba(11,31,63,.90) 42%, rgba(11,31,63,.99) 100%)}
+@media(max-width:760px){.wash::before{opacity:.16}}
+</style>
+<style>
+/* Ambient trace, the same sequencing squiggle as the hero, made reusable.
+   Sits behind everything, never intercepts a click, and stops when off screen. */
+.hhg-tr{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
+@media(prefers-reduced-motion:reduce){.hhg-tr{display:none}}
+@media(max-width:760px){.hhg-tr{opacity:.35}}
+</style>
+<style id="hhg-ported-hero">
+/* Ported page hero. The live pages carry either a flat gradient or nothing,
+   so each gets one of HH's own photographs behind the same veil the rest of
+   the draft uses, with the slow drift that the Lab 24 hero established. */
+.hhg-hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hhg-hero-media img{width:100%;height:100%;object-fit:cover;display:block;
+ animation:ceDrift 34s ease-in-out infinite alternate}
+@keyframes ceDrift{0%{transform:scale(1.05)}100%{transform:scale(1.14)}}
+.hhg-hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,
+ rgba(11,31,63,.96) 0%,rgba(11,31,63,.90) 42%,rgba(11,31,63,.56) 76%,rgba(11,31,63,.32) 100%)}
+.hero{position:relative!important;overflow:hidden}
+.hero > .hero-content,.hero > .container,.hero .hero-content{position:relative;z-index:3}
+.hero .hero-decor{z-index:2}
+@media(prefers-reduced-motion:reduce){.hhg-hero-media img{animation:none}}
+
+.hero{min-height:56vh;display:flex;align-items:center;padding:150px 0 92px}
+.hero .container{width:100%}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(27px,3.5vw,46px);
+ line-height:1.12;color:#fff!important;font-weight:600;margin:14px 0 18px}
+.hero h1 em{color:#D8BF94;font-style:italic}
+.hero p{font-size:15.5px;line-height:1.74;color:#C3CEE0!important;max-width:60ch}
+.hero .section-tag{color:#C5A25B!important;text-align:left}
+@media(max-width:760px){.hero{min-height:auto;padding:120px 0 56px}}
+</style>
+<style id="hhg-dropdown-fallback">
+/* Dropdown rules for pages whose original stylesheet predates the submenu. */
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.dropdown{position:relative}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#0B1F3F;
+ min-width:230px;border-top:2px solid #C9AA7D;box-shadow:0 8px 24px rgba(0,0,0,.18);
+ z-index:200;padding:6px 0}
+.dropdown:hover .dropdown-menu,.dropdown.open .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:10px 20px;color:rgba(255,255,255,.8);
+ font-size:13px;letter-spacing:.3px;text-decoration:none;white-space:nowrap}
+.dropdown-menu a:hover{color:#C9AA7D;background:rgba(255,255,255,.05)}
+.dropdown-menu a.sub{padding-left:26px;font-size:.92em;opacity:.85}
+.nav-links > li > a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;
+ font-weight:500;letter-spacing:.3px;white-space:nowrap;transition:color .2s}
+.nav-links > li > a:hover{color:#C9AA7D}
+@media (max-width:1100px){
+ .nav-toggle{display:flex}
+ .nav-links{display:none;position:absolute;top:68px;left:0;right:0;
+  background:#0B1F3F;flex-direction:column;padding:16px 20px 28px;gap:0;
+  align-items:stretch;border-bottom:1px solid rgba(255,255,255,.06)}
+ .nav-links.open{display:flex}
+ .nav-links li{border-bottom:1px solid rgba(255,255,255,.06)}
+ .nav-links > li > a{display:block;padding:12px 0}
+}
+</style>
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
  <div class="nav-inner">
@@ -1433,8 +1592,7 @@
  </div>
 </footer>
 
- <script src="review-mode.js" defer></script>
-<script>
+ <script>
  // Touch-friendly dropdowns: first tap opens the menu (no double-tap needed),
  // tapping a menu item or outside closes it. Pointer/hover devices keep :hover.
  (function () {
