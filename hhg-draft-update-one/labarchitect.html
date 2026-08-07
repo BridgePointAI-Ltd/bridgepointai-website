@@ -2075,7 +2075,7 @@ footer a:hover::after{right:0}
 .la-hero-copy{position:relative;z-index:3;width:100%}
 .la-k{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
  color:#C5A25B;margin-bottom:16px}
-.la-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4.8vw,60px);
+.la-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,3.2vw,40px);
  line-height:1.07;color:#fff;font-weight:600;margin:0 0 22px}
 .la-hero h1 em{color:#D8BF94;font-style:italic}
 .la-lead{font-size:15.5px;line-height:1.74;color:#C3CEE0;max-width:58ch;margin:0}
@@ -2242,6 +2242,21 @@ footer a:hover::after{right:0}
 }
 
 </style>
+
+<style id="hhg-productmark">
+/* Shared product-mark lockup. Lab 24 and LabArchitect are the two named
+   things HH sells, so they get the same treatment rather than one being a
+   kicker and the other a wordmark. */
+.pm{display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:4px}
+.pm .w{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,6.2vw,72px);
+ line-height:.92;font-weight:600;color:#fff;letter-spacing:-.5px}
+.pm .w em{color:#D8BF94;font-style:italic}
+.pm .tm{font-family:'Inter',system-ui,sans-serif;font-size:clamp(12px,1.4vw,18px);
+ font-weight:600;color:#C5A25B;line-height:1;margin-top:.4em}
+.pm-rule{width:96px;height:2px;background:#C5A25B;margin:20px 0}
+.pm-desc{font:700 11px/1.6 'Inter',system-ui,sans-serif;letter-spacing:3.2px;
+ text-transform:uppercase;color:#C5A25B;margin-bottom:22px}
+</style>
 <body>
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
@@ -2265,7 +2280,7 @@ footer a:hover::after{right:0}
  <div class="dropdown-menu">
  <a href="labarchitect.html" class="here">LabArchitect&trade;</a>
  <a href="controlled-environments.html">Controlled Environments</a>
- <a href="controlled-environments.html#airlock" class="sub">&mdash; Lab 24, the clean room</a>
+ <a href="lab24.html" class="sub">&mdash; Lab 24&trade;, the clean room</a>
  <a href="index.html#evidence-synthesis">Evidence Synthesis</a>
  <a href="index.html#competence">Competence Assurance</a>
  </div>
@@ -2337,7 +2352,9 @@ footer a:hover::after{right:0}
 </svg></div>
  <div class="la-hero-veil"></div>
  <div class="container la-hero-copy">
-  <div class="la-k">LabArchitect&trade; &middot; Laboratory Deployment System</div>
+  <div class="pm"><span class="w">Lab<em>Architect</em></span><span class="tm">&trade;</span></div>
+  <div class="pm-rule"></div>
+  <div class="pm-desc">Laboratory Deployment System</div>
   <h1>From Strategy<br><em>to Audit-Ready.</em></h1>
   <p class="la-lead">Eight modules that take a laboratory from feasibility and site selection through
   to a validated, accreditation-ready facility. ISO 17025 and 15189 built in from the first drawing
