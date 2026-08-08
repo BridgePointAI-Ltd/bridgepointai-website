@@ -1473,6 +1473,50 @@
  .nav-links > li > a{display:block;padding:12px 0}
 }
 </style>
+<style id="hhg-mobile-parity">
+/* Mobile parity. Earlier rules dialled the imagery down so far for small-screen
+   legibility that the design disappeared: flat white sections and flat navy
+   bands, with none of the photography or motion the desktop version carries.
+   These raise it back to something close to desktop while keeping type legible. */
+@media (max-width:900px){
+
+ /* Section washes were at .16 against .30 on desktop, which is invisible. */
+ .wash::before{opacity:.28!important}
+ .wash::after{background:linear-gradient(180deg,
+   rgba(255,255,255,.60) 0%,rgba(255,255,255,.84) 40%,rgba(255,255,255,.96) 100%)!important}
+ .section-alt.wash::after{background:linear-gradient(180deg,
+   rgba(240,237,233,.58) 0%,rgba(240,237,233,.84) 40%,rgba(240,237,233,.96) 100%)!important}
+ .seq.wash::after{background:linear-gradient(180deg,
+   rgba(11,31,63,.72) 0%,rgba(11,31,63,.88) 42%,rgba(11,31,63,.97) 100%)!important}
+
+ /* Ambient traces were at .35 against .55. */
+ .hhg-tr{opacity:.5!important}
+
+ /* Every hero veil ran left to right, so on a narrow screen you only ever saw
+    the dark end of the gradient and the photograph never appeared. Vertical
+    instead: dark where the copy sits, clear underneath it. */
+ .ce-hero-veil,.hhg-hero-veil,.svc-hero-veil{
+  background:linear-gradient(180deg,
+   rgba(11,31,63,.93) 0%,rgba(11,31,63,.86) 38%,
+   rgba(11,31,63,.60) 72%,rgba(11,31,63,.42) 100%)!important}
+
+ /* Give the photograph room to be seen rather than cropping to the text. */
+ .ce-hero,.svc-hero,.hero{min-height:66vh!important}
+ .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img{object-position:center 42%}
+
+ /* The LabArchitect plan behind the hero was faded almost to nothing. */
+ .la-hero-plan{opacity:.42!important;width:230%!important}
+
+ /* The bio portrait band. */
+ .bio-hero::before{opacity:.42!important}
+ .bio-hero::after{background:radial-gradient(130% 100% at 50% 38%,
+   rgba(11,31,63,.80) 0%,rgba(11,31,63,.90) 58%,rgba(11,31,63,.97) 100%)!important}
+}
+@media (prefers-reduced-motion:reduce){
+ .ce-hero-media img,.hhg-hero-media img,.svc-hero-media img,.bio-hero::before{animation:none!important}
+}
+</style>
+
 <div class="hhg-prog" id="hhgProg"></div>
 <nav>
  <div class="nav-inner">
